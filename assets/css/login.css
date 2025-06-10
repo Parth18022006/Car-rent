@@ -1,0 +1,129 @@
+/* General Body and Form Styling */
+body {
+  font-family: 'Lexend', sans-serif; /* Using the Lexend font from your registration page and template context */
+  background-color: #f8f9fa; /* Light background similar to --bs-light */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+form {
+  background-color: #ffffff; /* White background */
+  padding: 40px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 45px rgba(0, 0, 0, .1); /* Soft shadow like service items */
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  transition: 0.5s;
+}
+
+form:hover {
+  box-shadow: 0 0 50px rgba(234, 0, 30, .3); /* Subtle hover effect like categories */
+}
+
+/* Heading Styling */
+h2 {
+  color: #1f2e4e; /* Dark blue color similar to --bs-dark */
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 2.2em;
+}
+
+/* Input Field Styling */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #ced4da; /* Light gray border */
+  border-radius: 8px; /* Slightly rounded input fields */
+  font-size: 1.1em;
+  color: #495057; /* Darker text color */
+  transition: all 0.3s ease-in-out;
+  background-color: #f1f4f8; /* Light input background */
+  margin-bottom: 0px; /* Even less space after inputs */
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  color: #6c757d; /* Muted placeholder color */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #e6001e; /* Primary color on focus */
+  box-shadow: 0 0 0 0.25rem rgba(234, 0, 30, 0.25); /* Bootstrap-like focus glow */
+  outline: none;
+  background-color: #ffffff;
+}
+
+/* Error Message Styling */
+small {
+  display: block;
+  margin-top: 5px; /* Keep a small gap from the input */
+  margin-bottom: 5px; /* Significantly reduced space after error messages */
+  font-size: 0.9em;
+  font-weight: 500;
+  min-height: 18px; /* To prevent layout shifts when messages appear */
+}
+
+/* Login Button Styling */
+input[type="button"] {
+  background-color: #e6001e; /* Primary color */
+  color: #ffffff; /* White text */
+  border: 1px solid #e6001e;
+  padding: 15px 30px;
+  border-radius: 50px; /* Highly rounded button, similar to template buttons */
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.5s ease, border-color 0.5s ease;
+  width: 100%;
+  margin-top: 10px; /* Reduced margin before the button even more */
+}
+
+input[type="button"]:hover {
+  background-color: #1f2e4e; /* Secondary color on hover */
+  border-color: #1f2e4e;
+}
+
+/* Link Styling for "Have you Registered?" */
+p {
+  margin-top: 25px;
+  font-size: 1em;
+  color: #495057;
+}
+
+p a {
+  color: #e6001e; /* Primary color for links */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+p a:hover {
+  color: #1f2e4e; /* Secondary color on link hover */
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  form {
+      padding: 30px 20px;
+  }
+
+  h2 {
+      font-size: 1.8em;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="button"] {
+      padding: 12px 15px;
+      font-size: 1em;
+  }
+}

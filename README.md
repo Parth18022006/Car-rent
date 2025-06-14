@@ -94,4 +94,4 @@ After the SQL script executes successfully, your database will be fully set up a
 Parth Chavda
 GitHub: https://github.com/Parth18022006
 Gmail: parth18chavda@gmail.com
-For any feedback or queries, please feel free to reach out via GitHub.
+For any feedback or queries, please feel free to reach out via GitHub or Gmail.

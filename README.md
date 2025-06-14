@@ -89,7 +89,8 @@ To set up the database for this project, follow the steps below:
 •	Paste the copied SQL content into the SQL editor and click the "Go" button.
 After the SQL script executes successfully, your database will be fully set up and ready for use by the application.
 
-##Author
+
+## Author
 Parth Chavda
 GitHub: https://github.com/Parth18022006
 Gmail: parth18chavda@gmail.com

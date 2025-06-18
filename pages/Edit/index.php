@@ -67,6 +67,9 @@ include pathof('include/nav.php');
         let gas = document.getElementById('gas').value;
         let year = document.getElementById('year').value;
 
+        document.getElementById('emsg').innerHTML = "";
+
+
         if(cname != "" && cname != null && price != "" && price != null && review != "" && review != null && space != "" && space != null && gas != "" && gas != null && year != "" && year != null){
 
             let data = {

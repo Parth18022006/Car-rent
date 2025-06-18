@@ -44,12 +44,13 @@ include pathof('include/nav.php');
 
     <input type="hidden" name="id" id="id" value="<?= $ucar['id']?>">
     <input type="text" name="ucname" id="ucname" placeholder="Enter The Car Name" value="<?= $ucar['name']?>">
-    <br><br><input type="number" name="uprice" id="uprice" placeholder="Enter The Price" value="<?= $ucar['price']?>">
-    <br><br><input type="number" name="ureview" id="ureview" placeholder="Enter The Review" value="<?= $ucar['review']?>">
-    <br><br><input type="number" name="uspace" id="uspace" placeholder="Enter The Seating Space" value="<?= $ucar['space']?>">
-    <br><br><input type="text" name="ugas" id="ugas" placeholder="Enter The Gas Name" value="<?= $ucar['gas']?>">
-    <br><br><input type="number" name="uyear" id="uyear" placeholder="Enter The Year" value="<?= $ucar['year']?>">
-    <br><br><input type="button" value="Update" onclick="update_car()">
+    <input type="number" name="uprice" id="uprice" placeholder="Enter The Price" value="<?= $ucar['price']?>">
+    <input type="number" name="ureview" id="ureview" placeholder="Enter The Review" value="<?= $ucar['review']?>">
+    <input type="number" name="uspace" id="uspace" placeholder="Enter The Seating Space" value="<?= $ucar['space']?>">
+    <input type="text" name="ugas" id="ugas" placeholder="Enter The Gas Name" value="<?= $ucar['gas']?>">
+    <input type="number" name="uyear" id="uyear" placeholder="Enter The Year" value="<?= $ucar['year']?>">
+    <div id="emsg" style="color: red;size: 6px;"></div>
+    <br><input type="button" value="Update" onclick="update_car()">
 
 </form>
 
@@ -57,7 +58,26 @@ include pathof('include/nav.php');
 
     function update_car(){
 
-        let data = {
+        let ucname = document.getElementById('ucname').value;
+        let uprice = document.getElementById('uprice').value;
+        let ureview = document.getElementById('ureview').value;
+        let uspace = document.getElementById('uspace').value;
+        let ugas = document.getElementById('ugas').value;
+        let uyear = document.getElementById('uyear').value;
+
+        let ogname = <?= json_encode($ucar['name'])?>;
+        let ogprice = <?= json_encode($ucar['price'])?>;
+        let ogreview = <?= json_encode($ucar['review'])?>;
+        let ogspace = <?= json_encode($ucar['space'])?>;
+        let oggas = <?= json_encode($ucar['gas'])?>;
+        let ogyear = <?= json_encode($ucar['year'])?>;
+        
+
+        document.getElementById('emsg').innerHTML = "";
+
+        if(ucname != "" && ucname != null && uprice != "" && uprice != null && ureview != "" && ureview != null && uspace != "" && uspace != null && ugas != "" && ugas != null && uyear != "" && uyear != null){
+
+            let data = {
             id:$('#id').val(),
             ucname: $('#ucname').val(),
             uprice: $('#uprice').val(),
@@ -72,7 +92,11 @@ include pathof('include/nav.php');
             method:"POST",
             data:data,
             success:function(response){
-                if(response.success != true){
+                if(ogname == data.ucname && ogprice == data.uprice && ogreview == data.ureview && ogspace == data.uspace && oggas == data.ugas && ogyear == data.uyear){
+                    document.getElementById('emsg').innerHTML = "<br>Oops! Their Is No Change..";
+                    return false;
+                }
+                else if(response.success != true){
                     alert("Something Went Wrong");
                 }else{
                     alert("Car Updated");
@@ -83,6 +107,13 @@ include pathof('include/nav.php');
                 alert("Car Not Updated");
             }
         });
+        }
+        else{
+            document.getElementById('emsg').innerHTML = "<br>Null Fields Are Not Allowed";
+            return false;
+        }
+
+        
 
     }
 </script>

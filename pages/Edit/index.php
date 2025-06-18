@@ -28,12 +28,14 @@ include pathof('include/nav.php');
 <form method="post">
 
     <input type="text" name="cname" id="cname" placeholder="Enter The Car Name">
-    <br><br><input type="number" name="price" id="price" placeholder="Enter The Price">
-    <br><br><input type="number" name="review" id="review" placeholder="Enter The Review">
-    <br><br><input type="number" name="space" id="space" placeholder="Enter The Seating Space">
-    <br><br><input type="text" name="gas" id="gas" placeholder="Enter The Gas Name">
-    <br><br><input type="number" name="year" id="year" placeholder="Enter The Model Year">
-    <br><br><input type="button" value="Insert" onclick="insert_car()">
+    <input type="number" name="price" id="price" placeholder="Enter The Price">
+    <input type="number" name="review" id="review" placeholder="Enter The Review">
+    <input type="number" name="space" id="space" placeholder="Enter The Seating Space">
+    <input type="text" name="gas" id="gas" placeholder="Enter The Gas Name">
+    <input type="number" name="year" id="year" placeholder="Enter The Model Year">
+    <div id="emsg" style="color: red;size: 6px;"></div>
+    <br><input type="button" value="Insert" onclick="insert_car()">
+
 
 </form>
 <br>
@@ -58,7 +60,16 @@ include pathof('include/nav.php');
 
     function insert_car() {
 
-        let data = {
+        let cname = document.getElementById('cname').value;
+        let price = document.getElementById('price').value;
+        let review = document.getElementById('review').value;
+        let space = document.getElementById('space').value;
+        let gas = document.getElementById('gas').value;
+        let year = document.getElementById('year').value;
+
+        if(cname != "" && cname != null && price != "" && price != null && review != "" && review != null && space != "" && space != null && gas != "" && gas != null && year != "" && year != null){
+
+            let data = {
             cname: $('#cname').val(),
             price: $('#price').val(),
             review: $('#review').val(),
@@ -88,6 +99,12 @@ include pathof('include/nav.php');
             }
 
         });
+        }
+        else{
+            document.getElementById('emsg').innerHTML = "<br>Null Fields Are Not Allowed"
+        }
+
+        
     }
 
     function displaycar() {

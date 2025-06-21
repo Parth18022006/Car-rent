@@ -56,6 +56,53 @@
      border-color: var(--bs-primary); /* Highlight on focus with primary red */
          outline: none;
     }
+
+    form input[type="file"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid var(--bs-secondary); /* Uses the darker red for borders */
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensures consistent sizing */
+  transition: border-color 0.3s ease;
+  color: var(--bs-body-color); /* Sets text color to the general body color */
+  background-color: var(--bs-white); /* White background for the input field */
+}
+
+form input[type="file"]:focus {
+  border-color: var(--bs-primary); /* Highlights with primary red on focus */
+  outline: none;
+}
+
+/* Style for the file input button (e.g., "Choose File" button) */
+form input[type="file"]::-webkit-file-upload-button {
+  background-color: var(--bs-primary); /* Primary red background */
+  color: var(--bs-white); /* White text color */
+  border: 1px solid var(--bs-primary);
+  border-radius: 5px; /* Slightly smaller border-radius for the button itself */
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+form input[type="file"]::file-selector-button { /* Standard property for cross-browser compatibility */
+  background-color: var(--bs-primary);
+  color: var(--bs-white);
+  border: 1px solid var(--bs-primary);
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+form input[type="file"]::-webkit-file-upload-button:hover,
+form input[type="file"]::file-selector-button:hover {
+  background-color: var(--bs-secondary); /* Darker red on hover */
+  border-color: var(--bs-secondary);
+}
     
     form input[type="button"] {
      display: block; /* Make the button take full width */

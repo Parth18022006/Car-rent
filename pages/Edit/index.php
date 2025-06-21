@@ -25,7 +25,7 @@ include pathof('include/nav.php');
 </div>
 <!-- Header End -->
 <br>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 
     <input type="text" name="cname" id="cname" placeholder="Enter The Car Name">
     <input type="number" name="price" id="price" placeholder="Enter The Price">
@@ -33,6 +33,7 @@ include pathof('include/nav.php');
     <input type="number" name="space" id="space" placeholder="Enter The Seating Space">
     <input type="text" name="gas" id="gas" placeholder="Enter The Gas Name">
     <input type="number" name="year" id="year" placeholder="Enter The Model Year">
+    <input type="file" name="img" id="img">
     <div id="emsg" style="color: red;size: 6px;"></div>
     <br><input type="button" value="Insert" onclick="insert_car()">
 
@@ -66,11 +67,12 @@ include pathof('include/nav.php');
         let space = document.getElementById('space').value;
         let gas = document.getElementById('gas').value;
         let year = document.getElementById('year').value;
+        let img = document.getElementById('img').value;
 
         document.getElementById('emsg').innerHTML = "";
 
 
-        if(cname != "" && cname != null && price != "" && price != null && review != "" && review != null && space != "" && space != null && gas != "" && gas != null && year != "" && year != null){
+        if(cname != "" && cname != null && price != "" && price != null && review != "" && review != null && space != "" && space != null && gas != "" && gas != null && year != "" && year != null && img != "" && img !=null){
 
             let data = {
             cname: $('#cname').val(),
@@ -78,14 +80,26 @@ include pathof('include/nav.php');
             review: $('#review').val(),
             space: $('#space').val(),
             gas: $('#gas').val(),
-            year: $('#year').val()
+            year: $('#year').val(),
+            img:$('#img')[0].files[0]
+
         };
+        var data2 = new FormData();
+            data2.append('cname', $('#cname').val());
+            data2.append('price', $('#price').val());
+            data2.append('review', $('#review').val());
+            data2.append('space', $('#space').val());
+            data2.append('gas', $('#gas').val());
+            data2.append('year', $('#year').val());
+            data2.append('img',$('#img')[0].files[0]);
 
 
         $.ajax({
             url: "../../api/Edit/insertcar_api.php",
             method: "POST",
-            data: data,
+            data: data2,
+            processData: false,
+            contentType: false,
             success: function(response) {
                 alert("Car Added Successfully");
                 $(displaycar());
@@ -95,7 +109,7 @@ include pathof('include/nav.php');
             $('#space').val("");
             $('#gas').val("");
             $('#year').val("");
-
+            $('#img').val("");
             },
             error: function(error) {
                 alert("Car Not Added");

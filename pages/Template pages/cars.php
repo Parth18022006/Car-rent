@@ -41,7 +41,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                     <div class="categories-item p-4">
                         <div class="categories-item-inner">
                             <div class="categories-img rounded-top">
-                                <img src="<?= urlof('assets/img/car-2.png') ?>" class="img-fluid w-100 rounded-top" alt="">
+                                <img src="<?= urlof('assets/upload_img/') . $r['ImageFile'] ?>" class="img-fluid w-100 rounded-top" alt="">
                             </div>
                             <div class="categories-content rounded-bottom p-4">
                                 <h4><?= $r['name']; ?></h4>

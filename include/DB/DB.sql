@@ -20,3 +20,6 @@ CREATE TABLE CAR(
     gas varchar(255) NOT NULL,  
     year int
 );
+
+ALTER TABLE CAR
+ADD ImageFile varchar(255) NOT NULL;

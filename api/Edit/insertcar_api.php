@@ -10,8 +10,16 @@
     $gas = $_POST['gas'] ?? null;
     $year = $_POST['year'] ?? null;
 
-    $q = "INSERT INTO `car`(`name`, `price`, `review`, `space`, `gas`, `year`) VALUES (?,?,?,?,?,?)";
-    $param = [$cname,$price,$review,$space,$gas,$year];
+    
+    $filetemp = $_FILES['img']['tmp_name'];
+    $time = time();
+    $img = "$time-" . $_FILES['img']['name'];
+    $path = pathof("assets/upload_img/$img");
+    move_uploaded_file($filetemp,$path);
+
+
+    $q = "INSERT INTO `car`(`name`, `price`, `review`, `space`, `gas`, `year`, `ImageFile`) VALUES (?,?,?,?,?,?,?)";
+    $param = [$cname,$price,$review,$space,$gas,$year,$img];
 
     $stmt = $conn->prepare($q);
     $car = $stmt->execute($param);

@@ -74,30 +74,20 @@ include pathof('include/nav.php');
 
         if(cname != "" && cname != null && price != "" && price != null && review != "" && review != null && space != "" && space != null && gas != "" && gas != null && year != "" && year != null && img != "" && img !=null){
 
-            let data = {
-            cname: $('#cname').val(),
-            price: $('#price').val(),
-            review: $('#review').val(),
-            space: $('#space').val(),
-            gas: $('#gas').val(),
-            year: $('#year').val(),
-            img:$('#img')[0].files[0]
-
-        };
-        var data2 = new FormData();
-            data2.append('cname', $('#cname').val());
-            data2.append('price', $('#price').val());
-            data2.append('review', $('#review').val());
-            data2.append('space', $('#space').val());
-            data2.append('gas', $('#gas').val());
-            data2.append('year', $('#year').val());
-            data2.append('img',$('#img')[0].files[0]);
+        let data = new FormData();
+            data.append('cname', $('#cname').val());
+            data.append('price', $('#price').val());
+            data.append('review', $('#review').val());
+            data.append('space', $('#space').val());
+            data.append('gas', $('#gas').val());
+            data.append('year', $('#year').val());
+            data.append('img',$('#img')[0].files[0]);
 
 
         $.ajax({
             url: "../../api/Edit/insertcar_api.php",
             method: "POST",
-            data: data2,
+            data: data,
             processData: false,
             contentType: false,
             success: function(response) {

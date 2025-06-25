@@ -50,6 +50,7 @@
     text-align: center;
   
     /* smoother transitions */
+    background: rgba(255, 255, 255, 0.78);  /* ↰ slightly more see-through */
     transition: box-shadow .45s var(--ease-smooth),
                 transform  .45s var(--ease-smooth);
   }

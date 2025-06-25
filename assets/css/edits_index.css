@@ -99,13 +99,19 @@ form input[type="file"]::file-selector-button { /* Standard property for cross-b
 }
 
 .namesimg{
-  font-size: 20px;
-  position: relative;left: 10px;
+  display:block;                 /* takes full width so we can center it */
+  text-align:center;             /* label text in the middle */
+  margin:25px 0 8px;    
+  font-size:25px ;
 }
 
 .mainimage{
-  width: 210px;
-  position: relative; left:18px;
+  display:block;                 /* lets us use auto margins */
+  width:300px;                   /* a bit larger than 210px */
+  max-width:90%;                 /* stay responsive on small screens */
+  margin:0 auto 30px;            /* centers horizontally & adds bottom space */
+  border-radius:8px;             /* optional: soft corners to match form */
+  object-fit:cover;   
 }
 
 form input[type="file"]::-webkit-file-upload-button:hover,

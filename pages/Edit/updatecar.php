@@ -105,7 +105,7 @@ include pathof('include/nav.php');
                     fd.append('uspace', $('#uspace').val());
                     fd.append('ugas', $('#ugas').val());
                     fd.append('uyear', $('#uyear').val());
-                    fd.append('uimg', $('#uimg')[0].files[0]); // ⭐ file itself
+                    fd.append('uimg', $('#uimg')[0].files[0]);
                     return fd;
                 })() :
                 (() => { // ------- branch WITHOUT image ------

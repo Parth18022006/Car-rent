@@ -25,7 +25,7 @@ require '../../include/init.php';
         <small id="emsg" style="color: red; text-align:center ;"></small>
         <input type="button" value="Login" onclick="login()">
         <p>
-            Have you Registerd?
+            Have you Registered?
             <a href="./register.php">Register</a>
         </p>
     </form>

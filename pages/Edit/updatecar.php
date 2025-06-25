@@ -52,7 +52,7 @@ include pathof('include/nav.php');
 
     <!-- Show current image if available -->
     <?php if (!empty($ucar['ImageFile'])) : ?>
-        <label class="namesimg">Current Image:</label><br>
+        <label class="namesimg">Current Image:</label>
         <img src="<?= urlof('assets/upload_img/') . $ucar['ImageFile'] ?>" width="100" alt="Image not found" class="mainimage">
         <!-- <img src="<?= urlof('assets/upload_img/') . $ucar['ImageFile'] ?>" width="100" > -->
 

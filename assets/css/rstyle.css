@@ -81,7 +81,7 @@
                 box-shadow .28s var(--ease-smooth);
   }
   
-  input::placeholder { color: #7a8694; }
+  input::placeholder { color: #6c757d; }
   
   input:focus {
     background: #fff;

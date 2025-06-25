@@ -1,6 +1,6 @@
 /* ─────────────────────────────────────────────────────────
-   REGISTRATION STYLE  – now with extra-smooth transitions
-   (mirrors the login.css easing + motion polish)
+   REGISTRATION STYLE  – with extra-smooth transitions
+   + slightly larger input fields
    ─────────────────────────────────────────────────────────*/
 
 /* 0. Shared easing & smooth scroll
@@ -34,9 +34,9 @@
   /* ─── 2. Form Container ─────────────────────────────────────────── */
   form {
     width: 100%;
-    max-width: 420px;                 /* slimmer */
+    max-width: 420px;
     padding: 32px 26px;
-    margin: 0 auto;                   /* hard-centre the block */
+    margin: 0 auto;
   
     background: rgba(255,255,255,0.86);
     backdrop-filter: blur(8px);
@@ -45,8 +45,6 @@
     box-shadow: 0 4px 18px rgba(0,0,0,0.07);
   
     animation: fadeUp 0.6s ease-out, scaleIn 0.5s ease-out;
-  
-    /* smoother transition */
     transition: box-shadow .45s var(--ease-smooth),
                 transform  .45s var(--ease-smooth);
   }
@@ -58,27 +56,26 @@
   
   /* ─── 3. Heading ────────────────────────────────────────────────── */
   h2 {
-    margin: 0 0 26px;                 /* more breathing room */
+    margin: 0 0 26px;
     font-size: 1.65rem;
-    font-weight: 400;                 /* lighter than 700 */
-    color: #264b7d;                   /* softer tone */
+    font-weight: 400;
+    color: #264b7d;
     text-align: center;
   }
   
-  /* ─── 4. Inputs ─────────────────────────────────────────────────── */
+  /* ─── 4. Inputs (now slightly larger) ───────────────────────────── */
   input[type="email"],
   input[type="password"] {
     width: 100%;
-    padding: 10px 12px;               /* slightly smaller */
-    margin-bottom: 6px;              /* clearer gap between fields */
+    padding: 14px 16px;               /* ↑ bigger touch target */
+    margin-bottom: 8px;
     background: #f5f7fa;
     border: 1px solid #cfd4da;
-    border-radius: 7px;
-    font-size: 0.95rem;
-    font-weight: 400;                 /* normal weight ⇒ lighter look */
+    border-radius: 8px;               /* fits larger size */
+    font-size: 1rem;                  /* ↑ text size */
+    font-weight: 400;
     color: #4f5a66;
   
-    /* refined transition list */
     transition: background .28s var(--ease-smooth),
                 border     .28s var(--ease-smooth),
                 box-shadow .28s var(--ease-smooth);
@@ -106,9 +103,9 @@
   /* ─── 5. Primary Button ─────────────────────────────────────────── */
   input[type="button"] {
     width: 100%;
-    padding: 11px 22px;
-    margin-top: 6px;
-    font-size: 1rem;
+    padding: 13px 26px;               /* proportional bump */
+    margin-top: 8px;
+    font-size: 1.05rem;
     font-weight: 500;
     border-radius: 40px;
   
@@ -163,7 +160,6 @@
     to   { opacity: 1; }
   }
   
-  /* Hex grid drifts diagonally for a subtle parallax-like feel */
   @keyframes bgDrift {
     from { background-position: 0 0; }
     to   { background-position: 260px 260px; }
@@ -171,10 +167,21 @@
   
   /* ─── 8. Responsive Adjustments ─────────────────────────────────── */
   @media (max-width: 576px) {
-    body   { padding: 28px 10px; }
-    form   { max-width: 92%;    }
+    body { padding: 28px 10px; }
+    form { max-width: 92%; }
   
-    h2     { font-size: 1.45rem; margin-bottom: 22px; }
-    input  { font-size: 0.9rem;  padding: 9px 11px; }
+    h2   { font-size: 1.45rem; margin-bottom: 22px; }
+  
+    /* slightly smaller again for mobile */
+    input[type="email"],
+    input[type="password"] {
+      padding: 11px 14px;
+      font-size: 0.95rem;
+    }
+  
+    input[type="button"] {
+      padding: 11px 22px;
+      font-size: 0.95rem;
+    }
   }
   

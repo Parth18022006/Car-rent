@@ -35,15 +35,6 @@ require '../../include/init.php';
       <small id="emsg" style="color: red; text-align:center ;"></small>
       <small id="emsg3" style="color: red; text-align:center ;"></small>
     </div>
-    <!-- <div>
-          <label>Select Role :</label>
-          <select id="role" name="role">
-            <option>Choose your role</option>
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div> -->
-
     <input type="button" value="Register" onclick="insertRecord()" />
     <p>
       Already registered?
@@ -59,7 +50,6 @@ require '../../include/init.php';
       let mail = document.getElementById('email').value;
       let password = document.getElementById('password').value;
       let cpassword = document.getElementById('confirmPassword').value;
-      // let role = document.getElementById('role').value;
 
       document.getElementById('emsg').innerHTML = "";
       document.getElementById('emsg1').innerHTML = "";
@@ -73,7 +63,7 @@ require '../../include/init.php';
         if (pmail.test(mail)) {
           if (vpass.test(password)) {
             if (password === cpassword) {
-              // role: $('#role').val()
+
               let data = {
                 email: $('#email').val(),
                 password: $('#password').val()

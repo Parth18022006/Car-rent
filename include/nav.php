@@ -31,6 +31,7 @@
                                    ?> 
                                    <a href="<?=urlof('api/user/logout')?>" class="nav-item nav-link">Logout</a>
                                    <a href="<?=urlof('pages/Edit/index')?>" class="nav-item nav-link">Edit</a>
+                                   <a href="<?=urlof('admin/pages/register')?>" class="nav-item nav-link">Add Admin</a>
                                     <?php
                                     }
                                 else{

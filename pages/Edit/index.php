@@ -173,6 +173,7 @@ include pathof('include/nav.php');
     }
 </script>
 
+<br>
 <?php
 include pathof('include/footer.php');
 ?>

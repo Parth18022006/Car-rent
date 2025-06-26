@@ -1,101 +1,74 @@
 /* Define CSS Variables for the red theme */
 :root {
-     --bs-primary: #E74C3C; /* Strong Red for primary elements */
-     --bs-secondary: #C0392B; /* Darker Red for hover states and borders */
-     --bs-light: #F8F8F8; /* Very light gray for backgrounds, making the form background distinct */
-     --bs-white: #FFFFFF; /* White color */
-     --bs-body-color: #333333; /* Dark text color for general body */
-     --bs-link-color: #3498DB; /* Blue color for links within the table */
-     --ease-smooth: cubic-bezier(.22,.61,.36,1);   /* fast-out, slow-in  */
-    --t-fast:   .25s var(--ease-smooth);          /* taps / hovers      */
-    --t-medium: .40s var(--ease-smooth); 
-    }
-    
-    /* General body and container spacing */
-    body {
-     font-family: Arial, sans-serif;
-     line-height: 1.6;
-     color: var(--bs-body-color);
-     background-color: #F2F4F7;
-    }
-    
-    .container-fluid {
-     padding-left: 15px;
-     padding-right: 15px;
-    }
-    
-    .container {
-     max-width: 1200px; /* Adjust as needed for your layout */
-     margin-left: auto;
-     margin-right: auto;
-     padding-left: 15px;
-     padding-right: 15px;
-    }
-    
-    /* Form Styling */
-    form {
-     max-width: 600px;
-     margin: 40px auto;
-     padding: 30px;
-     background: #FFFFFF; /* Slightly darker gray for the form background */
-     border-radius: 10px;
-     box-shadow: 0 0 20px rgba(18, 16, 16, 0.1);
-    }
+  --bs-primary: #E74C3C;
+  --bs-secondary: #C0392B;
+  --bs-light: #F8F8F8;
+  --bs-white: #FFFFFF;
+  --bs-body-color: #333333;
+  --bs-link-color: #3498DB;
+  --ease-smooth: cubic-bezier(.22, .61, .36, 1);
+  --t-fast: 0.25s var(--ease-smooth);
+  --t-medium: 0.4s var(--ease-smooth);
+}
 
-    form:hover {
-      box-shadow: 0 0 46px rgba(234,0,30,0.28);
-      transform: translateY(-4px);                   /* gentle lift */
-    }
-    
-    form input[type="text"],
-    form input[type="number"] {
-     width: 100%;
-     padding: 12px 15px;
-     margin-bottom: 15px;
-     border: 1px solid var(--bs-secondary); /* Using secondary color for borders */
-     border-radius: 8px;
-     font-size: 16px;
-     box-sizing: border-box; /* Include padding and border in the element's total width and height */
-     transition: border-color 0.3s ease;
-    }
-    
-    form input[type="text"]:focus,
-    form input[type="number"]:focus {
-     border-color: var(--bs-primary); /* Highlight on focus with primary red */
-         outline: none;
-    }
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--bs-body-color);
+  background-color: #F2F4F7;
+}
 
-    form input[type="file"] {
+.container,
+.container-fluid {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: var(--bs-white);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(18, 16, 16, 0.1);
+  transition: transform var(--t-medium), box-shadow var(--t-medium);
+  will-change: transform, box-shadow;
+}
+
+form:hover {
+  box-shadow: 0 0 46px rgba(234, 0, 30, 0.28);
+  transform: translateY(-4px);
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="file"] {
   width: 100%;
   padding: 12px 15px;
   margin-bottom: 15px;
-  border: 1px solid var(--bs-secondary); /* Uses the darker red for borders */
+  border: 1px solid var(--bs-secondary);
   border-radius: 8px;
   font-size: 16px;
-  box-sizing: border-box; /* Ensures consistent sizing */
-  transition: border-color 0.3s ease;
-  color: var(--bs-body-color); /* Sets text color to the general body color */
-  background-color: var(--bs-white); /* White background for the input field */
+  box-sizing: border-box;
+  color: var(--bs-body-color);
+  background-color: var(--bs-white);
+  transition: border-color var(--t-fast), background-color var(--t-fast), color var(--t-fast);
 }
 
+form input[type="text"]:focus,
+form input[type="number"]:focus,
 form input[type="file"]:focus {
-  border-color: var(--bs-primary); /* Highlights with primary red on focus */
+  border-color: var(--bs-primary);
   outline: none;
 }
 
-/* Style for the file input button (e.g., "Choose File" button) */
-form input[type="file"]::-webkit-file-upload-button {
-  background-color: var(--bs-primary); /* Primary red background */
-  color: var(--bs-white); /* White text color */
-  border: 1px solid var(--bs-primary);
-  border-radius: 5px; /* Slightly smaller border-radius for the button itself */
-  padding: 8px 15px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-form input[type="file"]::file-selector-button { /* Standard property for cross-browser compatibility */
+form input[type="file"]::-webkit-file-upload-button,
+form input[type="file"]::file-selector-button {
   background-color: var(--bs-primary);
   color: var(--bs-white);
   border: 1px solid var(--bs-primary);
@@ -103,190 +76,146 @@ form input[type="file"]::file-selector-button { /* Standard property for cross-b
   padding: 8px 15px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.namesimg{
-  display:block;                 /* takes full width so we can center it */
-  text-align:center;             /* label text in the middle */
-  margin:25px 0 8px;    
-  font-size:25px ;
-}
-
-.mainimage{
-  display:block;                 /* lets us use auto margins */
-  width:300px;                   /* a bit larger than 210px */
-  max-width:90%;                 /* stay responsive on small screens */
-  margin:0 auto 30px;            /* centers horizontally & adds bottom space */
-  border-radius:8px;             /* optional: soft corners to match form */
-  object-fit:cover;   
+  transition: background-color var(--t-fast), border-color var(--t-fast);
 }
 
 form input[type="file"]::-webkit-file-upload-button:hover,
 form input[type="file"]::file-selector-button:hover {
-  background-color: var(--bs-secondary); /* Darker red on hover */
+  background-color: var(--bs-secondary);
   border-color: var(--bs-secondary);
 }
-    
-    form input[type="button"] {
-     display: block; /* Make the button take full width */
-     width: 100%;
-     padding: 12px 20px;
-     background-color: var(--bs-primary); /* Primary button style (red) */
-     color: var(--bs-white); /* Text color white */
-     border: 1px solid var(--bs-primary);
-     border-radius: 8px;
-     cursor: pointer;
-     font-size: 18px;
-     font-weight: 600;
-     transition: background-color 0.5s ease, border-color 0.5s ease;
-    }
-    
-    form input[type="button"]:hover {
-     background-color: var(--bs-secondary); /* Hover style (darker red) */
-     border-color: var(--bs-secondary);
-    }
-    
-    /* Table Styling */
-    .table {
-      width: 90%;
-      margin: 10px auto 0;      /* top 40 px, left & right auto (centred), bottom 0 */
-      border-collapse: collapse;
-      background: var(--bs-white);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow:0 4px 24px rgba(0,0,0,.08);
-    }
-    
-    .table th,
-    .table td {
-     padding: 15px;
-     text-align: left;
-     border-bottom: 1px solid #ddd; /* Light border for rows */
-    }
-    
-    .table thead th {
-     background-color: #007bff; /* Table header background is now black */
-     color: var(--bs-white); /* Table header font is now white */
-     font-weight: 600;
-    }
-    
-    .table tbody tr:nth-child(even) {
-     background-color: var(--bs-light); /* Alternating row colors using light gray */
-    }
-    
-    .table tbody tr:hover {
-     background-color: #f5f5f5; /* Light hover effect for rows */
-    }
-    
-    .table tbody td a {
-     color: var(--bs-link-color); /* Link color is now blue */
-     text-decoration: none;
-     transition: color 0.3s ease;
-    }
-    
-    .table tbody td a:hover {
-     color: var(--bs-secondary); /* Hover color for links (darker red) */
-     text-decoration: underline;
-    }
-    
-    /* Specific adjustments for the 'No records' row */
-    .table tbody tr td[colspan="8"] {
-     text-align: center;
-     font-style: italic;
-     color: #888;
-    }
-    
-    /* Header Start (already styled in style.css but ensuring it's clear) */
-    .bg-breadcrumb {
-     /* Styles are mostly inherited from style.css */
-     padding: 100px 0; /* Add some extra padding for better visual spacing */
-    }
-    
-    .bg-breadcrumb h4 {
-     color: var(--bs-white);
-     font-size: 3rem; /* Adjust as needed */
-     margin-bottom: 1rem;
-    }
-    
-    .bg-breadcrumb .breadcrumb {
-     display: flex;
-     justify-content: center;
-     padding: 0;
-     margin: 0;
-     list-style: none;
-    }
-    
-    .bg-breadcrumb .breadcrumb-item {
-    font-size: 1.1rem;
-    }
-    
-    .bg-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-     padding-right: 0.5rem;
-     color: var(--bs-white);
-     content: "/";
-    }
-    
-    .bg-breadcrumb .breadcrumb-item a {
-     color: var(--bs-white); /* Breadcrumb links remain white */
-     text-decoration: none;
-     transition: color 0.3s ease;
-    }
-    
-    .bg-breadcrumb .breadcrumb-item a:hover {
-        color: rgba(255, 255, 255, 0.7);
-    }
-    
-    .bg-breadcrumb .breadcrumb-item.active {
-       color: var(--bs-primary); /* The active item is primary red */
-    }
-    
-    /* Spacing below header and before form */
-    .container-fluid.bg-breadcrumb + br {
-     display: block;
-     height: 30px; /* Adjust as needed for space */
-     content: "";
-    }
 
+form input[type="button"] {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  background-color: var(--bs-primary);
+  color: var(--bs-white);
+  border: 1px solid var(--bs-primary);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color var(--t-medium), border-color var(--t-medium);
+}
 
-    form{
-      transition: transform var(--t-medium),
-                  box-shadow var(--t-medium);
-      will-change: transform, box-shadow;
-    }
-    form:hover{
-      box-shadow: 0 0 46px rgba(234,0,30,.28);
-      transform: translateY(-4px);
-    }
-    
-    /* ➌ Text / number / file inputs */
-    form input[type="text"],
-    form input[type="number"],
-    form input[type="file"]{
-      transition: border-color     var(--t-fast),
-                  background-color var(--t-fast),
-                  color            var(--t-fast);
-    }
-    
-    /* ➍ File-picker button */
-    form input[type="file"]::-webkit-file-upload-button,
-    form input[type="file"]::file-selector-button{
-      transition: background-color var(--t-fast),
-                  border-color     var(--t-fast);
-    }
-    
-    /* ➎ Primary action button */
-    form input[type="button"]{
-      transition: background-color var(--t-medium),
-                  border-color     var(--t-medium);
-    }
-    
-    /* ➏ Table row & link hovers */
-    .table tbody tr{
-      transition: background-color var(--t-fast);
-    }
-    .table tbody td a{
-      transition: color var(--t-fast);
-    }
-    
-   
+form input[type="button"]:hover {
+  background-color: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+}
+
+.table {
+  width: 90%;
+  margin: 10px auto 0;
+  border-collapse: collapse;
+  background: var(--bs-white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.table th,
+.table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table thead th {
+  background-color: #007bff;
+  color: var(--bs-white);
+  font-weight: 600;
+}
+
+.table tbody tr {
+  transition: background-color var(--t-fast);
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: var(--bs-light);
+}
+
+.table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.table tbody td a {
+  color: var(--bs-link-color);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+.table tbody td a:hover {
+  color: var(--bs-secondary);
+  text-decoration: underline;
+}
+
+.table tbody tr td[colspan="8"] {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+}
+
+.bg-breadcrumb {
+  padding: 100px 0;
+}
+
+.bg-breadcrumb h4 {
+  color: var(--bs-white);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.bg-breadcrumb .breadcrumb {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.bg-breadcrumb .breadcrumb-item {
+  font-size: 1.1rem;
+}
+
+.bg-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  padding-right: 0.5rem;
+  color: var(--bs-white);
+  content: "/";
+}
+
+.bg-breadcrumb .breadcrumb-item a {
+  color: var(--bs-white);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+.bg-breadcrumb .breadcrumb-item a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bg-breadcrumb .breadcrumb-item.active {
+  color: var(--bs-primary);
+}
+
+.container-fluid.bg-breadcrumb + br {
+  display: block;
+  height: 30px;
+  content: "";
+}
+
+.namesimg {
+  display: block;
+  text-align: center;
+  margin: 25px 0 8px;
+  font-size: 25px;
+}
+
+.mainimage {
+  display: block;
+  width: 300px;
+  max-width: 90%;
+  margin: 0 auto 30px;
+  border-radius: 8px;
+  object-fit: cover;
+}

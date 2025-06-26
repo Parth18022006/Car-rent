@@ -79,11 +79,11 @@ require '../../include/init.php';
                                 method:"POST",
                                 data:data,
                                 success:function(response){
-                                    alert(role + "" + "Registered Successfully");
+                                    alert(role + "" + " Registered Successfully");
                                     window.location.href = "../../index.php";
                                 },
                                 error:function(error){
-                                    alert(role + "" + "Not Registered");
+                                    alert(role + "" + " Not Registered");
                                 }
                             })
                         } else {

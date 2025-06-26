@@ -6,6 +6,9 @@
      --bs-white: #FFFFFF; /* White color */
      --bs-body-color: #333333; /* Dark text color for general body */
      --bs-link-color: #3498DB; /* Blue color for links within the table */
+     --ease-smooth: cubic-bezier(.22,.61,.36,1);   /* fast-out, slow-in  */
+    --t-fast:   .25s var(--ease-smooth);          /* taps / hovers      */
+    --t-medium: .40s var(--ease-smooth); 
     }
     
     /* General body and container spacing */
@@ -13,7 +16,7 @@
      font-family: Arial, sans-serif;
      line-height: 1.6;
      color: var(--bs-body-color);
-     background-color: #FFFFFF;
+     background-color: #F2F4F7;
     }
     
     .container-fluid {
@@ -34,9 +37,14 @@
      max-width: 600px;
      margin: 40px auto;
      padding: 30px;
-     background: #E6E6E6; /* Slightly darker gray for the form background */
+     background: #FFFFFF; /* Slightly darker gray for the form background */
      border-radius: 10px;
      box-shadow: 0 0 20px rgba(18, 16, 16, 0.1);
+    }
+
+    form:hover {
+      box-shadow: 0 0 46px rgba(234,0,30,0.28);
+      transform: translateY(-4px);                   /* gentle lift */
     }
     
     form input[type="text"],
@@ -141,13 +149,13 @@ form input[type="file"]::file-selector-button:hover {
     
     /* Table Styling */
     .table {
-     width: 100%;
-     margin-top: 40px;
-     border-collapse: collapse; /* Collapse table borders */
-     background: var(--bs-white);
-     border-radius: 10px;
-     overflow: hidden; /* Ensures rounded corners on the table */
-     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      margin: 10px auto 0;      /* top 40 px, left & right auto (centred), bottom 0 */
+      border-collapse: collapse;
+      background: var(--bs-white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow:0 4px 24px rgba(0,0,0,.08);
     }
     
     .table th,
@@ -240,4 +248,45 @@ form input[type="file"]::file-selector-button:hover {
      content: "";
     }
 
+
+    form{
+      transition: transform var(--t-medium),
+                  box-shadow var(--t-medium);
+      will-change: transform, box-shadow;
+    }
+    form:hover{
+      box-shadow: 0 0 46px rgba(234,0,30,.28);
+      transform: translateY(-4px);
+    }
+    
+    /* ➌ Text / number / file inputs */
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="file"]{
+      transition: border-color     var(--t-fast),
+                  background-color var(--t-fast),
+                  color            var(--t-fast);
+    }
+    
+    /* ➍ File-picker button */
+    form input[type="file"]::-webkit-file-upload-button,
+    form input[type="file"]::file-selector-button{
+      transition: background-color var(--t-fast),
+                  border-color     var(--t-fast);
+    }
+    
+    /* ➎ Primary action button */
+    form input[type="button"]{
+      transition: background-color var(--t-medium),
+                  border-color     var(--t-medium);
+    }
+    
+    /* ➏ Table row & link hovers */
+    .table tbody tr{
+      transition: background-color var(--t-fast);
+    }
+    .table tbody td a{
+      transition: color var(--t-fast);
+    }
+    
    

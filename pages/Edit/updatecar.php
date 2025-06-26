@@ -1,13 +1,13 @@
 <?php
 require '../../include/init.php';
 
-$url = urlof('pages/User/login.php');
+$url = urlof('pages/User/login');
 if (!isset($_SESSION['user'])) {
     header("Location: $url");
     exit;
 }
 
-$url2 = urlof('pages/Edit/index.php');
+$url2 = urlof('pages/Edit/index');
 if (!isset($_GET['id'])) {
     header("Location: $url2");
 }
@@ -32,7 +32,7 @@ include pathof('include/nav.php');
     <div class="container text-center py-5" style="max-width: 900px;">
         <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Update car</h4>
         <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
-            <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
+            <li class="breadcrumb-item"><a href="../../index">Home</a></li>
             <li class="breadcrumb-item"><a href="#">Pages</a></li>
             <li class="breadcrumb-item active text-primary">Categories</li>
         </ol>
@@ -122,7 +122,7 @@ include pathof('include/nav.php');
 
 
             $.ajax({
-                url: "../../api/Edit/update_car.php",
+                url: "../../api/Edit/update_car",
                 method: "POST",
                 data: data,
                 processData: false,
@@ -136,7 +136,7 @@ include pathof('include/nav.php');
                         alert("Something Went Wrong");
                     } else {
                         alert("Car Updated");
-                        window.location.href = "./index.php";
+                        window.location.href = "./index";
                     }
                 },
                 error: function(error) {

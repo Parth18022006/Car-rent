@@ -47,7 +47,7 @@ require '../../include/init.php';
     <input type="button" value="Register" onclick="insertRecord()" />
     <p>
       Already registered?
-      <a href="./login.php">Login</a>
+      <a href="./login">Login</a>
     </p>
 
   </form>
@@ -80,16 +80,16 @@ require '../../include/init.php';
               }
 
               $.ajax({
-                url: "../../api/user/register.php",
+                url: "../../api/user/register",
                 method: "POST",
                 data: data,
                 success: function(response) {
                   alert("Registered Successfully");
-                  window.location.href = "./login.php";
+                  window.location.href = "./login";
                 },
                 error: function(error) {
                   alert("Not Registered");
-                  window.location.href = "./register.php";
+                  window.location.href = "./register";
                 }
               });
             } else {

@@ -26,7 +26,7 @@ require '../../include/init.php';
         <input type="button" value="Login" onclick="login()">
         <p>
             Have you Registered?
-            <a href="./register.php">Register</a>
+            <a href="./register">Register</a>
         </p>
     </form>
 
@@ -55,7 +55,7 @@ require '../../include/init.php';
 
 
                         $.ajax({
-                            url: "../../api/user/login.php",
+                            url: "../../api/user/login",
                             method: "POST",
                             data: data,
                             success: function(response) {
@@ -63,7 +63,7 @@ require '../../include/init.php';
                                     alert("Login Successfully");
                                     $('#mail').val("");
                                     $('#pass').val("");
-                                    window.location.href = "../../index.php"
+                                    window.location.href = "../../index"
                                 } else {
                                     if (response.reason === "mail") {
                                         document.getElementById('emsg1').innerHTML = "Incorrect E-mail";
@@ -74,7 +74,7 @@ require '../../include/init.php';
                             },
                             error: function(error) {
                                 alert("Not LoggedIn");
-                                window.location.href = "./login.php";
+                                window.location.href = "./login";
                             }
                         });
 

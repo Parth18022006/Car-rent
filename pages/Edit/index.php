@@ -1,7 +1,7 @@
 <?php
 require '../../include/init.php';
 
-$url = urlof('pages/User/login.php');
+$url = urlof('pages/User/login');
 if (!isset($_SESSION['user'])) {
     header("Location: $url");
     exit;
@@ -17,7 +17,7 @@ include pathof('include/nav.php');
     <div class="container text-center py-5" style="max-width: 900px;">
         <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Adding car</h4>
         <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
-            <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
+            <li class="breadcrumb-item"><a href="../../index">Home</a></li>
             <li class="breadcrumb-item"><a href="#">Pages</a></li>
             <li class="breadcrumb-item active text-primary">Categories</li>
         </ol>
@@ -85,7 +85,7 @@ include pathof('include/nav.php');
 
 
         $.ajax({
-            url: "../../api/Edit/insertcar_api.php",
+            url: "../../api/Edit/insertcar_api",
             method: "POST",
             data: data,
             processData: false,
@@ -117,7 +117,7 @@ include pathof('include/nav.php');
     function displaycar() {
 
         $.ajax({
-            url: "../../api/Edit/displaycar_api.php",
+            url: "../../api/Edit/displaycar_api",
             method: "POST",
             success: function(response) {
                 let record = "";
@@ -133,7 +133,7 @@ include pathof('include/nav.php');
                             <td scope="col">${response.car[i].space}</td>
                             <td scope="col">${response.car[i].gas}</td>
                             <td scope="col">${response.car[i].year}</td>
-                            <td scope="col"> <a href="./updatecar.php?id=${response.car[i].id}">Update</a></td>
+                            <td scope="col"> <a href="./updatecar?id=${response.car[i].id}">Update</a></td>
                             <td scope="col"> <a href="" onclick="deletecar(${response.car[i].id})">Delete</a></td>
                         </tr>
                         `
@@ -154,7 +154,7 @@ include pathof('include/nav.php');
         let text = "Sure?You want to delete"
         if(confirm(text) == true){
             $.ajax({
-            url: "../../api/Edit/deletecar.php",
+            url: "../../api/Edit/deletecar",
             method: "POST",
             data: {
                 id: id
@@ -167,7 +167,7 @@ include pathof('include/nav.php');
             }
         });
         }else{
-            window.location.href = "./index.php";
+            window.location.href = "./index";
         }
         
     }

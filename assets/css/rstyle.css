@@ -89,29 +89,38 @@
   
   input::placeholder { color: #6c757d; }
   
-  input:focus,
-  form select:focus {
-    background: #fff;
-    border-color: #e6001e;
-    box-shadow: 0 0 0 .22rem rgba(234,0,30,.22);
-    outline: none;
-  }
-  
-  /* 4a. Customise the role dropdown arrow */
-  form select {
-    /* hide native arrow across browsers */
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
-    padding-right: 2.5rem;   /* room for SVG arrow */
-  
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23e6001e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='1 1 6 6 11 1'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 12px 8px;
-  }
-  
-  form select::-ms-expand { display: none; }   /* IE / old Edge */
+/* ───────── Animated red chevron for <select> ───────── */
+form select {
+  /* keep the base styling you already have … */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
+  /* room for the arrow */
+  padding-right: 2.5rem;
+
+  /* ↓ default state: red downward chevron on the right */
+  background:
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23e6001e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='1 1 6 6 11 1'/%3e%3c/svg%3e")
+      no-repeat right 1rem center / 12px 8px,
+    #f5f7fa; /* field background */
+
+  transition:
+    background-position 0.35s var(--ease-smooth),
+    background-size     0.35s var(--ease-smooth),
+    background-color    0.25s ease;
+}
+
+/* focus / open state: arrow slides left & shrinks (vanishes) */
+form select:focus {
+  background-position: left -2rem center, 0 0; /* move off-stage */
+  background-size:      0 0,       auto;       /* arrow shrinks   */
+  background-color: #fff;                       /* your focus bg   */
+}
+
+/* Hide the old Edge / IE arrow */
+form select::-ms-expand { display: none; }
+
   
   /* 5. Field-level validation text
      ------------------------------------------------------ */

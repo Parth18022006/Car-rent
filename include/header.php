@@ -24,6 +24,7 @@
         <link href="<?= urlof('assets/lib/owlcarousel/assets/owl.carousel.min.css'); ?>" rel="stylesheet">
 
 
+        <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="<?= urlof('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">

@@ -88,6 +88,61 @@
   }
   
   input::placeholder { color: #6c757d; }
+  /* ───── Password fields with eye‑toggle ─────────────── */
+.password-field{
+  position: relative;                 /* anchors the icon */
+  width: 100%;
+}
+
+/* both states: dots (password)  &  plain text (after toggle) */
+.password-field input[type="password"],
+.password-field input[type="text"]{
+  width: 100%;
+  display: block;                     /* fill the row */
+  padding: 14px 48px 14px 16px;       /* room for the icon (right) */
+  border: 1px solid #cfd4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f5f7fa;
+  color: #4f5a66;
+  margin-bottom: 8px;    
+  box-sizing: border-box;
+
+  /* same transitions as your other fields */
+  transition: background .28s var(--ease-smooth),
+              border     .28s var(--ease-smooth),
+              box-shadow .28s var(--ease-smooth);
+}
+
+.password-field input[type="password"]:focus,
+.password-field input[type="text"]:focus{
+  border-color: #e6001e;
+  box-shadow: 0 0 0 0.25rem rgba(234,0,30,.25);
+  background: #fff;
+  outline: none;
+}
+
+/* the eye / eye‑slash icon */
+.password-field .toggle-pass{
+  position: absolute;
+  top: 50%;
+  right: 18px;                        /* tweak if you want it tighter */
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #000 !important;
+  cursor: pointer;
+  transition: color .25s var(--ease-smooth);
+}
+
+.password-field .toggle-pass:hover{
+  color: #e6001e !important;
+}
+
+/* slightly closer on very small screens */
+@media (max-width: 576px){
+  .password-field .toggle-pass{ right: 14px; }
+}
+
   
 /* ───────── Animated red chevron for <select> ───────── */
 form select {

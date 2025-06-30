@@ -11,6 +11,7 @@ require '../../include/init.php';
   <title> Registration page</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
   <link href="<?= urlof('assets/css/rstyle.css'); ?>" rel="stylesheet">
 
 </head>
@@ -26,12 +27,18 @@ require '../../include/init.php';
     </div>
 
     <div>
-      <input type="password" id="password" name="password" placeholder="Enter The Password" />
+      <div class="password-field">
+        <input type="password" id="password" name="password" placeholder="Enter The Password" />
+        <i class="fa-solid fa-eye toggle-pass" data-target="password" aria-hidden="true"></i>
+      </div>
       <small id="emsg1" style="color: red; text-align:center ;"></small>
     </div>
 
     <div>
-      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Enter The Confirm Password" />
+      <div class="password-field">
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Enter The Confirm Password" />
+        <i class="fa-solid fa-eye toggle-pass" data-target="confirmPassword" aria-hidden="true"></i>
+      </div>
       <small id="emsg" style="color: red; text-align:center ;"></small>
       <small id="emsg3" style="color: red; text-align:center ;"></small>
     </div>
@@ -100,6 +107,16 @@ require '../../include/init.php';
       }
 
     }
+    /* ④ the tiny JS toggle (put after the field or in a separate JS file) */
+        document.querySelectorAll('.toggle-pass').forEach(icon => {
+            icon.addEventListener('click', () => {
+                const input = document.getElementById(icon.dataset.target);
+                const show = input.type === 'password';
+                input.type = show ? 'text' : 'password';
+                icon.classList.toggle('fa-eye', !show);
+                icon.classList.toggle('fa-eye-slash', show);
+            });
+        });
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

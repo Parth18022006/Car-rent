@@ -10,6 +10,7 @@ require '../../include/init.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= urlof('assets/css/login.css'); ?>">
 </head>
@@ -20,7 +21,10 @@ require '../../include/init.php';
         <input type="email" name="mail" id="mail" placeholder="Enter The E-Mail">
         <small id="emsg1" style="color: red; text-align:center ;"></small>
 
+        <div class="password-field">
         <input type="password" name="pass" id="pass" placeholder="Enter The Password">
+        <i class="fa-solid fa-eye toggle-pass" data-target="pass" aria-hidden="true"></i>
+        </div>
         <small id="emsg2" style="color: red; text-align:center ;"></small>
         <small id="emsg" style="color: red; text-align:center ;"></small>
         <input type="button" value="Login" onclick="login()">
@@ -91,6 +95,17 @@ require '../../include/init.php';
                 return false;
             }
         }
+
+        /* ④ the tiny JS toggle (put after the field or in a separate JS file) */
+        document.querySelectorAll('.toggle-pass').forEach(icon => {
+            icon.addEventListener('click', () => {
+                const input = document.getElementById(icon.dataset.target);
+                const show = input.type === 'password';
+                input.type = show ? 'text' : 'password';
+                icon.classList.toggle('fa-eye', !show);
+                icon.classList.toggle('fa-eye-slash', show);
+            });
+        });
     </script>
 </body>
 

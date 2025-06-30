@@ -31,7 +31,11 @@ include pathof('include/nav.php');
     <input type="number" name="price" id="price" placeholder="Enter The Price">
     <input type="number" name="review" id="review" placeholder="Enter The Review">
     <input type="number" name="space" id="space" placeholder="Enter The Seating Space">
-    <input type="text" name="gas" id="gas" placeholder="Enter The Gas Name">
+    <select name="gas" id="gas">
+    <option value="" disabled selected hidden>Select Fuel</option>
+        <option value="Petrol">Petrol</option>
+        <option value="Diesel">Diesel</option>
+    </select>
     <input type="number" name="year" id="year" placeholder="Enter The Model Year">
     <input type="file" name="img" id="img">
     <div id="emsg" style="color: red;size: 6px;"></div>
@@ -73,6 +77,13 @@ include pathof('include/nav.php');
 
 
         if(cname != "" && cname != null && price != "" && price != null && review != "" && review != null && space != "" && space != null && gas != "" && gas != null && year != "" && year != null && img != "" && img !=null){
+
+
+            if(price <=0){
+                alert("Enter Valid Price");
+                $('#price').val("");
+                return;
+            }
 
         let data = new FormData();
             data.append('cname', $('#cname').val());
@@ -171,6 +182,23 @@ include pathof('include/nav.php');
         }
         
     }
+
+    const roleSel = document.getElementById('gas');
+
+/* list is about to open → hide arrow */
+roleSel.addEventListener('mousedown', () => {
+  roleSel.classList.add('is-open');
+});
+
+/* list just closed *and* the value changed → show arrow */
+roleSel.addEventListener('change', () => {
+  roleSel.classList.remove('is-open');
+});
+
+/* user pressed Esc or clicked elsewhere without changing value → show arrow */
+roleSel.addEventListener('blur', () => {
+  roleSel.classList.remove('is-open');
+});
 </script>
 
 <br>

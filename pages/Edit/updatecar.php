@@ -47,7 +47,11 @@ include pathof('include/nav.php');
     <input type="number" name="uprice" id="uprice" placeholder="Enter The Price" value="<?= $ucar['price'] ?>">
     <input type="number" name="ureview" id="ureview" placeholder="Enter The Review" value="<?= $ucar['review'] ?>">
     <input type="number" name="uspace" id="uspace" placeholder="Enter The Seating Space" value="<?= $ucar['space'] ?>">
-    <input type="text" name="ugas" id="ugas" placeholder="Enter The Gas Name" value="<?= $ucar['gas'] ?>">
+    <!-- <input type="text" name="ugas" id="ugas" placeholder="Enter The Gas Name" value="<?= $ucar['gas'] ?>"> -->
+    <select name="ugas" id="ugas">
+        <option value="Petrol" <?= ($ucar['gas'] === 'Petrol') ? 'selected' : '' ?>>Petrol</option>
+        <option value="Diesel" <?= ($ucar['gas'] === 'Diesel') ? 'selected' : '' ?>>Diesel</option>
+    </select>
     <input type="number" name="uyear" id="uyear" placeholder="Enter The Year" value="<?= $ucar['year'] ?>">
 
     <!-- Show current image if available -->
@@ -92,6 +96,12 @@ include pathof('include/nav.php');
 
         if (ucname != "" && ucname != null && uprice != "" && uprice != null && ureview != "" && ureview != null && uspace != "" && uspace != null && ugas != "" && ugas != null && uyear != "" && uyear != null) {
 
+
+            if(uprice <=0){
+                alert("Enter Valid Price");
+                $('#uprice').val("");
+                return;
+            }
             const hasImage = $('#uimg')[0].files.length > 0; // ← true if a new file picked
 
             // build the body:
@@ -151,6 +161,23 @@ include pathof('include/nav.php');
 
 
     }
+
+    const roleSel = document.getElementById('ugas');
+
+/* list is about to open → hide arrow */
+roleSel.addEventListener('mousedown', () => {
+  roleSel.classList.add('is-open');
+});
+
+/* list just closed *and* the value changed → show arrow */
+roleSel.addEventListener('change', () => {
+  roleSel.classList.remove('is-open');
+});
+
+/* user pressed Esc or clicked elsewhere without changing value → show arrow */
+roleSel.addEventListener('blur', () => {
+  roleSel.classList.remove('is-open');
+});
 </script>
 
 <?php

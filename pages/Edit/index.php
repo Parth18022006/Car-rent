@@ -85,6 +85,12 @@ include pathof('include/nav.php');
                 return;
             }
 
+            if(review >5){
+                alert("Enter Review Under 5");
+                $('#review').val("");
+                return;
+            }
+
         let data = new FormData();
             data.append('cname', $('#cname').val());
             data.append('price', $('#price').val());

@@ -101,6 +101,12 @@ include pathof('include/nav.php');
                 $('#uprice').val("");
                 return;
             }
+
+            if(ureview >5){
+                alert("Enter Review Under 5");
+                $('#ureview').val("");
+                return;
+            }
             const hasImage = $('#uimg')[0].files.length > 0; // ← true if a new file picked
 
             // build the body:

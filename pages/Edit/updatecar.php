@@ -47,7 +47,6 @@ include pathof('include/nav.php');
     <input type="number" name="uprice" id="uprice" placeholder="Enter The Price" value="<?= $ucar['price'] ?>">
     <input type="number" name="ureview" id="ureview" placeholder="Enter The Review" value="<?= $ucar['review'] ?>">
     <input type="number" name="uspace" id="uspace" placeholder="Enter The Seating Space" value="<?= $ucar['space'] ?>">
-    <!-- <input type="text" name="ugas" id="ugas" placeholder="Enter The Gas Name" value="<?= $ucar['gas'] ?>"> -->
     <select name="ugas" id="ugas">
         <option value="Petrol" <?= ($ucar['gas'] === 'Petrol') ? 'selected' : '' ?>>Petrol</option>
         <option value="Diesel" <?= ($ucar['gas'] === 'Diesel') ? 'selected' : '' ?>>Diesel</option>

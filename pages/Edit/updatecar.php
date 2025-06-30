@@ -51,7 +51,20 @@ include pathof('include/nav.php');
         <option value="Petrol" <?= ($ucar['gas'] === 'Petrol') ? 'selected' : '' ?>>Petrol</option>
         <option value="Diesel" <?= ($ucar['gas'] === 'Diesel') ? 'selected' : '' ?>>Diesel</option>
     </select>
-    <input type="number" name="uyear" id="uyear" placeholder="Enter The Year" value="<?= $ucar['year'] ?>">
+    <select name="year" id="year">
+    <option value="" disabled selected hidden>Select Model Year</option>
+    <option value="2020" <?= ($ucar['year'] === 2020) ? 'selected' : '' ?>>2020</option>
+    <option value="2021" <?= ($ucar['year'] === 2021) ? 'selected' : '' ?>>2021</option>
+    <option value="2022" <?= ($ucar['year'] === 2022) ? 'selected' : '' ?>>2022</option>
+    <option value="2023" <?= ($ucar['year'] === 2023) ? 'selected' : '' ?>>2023</option>
+    <option value="2024" <?= ($ucar['year'] === 2024) ? 'selected' : '' ?>>2024</option>
+    <option value="2025" <?= ($ucar['year'] === 2025) ? 'selected' : '' ?>>2025</option>
+    <option value="2026" <?= ($ucar['year'] === 2026) ? 'selected' : '' ?>>2026</option>
+    <option value="2027" <?= ($ucar['year'] === 2027) ? 'selected' : '' ?>>2027</option>
+    <option value="2028" <?= ($ucar['year'] === 2028) ? 'selected' : '' ?>>2028</option>
+    <option value="2029" <?= ($ucar['year'] === 2029) ? 'selected' : '' ?>>2029</option>
+    <option value="2030" <?= ($ucar['year'] === 2030) ? 'selected' : '' ?>>2030</option>
+    </select>
 
     <!-- Show current image if available -->
     <?php if (!empty($ucar['ImageFile'])) : ?>

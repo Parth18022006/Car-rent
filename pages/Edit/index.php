@@ -36,7 +36,20 @@ include pathof('include/nav.php');
         <option value="Petrol">Petrol</option>
         <option value="Diesel">Diesel</option>
     </select>
-    <input type="number" name="year" id="year" placeholder="Enter The Model Year">
+    <select name="year" id="year">
+    <option value="" disabled selected hidden>Select Model Year</option>
+    <option value="2020">2020</option>
+    <option value="2021">2021</option>
+    <option value="2022">2022</option>
+    <option value="2023">2023</option>
+    <option value="2024">2024</option>
+    <option value="2025">2025</option>
+    <option value="2026">2026</option>
+    <option value="2027">2027</option>
+    <option value="2028">2028</option>
+    <option value="2029">2029</option>
+    <option value="2030">2030</option>
+    </select>
     <input type="file" name="img" id="img">
     <div id="emsg" style="color: red;size: 6px;"></div>
     <br><input type="button" value="Insert" onclick="insert_car()">
@@ -204,6 +217,24 @@ roleSel.addEventListener('change', () => {
 /* user pressed Esc or clicked elsewhere without changing value → show arrow */
 roleSel.addEventListener('blur', () => {
   roleSel.classList.remove('is-open');
+});
+
+
+const yearSel = document.getElementById('year');
+
+/* list is about to open → hide arrow */
+yearSel.addEventListener('mousedown', () => {
+    yearSel.classList.add('is-open');
+});
+
+/* list just closed *and* the value changed → show arrow */
+yearSel.addEventListener('change', () => {
+    yearSel.classList.remove('is-open');
+});
+
+/* user pressed Esc or clicked elsewhere without changing value → show arrow */
+yearSel.addEventListener('blur', () => {
+    yearSel.classList.remove('is-open');
 });
 </script>
 

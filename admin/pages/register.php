@@ -4,15 +4,16 @@ require '../../include/init.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Registration page</title>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet" />
-    <link href="<?= urlof('assets/css/rstyle.css'); ?>" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+    <link href="<?= urlof('admin/assets/css/adminregister.css'); ?>" rel="stylesheet">
 
 </head>
 
@@ -27,16 +28,23 @@ require '../../include/init.php';
         </div>
 
         <div>
-            <input type="password" id="password" name="password" placeholder="Enter The Password" />
+            <div class="password-field">
+                <input type="password" id="password" name="password" placeholder="Enter The Password" />
+                <i class="fa-solid fa-eye toggle-pass" data-target="password" aria-hidden="true"></i>
+            </div>
             <small id="emsg1" style="color: red; text-align:center ;"></small>
         </div>
 
         <div>
-            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Enter The Confirm Password" />
+            <div class="password-field">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Enter The Confirm Password" />
+                <i class="fa-solid fa-eye toggle-pass" data-target="confirmPassword" aria-hidden="true"></i>
+            </div>
             <small id="emsg3" style="color: red; text-align:center ;"></small>
         </div>
         <div>
             <select id="role" name="role">
+            <option value="" disabled selected hidden>Select role</option>
                 <option value="Admin">Admin</option>
                 <option value="Customer">Customer</option>
             </select>
@@ -67,22 +75,22 @@ require '../../include/init.php';
                 if (pmail.test(mail)) {
                     if (vpass.test(password)) {
                         if (password == cpassword) {
-                            
+
                             let data = {
-                                email:$('#email').val(),
-                                password:$('#password').val(),
-                                role:$('#role').val()
+                                email: $('#email').val(),
+                                password: $('#password').val(),
+                                role: $('#role').val()
                             }
 
                             $.ajax({
-                                url:"../api/register_api",
-                                method:"POST",
-                                data:data,
-                                success:function(response){
+                                url: "../api/register_api",
+                                method: "POST",
+                                data: data,
+                                success: function(response) {
                                     alert(role + "" + " Registered Successfully");
                                     window.location.href = "../../index.php";
                                 },
-                                error:function(error){
+                                error: function(error) {
                                     alert(role + "" + " Not Registered");
                                 }
                             })
@@ -103,9 +111,37 @@ require '../../include/init.php';
                 return false;
             }
         }
+        /* ④ the tiny JS toggle (put after the field or in a separate JS file) */
+        document.querySelectorAll('.toggle-pass').forEach(icon => {
+            icon.addEventListener('click', () => {
+                const input = document.getElementById(icon.dataset.target);
+                const show = input.type === 'password';
+                input.type = show ? 'text' : 'password';
+                icon.classList.toggle('fa-eye', !show);
+                icon.classList.toggle('fa-eye-slash', show);
+            });
+        });
+
+        const roleSel = document.getElementById('role');
+
+/* list is about to open → hide arrow */
+roleSel.addEventListener('mousedown', () => {
+  roleSel.classList.add('is-open');
+});
+
+/* list just closed *and* the value changed → show arrow */
+roleSel.addEventListener('change', () => {
+  roleSel.classList.remove('is-open');
+});
+
+/* user pressed Esc or clicked elsewhere without changing value → show arrow */
+roleSel.addEventListener('blur', () => {
+  roleSel.classList.remove('is-open');
+});
     </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>

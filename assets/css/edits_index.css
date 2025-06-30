@@ -18,6 +18,59 @@ body {
   background-color: #F2F4F7;
 }
 
+select option[disabled] {
+  color: #888;
+}
+
+form select:required:invalid {
+  color: #888 !important;          /* same grey as your other placeholders */
+}
+
+form select {
+
+  width: 100%;
+  padding: 12px 2.5rem 12px 15px;   /* 15 px left = other inputs, 2.5 rem right for arrow */
+  margin-bottom: 15px;
+  border: 1px solid var(--bs-secondary);
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  color: var(--bs-body-color);
+  background-color: var(--bs-white);
+
+  /* keep the base styling you already have … */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
+  /* room for the arrow */
+  padding-right: 2.5rem;
+
+  /* ↓ default state: red downward chevron on the right */
+  background:
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23e6001e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='1 1 6 6 11 1'/%3e%3c/svg%3e")
+      no-repeat right 1rem center / 12px 8px;/* field background */
+
+  transition:
+    background-position 0.35s var(--ease-smooth),
+    background-size     0.35s var(--ease-smooth),
+    background-color    0.25s ease;
+}
+
+form select.is-open{
+  background-position:left -2rem center,0 0;   /* slide off‑stage */
+  background-size:0 0,auto;                    /* shrink → “fade” */
+}
+
+form select:not(.is-open){
+  background-position:right 1rem center,0 0;
+  background-size:12px 8px,auto;
+}
+
+/* Hide the old Edge / IE arrow */
+form select::-ms-expand { display: none; }
+
+
 .container,
 .container-fluid {
   padding-left: 15px;

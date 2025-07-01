@@ -51,7 +51,7 @@ include pathof('include/nav.php');
         <option value="Petrol" <?= ($ucar['gas'] === 'Petrol') ? 'selected' : '' ?>>Petrol</option>
         <option value="Diesel" <?= ($ucar['gas'] === 'Diesel') ? 'selected' : '' ?>>Diesel</option>
     </select>
-    <select name="year" id="year">
+    <select name="uyear" id="uyear">
     <option value="" disabled selected hidden>Select Model Year</option>
     <option value="2020" <?= ($ucar['year'] === 2020) ? 'selected' : '' ?>>2020</option>
     <option value="2021" <?= ($ucar['year'] === 2021) ? 'selected' : '' ?>>2021</option>
@@ -195,6 +195,23 @@ roleSel.addEventListener('change', () => {
 /* user pressed Esc or clicked elsewhere without changing value → show arrow */
 roleSel.addEventListener('blur', () => {
   roleSel.classList.remove('is-open');
+});
+
+const uyearSel = document.getElementById('uyear');
+
+/* list is about to open → hide arrow */
+uyearSel.addEventListener('mousedown', () => {
+    uyearSel.classList.add('is-open');
+});
+
+/* list just closed *and* the value changed → show arrow */
+uyearSel.addEventListener('change', () => {
+    uyearSel.classList.remove('is-open');
+});
+
+/* user pressed Esc or clicked elsewhere without changing value → show arrow */
+uyearSel.addEventListener('blur', () => {
+    uyearSel.classList.remove('is-open');
 });
 </script>
 

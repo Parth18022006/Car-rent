@@ -85,7 +85,7 @@ require '../../include/init.php';
                   window.location.href = "./login";
                 },
                 error: function(error) {
-                  alert("Not Registered");
+                  alert("User With This E-mail & Password Is Already Registered");
                   window.location.href = "./register";
                 }
               });

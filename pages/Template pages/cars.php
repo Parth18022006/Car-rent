@@ -10,7 +10,6 @@ $stmt->execute();
 
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
 ?>
-?>
 
 <!-- Header Start -->
 <div class="container-fluid bg-breadcrumb">

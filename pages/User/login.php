@@ -70,7 +70,7 @@ require '../../include/init.php';
                                     window.location.href = "../../index"
                                 } else {
                                     if (response.reason === "mail") {
-                                        document.getElementById('emsg1').innerHTML = "Incorrect E-mail";
+                                        document.getElementById('emsg1').innerHTML = "User With This E-mail Not Registered";
                                     } else if (response.reason === "pass") {
                                         document.getElementById('emsg2').innerHTML = "Incorrect Password";
                                     }

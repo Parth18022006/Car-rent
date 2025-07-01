@@ -1,6 +1,6 @@
 /* ───────────────────────────────────────────────────────
    LOGIN PAGE STYLES  – animated hex-grid + smoother motion
-   (merged with the new “silky” transitions you asked for)
+   (cleaned, duplicates removed)
    ───────────────────────────────────────────────────────*/
 
 /* 0. Custom easing + smooth scroll
@@ -27,8 +27,7 @@
     padding: 20px;
   
     /* Animated hexagon grid */
-    background: #f0f2f5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='86.6'%3E%3Cpolygon points='50,0 100,25 100,75 50,100 0,75 0,25' fill='none' stroke='%230056b3' stroke-width='1' stroke-opacity='0.18'/%3E%3C/svg%3E")
-                repeat;
+    background: #f0f2f5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='86.6'%3E%3Cpolygon points='50,0 100,25 100,75 50,100 0,75 0,25' fill='none' stroke='%230056b3' stroke-width='1' stroke-opacity='0.18'/%3E%3C/svg%3E") repeat;
     background-size: 100px 86.6px;
   
     /* fade-in → drift */
@@ -41,7 +40,7 @@
   /* 2. Form card
      ----------------------------------------------------- */
   form {
-    background-color: #ffffff;
+    background: rgba(255, 255, 255, 0.78);
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 0 45px rgba(0, 0, 0, .1);
@@ -50,7 +49,6 @@
     text-align: center;
   
     /* smoother transitions */
-    background: rgba(255, 255, 255, 0.78);  /* ↰ slightly more see-through */
     transition: box-shadow .45s var(--ease-smooth),
                 transform  .45s var(--ease-smooth);
   }
@@ -72,7 +70,8 @@
   /* 4. Input Fields
      ----------------------------------------------------- */
   input[type="email"],
-  input[type="password"] {
+  input[type="password"],
+  .password-field input[type="text"] {
     width: 100%;
     padding: 15px 20px;
     border: 1px solid #ced4da;
@@ -80,9 +79,7 @@
     font-size: 1.1em;
     color: #495057;
     background-color: #f1f4f8;
-    margin-bottom: 0;
   
-    /* refined transition list */
     transition: background  .28s var(--ease-smooth),
                 border      .28s var(--ease-smooth),
                 box-shadow  .28s var(--ease-smooth);
@@ -94,65 +91,40 @@
   }
   
   input[type="email"]:focus,
-  input[type="password"]:focus {
+  input[type="password"]:focus,
+  .password-field input[type="text"]:focus {
     border-color: #e6001e;
     box-shadow: 0 0 0 0.25rem rgba(234, 0, 30, 0.25);
     outline: none;
     background-color: #ffffff;
   }
-
+  
   /* === Password‑field eye icon ============================================ */
-.password-field{
-  /* keep the input and icon stacked */
-  position: relative;           /* anchors the absolute icon */
-  width: 100%;
-}
-
-/* reserve room so text never runs under the icon */
-input[type="email"],
-input[type="password"],
-.password-field input[type="text"] {   /* ← new */
-  width: 100%;
-  padding: 15px 20px;
-  border: 1px solid #ced4da;
-  border-radius: 8px;
-  font-size: 1.1em;
-  color: #495057;
-  background-color: #f1f4f8;
-
-  /* keep the same transitions */
-  transition: background  .28s var(--ease-smooth),
-              border      .28s var(--ease-smooth),
-              box-shadow  .28s var(--ease-smooth);
-}
-.password-field input[type="text"]:focus{
-  border-color: #e6001e;
-  box-shadow: 0 0 0 0.25rem rgba(234,0,30,.25);
-  outline:none;
-  background-color:#fff;
-}
-
-/* the eye itself */
-.password-field .toggle-pass{
-  position: absolute;
-  top: 50%;
-  right: 18px;                  /* adjust if you want it tighter/looser */
-  transform: translateY(-50%);
-  cursor: pointer;
-  font-size: 1.7rem;
-  color: #000 !important;
-  transition: color .25s var(--ease-smooth);
-}
-
-.password-field .toggle-pass:hover{
-  color: #e6001e !important;               /* red on hover – fits your palette */
-}
-
-/* (optional) slightly tighter spacing on very small screens */
-@media (max-width: 576px){
-  .password-field .toggle-pass{ right: 14px; }
-}
-
+  .password-field{
+    position: relative;           /* anchors the absolute icon */
+    width: 100%;
+  }
+  
+  /* the eye itself */
+  .password-field .toggle-pass{
+    position: absolute;
+    top: 50%;
+    right: 18px;                  /* adjust if you want it tighter/looser */
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.7rem;
+    color: #000 !important;
+    transition: color .25s var(--ease-smooth);
+  }
+  
+  .password-field .toggle-pass:hover{
+    color: #e6001e !important;               /* red on hover – fits your palette */
+  }
+  
+  /* (optional) slightly tighter spacing on very small screens */
+  @media (max-width: 576px){
+    .password-field .toggle-pass{ right: 14px; }
+  }
   
   /* 5. Validation messages
      ----------------------------------------------------- */
@@ -218,6 +190,7 @@ input[type="password"],
   
     input[type="email"],
     input[type="password"],
+    .password-field input[type="text"],
     input[type="button"] {
       padding: 12px 15px;
       font-size: 1em;

@@ -1,5 +1,6 @@
 /* ─────────────────────────────────────────────────────────
    REGISTRATION FORM  •  smooth transitions & clean cascade
+   (deduplicated & streamlined)
    ─────────────────────────────────────────────────────────*/
 
 /* 0. Root variables & resets
@@ -25,8 +26,7 @@
     padding: 40px 12px;
   
     /* animated hexagon backdrop */
-    background: #f0f2f5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='86.6'%3E%3Cpolygon points='50,0 100,25 100,75 50,100 0,75 0,25' fill='none' stroke='%230056b3' stroke-width='1' stroke-opacity='0.18'/%3E%3C/svg%3E")
-                repeat;
+    background: #f0f2f5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='86.6'%3E%3Cpolygon points='50,0 100,25 100,75 50,100 0,75 0,25' fill='none' stroke='%230056b3' stroke-width='1' stroke-opacity='0.18'/%3E%3C/svg%3E") repeat;
     background-size: 100px 86.6px;
     animation: pageIn .6s ease-out forwards,
                bgDrift 35s linear infinite;
@@ -67,13 +67,14 @@
     text-align: center;
   }
   
-  /* 4. Inputs & Select
+  /* 4. Base input & select styles
      ------------------------------------------------------ */
   input[type="email"],
   input[type="password"],
+  .password-field input[type="password"],
+  .password-field input[type="text"],
   form select {
     width: 100%;
-    padding: 14px 16px;          /* larger touch target */
     margin-bottom: 8px;
     background: #f5f7fa;
     border: 1px solid #cfd4da;
@@ -87,95 +88,87 @@
                 box-shadow .28s var(--ease-smooth);
   }
   
-  input::placeholder { color: #6c757d; }
-  /* ───── Password fields with eye‑toggle ─────────────── */
-.password-field{
-  position: relative;                 /* anchors the icon */
-  width: 100%;
-}
-
-/* both states: dots (password)  &  plain text (after toggle) */
-.password-field input[type="password"],
-.password-field input[type="text"]{
-  width: 100%;
-  display: block;                     /* fill the row */
-  padding: 14px 48px 14px 16px;       /* room for the icon (right) */
-  border: 1px solid #cfd4da;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: #f5f7fa;
-  color: #4f5a66;
-  margin-bottom: 8px;    
-  box-sizing: border-box;
-
-  /* same transitions as your other fields */
-  transition: background .28s var(--ease-smooth),
-              border     .28s var(--ease-smooth),
-              box-shadow .28s var(--ease-smooth);
-}
-
-.password-field input[type="password"]:focus,
-.password-field input[type="text"]:focus{
-  border-color: #e6001e;
-  box-shadow: 0 0 0 0.25rem rgba(234,0,30,.25);
-  background: #fff;
-  outline: none;
-}
-
-/* the eye / eye‑slash icon */
-.password-field .toggle-pass{
-  position: absolute;
-  top: 50%;
-  right: 18px;                        /* tweak if you want it tighter */
-  transform: translateY(-50%);
-  font-size: 1.1rem;
-  color: #000 !important;
-  cursor: pointer;
-  transition: color .25s var(--ease-smooth);
-}
-
-.password-field .toggle-pass:hover{
-  color: #e6001e !important;
-}
-
-/* slightly closer on very small screens */
-@media (max-width: 576px){
-  .password-field .toggle-pass{ right: 14px; }
-}
-
+  input[type="email"],
+  form select {
+    padding: 14px 16px;               /* larger touch target */
+  }
   
-/* ───────── Animated red chevron for <select> ───────── */
-form select {
-  /* keep the base styling you already have … */
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-
-  /* room for the arrow */
-  padding-right: 2.5rem;
-
-  /* ↓ default state: red downward chevron on the right */
-  background:
-    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23e6001e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='1 1 6 6 11 1'/%3e%3c/svg%3e")
-      no-repeat right 1rem center / 12px 8px,
-    #f5f7fa; /* field background */
-
-  transition:
-    background-position 0.35s var(--ease-smooth),
-    background-size     0.35s var(--ease-smooth),
-    background-color    0.25s ease;
-}
-
-/* focus / open state: arrow slides left & shrinks (vanishes) */
-form select:focus {
-  background-position: left -2rem center, 0 0; /* move off-stage */
-  background-size:      0 0,       auto;       /* arrow shrinks   */
-  background-color: #fff;                       /* your focus bg   */
-}
-
-/* Hide the old Edge / IE arrow */
-form select::-ms-expand { display: none; }
-
+  /* Password-specific padding (room for the eye icon) */
+  .password-field input[type="password"],
+  .password-field input[type="text"] {
+    padding: 14px 48px 14px 16px;
+    display: block;                   /* fill the row */
+  }
+  
+  input::placeholder { color: #6c757d; }
+  
+  /* ───── Password fields with eye‑toggle ─────────────── */
+  .password-field {
+    position: relative;               /* anchors the icon */
+    width: 100%;
+  }
+  
+  .password-field input[type="password"],
+  .password-field input[type="text"] {
+    /* shared focus state */
+  }
+  
+  .password-field input[type="password"]:focus,
+  .password-field input[type="text"]:focus {
+    border-color: #e6001e;
+    box-shadow: 0 0 0 0.25rem rgba(234,0,30,.25);
+    background: #fff;
+    outline: none;
+  }
+  
+  /* the eye / eye‑slash icon */
+  .password-field .toggle-pass {
+    position: absolute;
+    top: 50%;
+    right: 18px;                      /* tweak if you want it tighter */
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    color: #000 !important;
+    cursor: pointer;
+    transition: color .25s var(--ease-smooth);
+  }
+  
+  .password-field .toggle-pass:hover {
+    color: #e6001e !important;
+  }
+  
+  /* slightly closer on very small screens */
+  @media (max-width: 576px) {
+    .password-field .toggle-pass { right: 14px; }
+  }
+  
+  /* ───────── Animated red chevron for <select> ───────── */
+  form select {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    padding-right: 2.5rem;            /* room for the arrow */
+  
+    /* ↓ default state: red downward chevron on the right */
+    background:
+      url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23e6001e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='1 1 6 6 11 1'/%3e%3c/svg%3e")
+        no-repeat right 1rem center / 12px 8px,
+      #f5f7fa; /* field background */
+  
+    transition: background-position 0.35s var(--ease-smooth),
+                background-size     0.35s var(--ease-smooth),
+                background-color    0.25s ease;
+  }
+  
+  /* focus / open state: arrow slides left & shrinks (vanishes) */
+  form select:focus {
+    background-position: left -2rem center, 0 0; /* move off-stage */
+    background-size:      0 0,       auto;       /* arrow shrinks   */
+    background-color: #fff;                         /* your focus bg   */
+  }
+  
+  /* Hide the old Edge / IE arrow */
+  form select::-ms-expand { display: none; }
   
   /* 5. Field-level validation text
      ------------------------------------------------------ */
@@ -265,7 +258,12 @@ form select::-ms-expand { display: none; }
   
     input[type="email"],
     input[type="password"],
-    form select { padding: 11px 14px; font-size: .95rem; }
+    .password-field input[type="password"],
+    .password-field input[type="text"],
+    form select {
+      padding: 11px 14px;
+      font-size: .95rem;
+    }
   
     input[type="button"] { padding: 11px 22px; font-size: .95rem; }
   }

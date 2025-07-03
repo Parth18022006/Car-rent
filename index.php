@@ -31,11 +31,18 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                         <div class="row g-3">
                                             <div class="col-12">
                                                 <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Select Your Car type</option>
-                                                    <option value="1">VW Golf VII</option>
-                                                    <option value="2">Audi A1 S-Line</option>
-                                                    <option value="3">Toyota Camry</option>
-                                                    <option value="4">BMW 320 ModernLine</option>
+                                                    <?php
+                                                    if (count($row) > 0) {
+                                                        foreach ($row as $r) {
+                                                    ?>
+                                                            <option value="<?= $r['id'] ?>"><?= $r['name'] ?></option>
+                                                        <?php
+                                                        }
+                                                    } else {
+                                                        ?><option value="">No Records</option>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </select>
                                             </div>
                                             <div class="col-12">
@@ -528,9 +535,9 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                 <?php
                 }; ?>
             <?php  } else {
-                ?><p>No record</p><?php
-            }
-            ?>
+            ?><p>No record</p><?php
+                            }
+                                ?>
         </div>
     </div>
 </div>

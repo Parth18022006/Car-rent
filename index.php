@@ -31,6 +31,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                         <div class="row g-3">
                                             <div class="col-12">
                                                 <select class="form-select" aria-label="Default select example">
+                                                    <option value="" disabled selected hidden>Select Car</option>
                                                     <?php
                                                     if (count($row) > 0) {
                                                         foreach ($row as $r) {

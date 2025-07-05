@@ -10,7 +10,6 @@ $stmt->execute();
 
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
 ?>
-<!-- id name email pass type="admin/customer" -->
 <!-- Carousel Start -->
 <div class="header-carousel">
     <div id="carouselId" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">

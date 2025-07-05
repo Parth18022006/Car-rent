@@ -100,7 +100,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <button class="btn btn-light w-100 py-2">Book Now</button>
+                                                <a  class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index.php');?>">Book Now</a>
                                             </div>
                                         </div>
                                     </form>
@@ -197,7 +197,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <button class="btn btn-light w-100 py-2">Book Now</button>
+                                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index.php');?>">Book Now</a>
                                             </div>
                                         </div>
                                     </form>

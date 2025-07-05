@@ -1,0 +1,351 @@
+/* ───────────────────────────────────────────────
+   BOOKING • inner‑form redesign
+   (does NOT alter your select‑arrow rules)
+   ───────────────────────────────────────────────*/
+
+/* 0. Theme tokens — tweak once here */
+:root{
+    --clr-primary: #dc3545;          /* same red as the arrow */
+    --clr-primary-dark:#b42d3e;
+    --clr-grey-100:#f8f9fa;
+    --clr-grey-200:#e9ecef;
+    --radius: .75rem;
+    --trans: .2s ease;
+  }
+  
+  /* 1. Form card — spacing already set earlier; add subtle flair */
+  form{
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:0 12px 24px -6px rgba(0,0,0,.08);
+  }
+  
+  /* 2. Heading */
+  form h4{
+    text-align:center;
+    font-weight:600;
+    margin-bottom:1.75rem;
+    color:var(--bs-dark);
+  }
+
+  select.form-select{
+    /* red SVG chevron (same shade as --clr-primary) */
+    background-image:
+      url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23dc3545' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='1 1 6 6 11 1'/%3e%3c/svg%3e"),
+      none !important;                 /* wipes Bootstrap’s grey layer */
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 12px 8px;
+    padding-right: 2.5rem;             /* keeps room for the icon */
+  
+    /* smooth motion */
+    transition:
+      background-position .35s var(--trans),
+      background-size     .35s var(--trans);
+  }
+  
+  /* 2️⃣  While the drop‑down is OPEN → arrow slides away & fades */
+  select.form-select.is-open{
+    background-position: left -2rem center;  /* slides off‑stage */
+    background-size: 0 0;                    /* shrinks → fade */
+  }
+  
+  /* 3️⃣  When the list is CLOSED (default) → arrow back in place */
+  select.form-select:not(.is-open){
+    background-position: right 1rem center;
+    background-size: 12px 8px;
+  }
+
+  /* ───────────────────────────────────────────────
+   BLACK BORDER + CRISP, FULL‑RED OUTLINE
+   (no transparency)
+   ───────────────────────────────────────────────*/
+
+/* token for outline thickness: tweak to 2 px or 3 px if you prefer */
+:root { --outline-thick: 2px; }
+
+/* 1️⃣  Row groups */
+.input-group{
+  border: 1px solid #000 !important;
+}
+/* ───────────────────────────────────────────────
+   SELECT‑CAR  • keep white field + black text
+                (field & dropdown options)
+   ───────────────────────────────────────────────*/
+
+/* 1️⃣  The closed field itself */
+#selectcar,
+#selectcar:hover,
+#selectcar:focus,
+#selectcar:active,
+#selectcar.is-open{
+  background-color:#fff !important;  /* never turns grey */
+  color:#000 !important;             /* label text always black */
+}
+
+/* ───────────────────────────────────────────────
+   FINAL FIX ▸ keep black frame on “Select Car”
+               + crisp red outline on focus
+   ───────────────────────────────────────────────*/
+
+   #selectcar,
+   #selectcar:hover,
+   #selectcar:focus,
+   #selectcar:active,
+   #selectcar.is-open{
+     border: 1px solid #000 !important;           /* always jet‑black */
+   }
+   
+   /* focus = black frame + red halo (no grey) */
+   #selectcar:focus{
+     box-shadow:
+       0 0 0 1px #000;                 /* preserves black edge */
+       /* 0 0 0 3px var(--clr-primary) !important;  */
+     outline: none;
+   }
+   
+
+/* 2️⃣  Options inside the dropdown */
+#selectcar option{
+  background:#fff;                   /* white menu background */
+  color:#000;                        /* enabled items black */
+}
+#selectcar option[disabled],
+#selectcar option[hidden]{
+  color:#9ca3af;                     /* placeholder stays grey */
+}
+
+  /* ───────────────────────────────────────────────
+   SELECT CAR ▸ faster chevron slide / fade‑out
+   ───────────────────────────────────────────────*/
+
+/* 1️⃣  Unified transition timing for this element */
+#selectcar,
+#selectcar.is-open,
+#selectcar:not(.is-open){
+  transition:
+    background-position .18s ease-out,
+    background-size     .18s ease-out;
+}
+
+/* 2️⃣  When the list opens → arrow slides a shorter distance
+      and shrinks faster, so it’s invisible by the time it
+      aligns with the placeholder text                     */
+#selectcar.is-open{
+  background-position: left -1rem center; /* was -2rem */
+  background-size: 0 0;                   /* collapse quicker */
+}
+
+
+  #selectcar{
+    /* 1️⃣  Size & spacing */
+    height: 56px;                      /* taller than the other fields   */
+    padding: 12px 3rem 12px 15px;      /* extra right‑padding for arrow  */
+    font-size: 1rem;                   /* slightly larger text           */
+    line-height: 1.5;                  /* keeps text vertically centred  */
+  
+    /* 2️⃣  Arrow – bump size a bit for the taller field */
+    background-size: 14px 10px;
+  }
+  
+  /* 3️⃣  Keep grey border + suppress coloured focus ring */
+  
+  /* 3. Vertical rhythm for each row */
+  form .col-12{margin-bottom:1.25rem;}
+  form .col-12:last-of-type{margin-bottom:0;}   /* keep bottom flush */
+  
+  /* 4. Input‑group wrapper */
+  .input-group{
+    background:var(--clr-grey-100);
+    border-radius:var(--radius);
+    transition:box-shadow var(--trans);
+  }
+  .input-group:focus-within{
+    box-shadow:0 0 0 .3rem rgba(220,53,69,.15);
+  }
+  
+  /* 5. Icon‑label block  (first flex child) */
+  .input-group>.d-flex{
+    background:linear-gradient(135deg,var(--clr-grey-100) 0%,var(--clr-grey-200) 100%);
+    border:none;
+    border-radius:var(--radius) 0 0 var(--radius);
+    padding:.75rem .9rem;
+    min-width:125px;
+    font-weight:500;
+    font-size:.875rem;
+  }
+  .input-group .fas{
+    font-size:1.1rem;
+    margin-right:.4rem;
+    color:var(--clr-primary);
+  }
+  
+  /* 6. Controls beside the label block
+        (NB: we NEVER set background / background-image on .form-select,
+             so your red chevron remains intact)                 */
+  .input-group .form-control,
+  .input-group .form-select{
+    border-left:1px solid var(--clr-grey-200);
+    border-top:none;
+    border-right:none;
+    border-bottom:none;
+    border-radius:0 var(--radius) var(--radius) 0;
+    padding:.75rem 1rem;
+    min-height:48px;
+  }
+
+  .input-group .form-control:focus,
+.input-group .form-select:focus{
+  border-color: var(--clr-primary);  /* keeps red border */
+  outline: none;                     /* hide default outline */
+  box-shadow: none !important;       /* kill inner ring */
+}
+  .input-group .form-control{
+    background:transparent;
+  }
+  .input-group .form-control::placeholder{
+    color:#6c757d;
+    opacity:.9;
+  }
+
+  .input-group {
+    border: 1px solid #ced4da; /* light grey border (Bootstrap default) */
+    border-radius: var(--radius);
+    background-color: #fff;
+    overflow: hidden;          /* removes inner spacing glitches */
+  }
+  
+  /* Add divider between icon label and field */
+  .input-group > .d-flex {
+    border-right: 1px solid #ced4da;
+    background-color: #f8f9fa;
+  }
+  
+  /* Remove all internal borders so outer frame is full */
+  .input-group .form-control,
+  .input-group .form-select {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none !important;
+  }
+  
+  /* Optional: keep red glow on focus */
+  .input-group:focus-within {
+    border-color: var(--select-arrow-red);
+    box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .15);
+  }
+
+  /* 1. Give both controls equal flex share */
+.input-group input[type="date"],
+.input-group input[type="date"] + .form-select {
+  flex: 1 1 0;         /* grow + shrink equally */
+  min-width: 0;        /* prevent overflow */
+  width: 1%;           /* IE / old Edge quirk fix */
+}
+
+/* 2. Remove the Bootstrap .ms‑3 margin that skews width */
+.input-group .form-select.ms-3 { margin-left: 0 !important; }
+
+/* 3. Optional: thin divider between date & time fields */
+.input-group input[type="date"] {
+  border-right: 1px solid #ced4da; /* light grey line */
+}
+
+
+  .input-group input[type="date"]{
+    border-right: 1px solid #ced4da !important;   /* visible in rest state */
+  }
+  
+  /* 2️⃣  when the row is focused (either half), tint it red */
+  .input-group:focus-within input[type="date"]{
+    border-right-color: var(--clr-primary) !important;  /* or var(--select-arrow-red) */
+  }
+  .input-group .form-control:focus,
+  .input-group .form-select:focus{
+    border-color:var(--clr-primary);
+    box-shadow:0 0 0 .25rem rgba(220,53,69,.25);
+  }
+  
+  /* 7. Time select width */
+  .input-group .form-select{
+    width:auto;
+    min-width:110px;
+  }
+  
+  /* 8. Date picker accent colour (Chrome/Edge‑only) */
+  input[type="date"]{accent-color:var(--clr-primary);}
+  
+  /* 9. “Different drop‑off location” link */
+  form a.text-start{
+    font-size:.875rem;
+    color:var(--clr-primary) !important;
+    text-decoration:underline;
+    transition:color var(--trans);
+  }
+  form a.text-start:hover{
+    color:var(--clr-primary-dark);
+    text-decoration:none;
+  }
+  
+  button.btn-light:hover{
+    background:var(--clr-primary-dark);
+    transform:translateY(-2px);
+  }
+  
+  /* 11. Back‑to‑top FAB keeps clear of form */
+  a.back-to-top{
+    position:fixed;
+    right:1.5rem;
+    bottom:1.5rem;
+    z-index:999;
+  }
+
+  :root{ --city-field-h: 40px; }
+
+/* 1️⃣  Base input box: keep existing row height */
+.input-group input[type="text"]{
+  height: var(--city-field-h) !important;
+  padding-top: 0 !important;                /* no extra padding */
+  padding-bottom: 0 !important;
+}
+
+/* 2️⃣  Vertically centre + style the placeholder
+      — works across all modern browsers */
+.input-group input[type="text"]::placeholder,
+.input-group input[type="text"]::-webkit-input-placeholder,
+.input-group input[type="text"]::-moz-placeholder,
+.input-group input[type="text"]:-ms-input-placeholder,
+.input-group input[type="text"]::-ms-input-placeholder{
+  line-height: var(--city-field-h);         /* puts text dead‑centre */
+  color: #9ca3af;                           /* soft grey (tailwind slate‑400) */
+  font-style: italic;                       /* visual hint it's a placeholder */
+  text-align: left;                         /* keep normal left alignment */
+  opacity: .9;                              /* slightly lighter than real text */
+}
+
+/* 3️⃣  Optional: fade placeholder further when the field gains focus */
+.input-group input[type="text"]:focus::placeholder{
+  opacity: .35;
+}
+  
+  /* 12. Mobile tweak — hide icon label to save width */
+  @media (max-width:576px){
+    .input-group>.d-flex{display:none;}
+    .input-group .form-control,
+    .input-group .form-select{
+      border-left:1px solid var(--clr-grey-200);
+      border-radius:var(--radius);
+    }
+    .input-group{display:block;}
+  }
+  
+  #selectcar.form-select:focus,
+#selectcar.form-select:focus-visible {     /* Chrome/Edge accessibility */
+  border-color: #000 !important;           /* jet‑black all four sides  */
+  /* outline: none !important;               no extra UA outline       */
+}
+
+.input-group #selectcar {                  
+  border-left-color: #000 !important;     
+}

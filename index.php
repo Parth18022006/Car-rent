@@ -99,7 +99,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <a  class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index.php');?>">Book Now</a>
+                                                <a  class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index');?>">Book Now</a>
                                             </div>
                                         </div>
                                     </form>
@@ -126,7 +126,6 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                     <form>
                                         <div class="row g-3">
                                             <div class="col-12">
-                                                <select class="form-select" aria-label="Default select example">
                                                 <option value="" disabled selected hidden>Select Car</option>
                                                     <?php
                                                     if (count($row) > 0) {
@@ -196,7 +195,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index.php');?>">Book Now</a>
+                                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index');?>">Book Now</a>
                                             </div>
                                         </div>
                                     </form>

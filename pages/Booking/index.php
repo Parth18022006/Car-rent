@@ -96,7 +96,7 @@ include pathof('./include/nav.php');
                     <option value="2">2:00AM</option>
                     <option value="3">3:00AM</option>
                     <option value="4">4:00AM</option>
-                    <option value="5">5:00AM</o''[ption>
+                    <option value="5">5:00AM</option>
                     <option value="6">6:00AM</option>
                     <option value="7">7:00AM</option>
                 </select>

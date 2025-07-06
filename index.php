@@ -334,7 +334,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                             </div>
                         </div>
                         <div class="col-lg-5 d-flex align-items-center">
-                            <a href="#" class="btn btn-primary rounded py-3 px-5">More About Us</a>
+                            <a href="<?= urlof('./pages/Template pages/about');?>" class="btn btn-primary rounded py-3 px-5">More About Us</a>
                         </div>
                         <div class="col-lg-7">
                             <div class="d-flex align-items-center">
@@ -607,7 +607,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         </div>
                         <a href="#" class="h4 d-block mb-3">Rental Cars how to check driving fines?</a>
                         <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="#" class="">Read More <i class="fa fa-arrow-right"></i></a>
+                        <a href="<?= urlof('./pages/Template pages/blog');?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -624,7 +624,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         </div>
                         <a href="#" class="h4 d-block mb-3">Rental cost of sport and other cars</a>
                         <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="#" class="">Read More <i class="fa fa-arrow-right"></i></a>
+                        <a href="<?= urlof('./pages/Template pages/blog');?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -641,7 +641,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         </div>
                         <a href="#" class="h4 d-block mb-3">Document required for car rental</a>
                         <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="#" class="">Read More <i class="fa fa-arrow-right"></i></a>
+                        <a href="<?= urlof('./pages/Template pages/blog');?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -661,7 +661,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                 <p class="text-white">Don't hesitate and send us a message.</p>
                 <div class="banner-btn">
                     <a href="#" class="btn btn-secondary rounded-pill py-3 px-4 px-md-5 me-2">WhatchApp</a>
-                    <a href="#" class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2">Contact Us</a>
+                    <a href="<?= urlof('./pages/Template pages/contact');?>" class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2">Contact Us</a>
                 </div>
             </div>
         </div>

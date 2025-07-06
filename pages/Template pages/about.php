@@ -67,7 +67,7 @@ include pathof('include/nav.php');
                                     </div>
                                 </div>
                                 <div class="col-lg-5 d-flex align-items-center">
-                                    <a href="#" class="btn btn-primary rounded py-3 px-5">More About Us</a>
+                                    <a href="<?= urlof('./pages/Template pages/about');?>" class="btn btn-primary rounded py-3 px-5">More About Us</a>
                                 </div>
                                 <div class="col-lg-7">
                                     <div class="d-flex align-items-center">
@@ -350,7 +350,7 @@ include pathof('include/nav.php');
                         <p class="text-white">Don't hesitate and send us a message.</p>
                         <div class="banner-btn">
                             <a href="#" class="btn btn-secondary rounded-pill py-3 px-4 px-md-5 me-2">WhatchApp</a>
-                            <a href="#" class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2">Contact Us</a>
+                            <a href = "<?= urlof('./pages/Template pages/contact');?>" class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2">Contact Us</a>
                         </div>
                     </div>
                 </div>

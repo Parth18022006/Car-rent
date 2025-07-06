@@ -18,6 +18,7 @@ $stmt2->execute();
 $user = $stmt2->fetch(PDO::FETCH_ASSOC);
 
 $email = $_SESSION['email'] ?? null;
+$selectedCarId = $_GET['car'] ?? null; 
 
 $url = urlof('pages/User/login');
 if (!isset($_SESSION['user'])) {
@@ -33,12 +34,12 @@ include pathof('./include/nav.php');
     <h4>CAR RESERVATION</h4>
     <div class="col-12">
         <select class="form-select" placeholder="Default select example" id="selectcar">
-            <option value="" disabled selected hidden>Select Car</option>
+            <option value="" disabled <?= $selectedCarId ? '' : 'selected'; ?> hidden>Select Car</option>
             <?php
             if (count($row) > 0) {
                 foreach ($row as $r) {
             ?>
-                    <option value="<?= $r['id'] ?>"><?= $r['name'] ?></option>
+                    <option value="<?= $r['id'] ?>"<?= ($r['id'] == $selectedCarId)? 'selected' : '';?>><?= $r['name'] ?></option>
                 <?php
                 }
             } else {
@@ -164,6 +165,22 @@ include pathof('./include/footer.php');
     dropoft.addEventListener('blur', () => {
         dropoft.classList.remove('is-open');
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const carId  = params.get('car');          // "3" or null
+
+  if (carId) {
+    /* 1) Pre‑select the dropdown (you already do this server‑side,
+          but this covers a JS‑only variant too) */
+    const select = document.getElementById('selectcar');
+    if (select)  select.value = carId;
+
+    /* 2) Remove ?car=... from the address bar without reloading */
+    const cleanUrl = window.location.pathname + window.location.hash;
+    history.replaceState(null, '', cleanUrl);
+  }
+});
 </script>
 <?php
 include pathof('./include/script.php');

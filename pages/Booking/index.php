@@ -10,6 +10,13 @@ $stmt->execute();
 
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$q1 = "SELECT * FROM `user`";
+
+$stmt2 = $conn->prepare($q1);
+$stmt2->execute();
+
+$user = $stmt2->fetch(PDO::FETCH_ASSOC);
+
 $url = urlof('pages/User/login');
 if (!isset($_SESSION['user'])) {
     header("Location: $url");
@@ -38,6 +45,8 @@ include pathof('./include/nav.php');
             }
             ?>
         </select>
+        <input type="number" name="pnum" id="pnum" placeholder="Enter Mobile Number">
+        <input type="email" name="email" id="email" placeholder="Enter Your E-Mail" value="<?= $user['email']?>">
         <div class="col-12">
             <div class="input-group">
                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">

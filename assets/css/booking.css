@@ -154,6 +154,51 @@
   form .col-12{margin-bottom:1.25rem;}
   form .col-12:last-of-type{margin-bottom:0;}   /* keep bottom flush */
   
+
+  /* ───────────────────────────────────────────────
+   PHONE & E‑MAIL  – match “Select Car” style
+   (stand‑alone fields, no chevron)
+   ───────────────────────────────────────────────*/
+
+/* 1️⃣  Base look */
+#pnum,
+#email{
+  width: 100%;
+  height: 56px;                       /* same as #selectcar */
+  padding: 12px 15px;                 /* align text nicely */
+  margin-bottom: 1.25rem;             /* keeps vertical rhythm */
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid #000 !important;  /* jet‑black border */
+  border-radius: var(--radius);
+  box-shadow: none !important;        /* hide Bootstrap’s glow */
+  transition: box-shadow var(--trans), border-color var(--trans);
+}
+
+/* 2️⃣  Placeholder tone */
+#pnum::placeholder,
+#email::placeholder{
+  color: #6c757d;   /* same grey you use elsewhere */
+  opacity: .9;
+}
+
+/* 3️⃣  Focus state – keep black frame (optional subtle halo) */
+#pnum:focus,
+#email:focus{
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 .25rem rgba(0,0,0,.10);
+}
+
+/* 4️⃣  Remove spinners from phone/number field (Chrome) */
+#pnum::-webkit-inner-spin-button,
+#pnum::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
   /* 4. Input‑group wrapper */
   .input-group{
     background:var(--clr-grey-100);

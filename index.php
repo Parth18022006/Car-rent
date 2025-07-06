@@ -92,14 +92,14 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                                         <option value="2">2:00AM</option>
                                                         <option value="3">3:00AM</option>
                                                         <option value="4">4:00AM</option>
-                                                        <option value="5">5:00AM</o''[ption>
+                                                        <option value="5">5:00AM</option>
                                                         <option value="6">6:00AM</option>
                                                         <option value="7">7:00AM</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index');?>">Book Now</a>
+                                                <a class="btn btn-light w-100 py-2" href="#ourcars">Book Now</a>
                                             </div>
                                         </div>
                                     </form>
@@ -126,19 +126,20 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                     <form>
                                         <div class="row g-3">
                                             <div class="col-12">
+                                            <select class="form-select" aria-label="Default select example">
                                                 <option value="" disabled selected hidden>Select Car</option>
-                                                    <?php
-                                                    if (count($row) > 0) {
-                                                        foreach ($row as $r) {
-                                                    ?>
-                                                            <option value="<?= $r['id'] ?>"><?= $r['name'] ?></option>
-                                                        <?php
-                                                        }
-                                                    } else {
-                                                        ?><option value="">No Records</option>
+                                                <?php
+                                                if (count($row) > 0) {
+                                                    foreach ($row as $r) {
+                                                ?>
+                                                        <option value="<?= $r['id'] ?>"><?= $r['name'] ?></option>
                                                     <?php
                                                     }
-                                                    ?>
+                                                } else {
+                                                    ?><option value="">No Records</option>
+                                                <?php
+                                                }
+                                                ?>
                                                 </select>
                                             </div>
                                             <div class="col-12">
@@ -195,7 +196,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index');?>">Book Now</a>
+                                                <a class="btn btn-light w-100 py-2" href="#ourcars">Book Now</a>
                                             </div>
                                         </div>
                                     </form>
@@ -334,7 +335,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                             </div>
                         </div>
                         <div class="col-lg-5 d-flex align-items-center">
-                            <a href="<?= urlof('./pages/Template pages/about');?>" class="btn btn-primary rounded py-3 px-5">More About Us</a>
+                            <a href="<?= urlof('./pages/Template pages/about'); ?>" class="btn btn-primary rounded py-3 px-5">More About Us</a>
                         </div>
                         <div class="col-lg-7">
                             <div class="d-flex align-items-center">
@@ -496,7 +497,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
             <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
             </p>
         </div>
-        <div class="categories-carousel owl-carousel wow fadeInUp" data-wow-delay="0.1s">
+        <div class="categories-carousel owl-carousel wow fadeInUp" id="ourcars" data-wow-delay="0.1s">
             <?php
             if (count($row) > 0) {
                 foreach ($row as $r) {
@@ -535,7 +536,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                         <i class="fa fa-cogs text-dark"></i> <span class="text-body ms-1">AUTO</span>
                                     </div>
                                 </div>
-                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index');?>">Book Now</a>
+                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index'); ?>">Book Now</a>
                             </div>
                         </div>
                     </div>
@@ -543,8 +544,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                 }; ?>
             <?php  } else {
             ?><p>No record</p><?php
-                            }
-                                ?>
+                                }
+                                    ?>
         </div>
     </div>
 </div>
@@ -607,7 +608,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         </div>
                         <a href="#" class="h4 d-block mb-3">Rental Cars how to check driving fines?</a>
                         <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="<?= urlof('./pages/Template pages/blog');?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
+                        <a href="<?= urlof('./pages/Template pages/blog'); ?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -624,7 +625,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         </div>
                         <a href="#" class="h4 d-block mb-3">Rental cost of sport and other cars</a>
                         <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="<?= urlof('./pages/Template pages/blog');?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
+                        <a href="<?= urlof('./pages/Template pages/blog'); ?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -641,7 +642,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         </div>
                         <a href="#" class="h4 d-block mb-3">Document required for car rental</a>
                         <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                        <a href="<?= urlof('./pages/Template pages/blog');?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
+                        <a href="<?= urlof('./pages/Template pages/blog'); ?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -661,7 +662,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                 <p class="text-white">Don't hesitate and send us a message.</p>
                 <div class="banner-btn">
                     <a href="#" class="btn btn-secondary rounded-pill py-3 px-4 px-md-5 me-2">WhatchApp</a>
-                    <a href="<?= urlof('./pages/Template pages/contact');?>" class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2">Contact Us</a>
+                    <a href="<?= urlof('./pages/Template pages/contact'); ?>" class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -834,6 +835,25 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
 include pathof('include/footer.php');
 ?>
 
+<script>
+// 1. Cache the target element
+const target = document.getElementById('ourcars');
+
+// 2. Attach once to every “Book Now” button that points to #ourcars
+document.querySelectorAll('a[href="#ourcars"]').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();                     // stop the hash from hitting the URL
+    target.scrollIntoView({                 // smooth‑scroll down
+      behavior: 'smooth',
+      block: 'start'
+    });
+    // 3. Optional: remove any hash the user might paste in manually
+    if (history.replaceState) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  });
+});
+</script>
 
 
 <!-- Back to Top -->

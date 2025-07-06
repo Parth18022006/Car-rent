@@ -536,7 +536,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                         <i class="fa fa-cogs text-dark"></i> <span class="text-body ms-1">AUTO</span>
                                     </div>
                                 </div>
-                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index'); ?>">Book Now</a>
+                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index') . '?car=' . $r['id']; ?>">Book Now</a>
                             </div>
                         </div>
                     </div>

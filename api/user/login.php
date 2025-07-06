@@ -15,10 +15,12 @@ $stmt->execute($param);
 
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if($user > 0){
-    echo json_encode(['success' => true, 'user' => $user]);
+if($user){
     $_SESSION['loggedIn'] = true;
     $_SESSION['user'] = $user['id'];
+    $_SESSION['email'] = $user['email'];
+    echo json_encode(['success' => true, 'user' => $user]);
+    exit;
 }else{
 
     

@@ -268,6 +268,37 @@ form label{
   color:#000 !important;          /* jet‑black across the board */
 }
 
+.custom-select.form-select{
+  appearance:none;
+  /*  reserve space for arrow  */
+  padding-right:2.5rem;
+
+  /* border + height */
+  height:56px;                       /* or whatever you chose */
+  border:1px solid #000 !important;
+
+  background:url("data:image/svg+xml,%3Csvg …%3E") no-repeat right .9rem center;
+  background-size:.65rem;
+}
+
+/* arrow hidden while list is open */
+.custom-select.is-open{
+  background-image:none;
+}
+
+.custom-select:focus,
+.custom-select:focus-visible{
+  border-color:#000 !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
+
+.input-group .custom-select{
+  border-left-color:#000 !important;
+}
+
+
+
   .input-group {
     border: 1px solid #ced4da; /* light grey border (Bootstrap default) */
     border-radius: var(--radius);

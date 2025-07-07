@@ -1,262 +1,240 @@
-/* ───────────────────────────────────────────────
-   BOOKING • inner‑form redesign
-   (does NOT alter your select‑arrow rules)
-   ───────────────────────────────────────────────*/
+/* ─────────────────────────────
+   Theme Tokens
+───────────────────────────── */
+:root {
+  --clr-primary: #dc3545;
+  --clr-primary-dark: #b42d3e;
+  --clr-grey-100: #f8f9fa;
+  --clr-grey-200: #e9ecef;
+  --radius: .75rem;
+  --trans: .2s ease;
+  --outline-thick: 2px;
+  --city-field-h: 40px;
+}
 
-/* 0. Theme tokens — tweak once here */
-:root{
-    --clr-primary: #dc3545;          /* same red as the arrow */
-    --clr-primary-dark:#b42d3e;
-    --clr-grey-100:#f8f9fa;
-    --clr-grey-200:#e9ecef;
-    --radius: .75rem;
-    --trans: .2s ease;
-  }
-  
-  /* 1. Form card — spacing already set earlier; add subtle flair */
-  form{
-    background:#fff;
-    border-radius:var(--radius);
-    box-shadow:0 12px 24px -6px rgba(0,0,0,.08);
-  }
-  
-  /* 2. Heading */
-  form h4{
-    text-align:center;
-    font-weight:600;
-    margin-bottom:1.75rem;
-    color:var(--bs-dark);
-  }
+/* ─────────────────────────────
+   Form Basics
+───────────────────────────── */
+form {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+}
 
-  select.form-select{
-    /* red SVG chevron (same shade as --clr-primary) */
-    background-image:
-      url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23dc3545' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='1 1 6 6 11 1'/%3e%3c/svg%3e"),
-      none !important;                 /* wipes Bootstrap’s grey layer */
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 12px 8px;
-    padding-right: 2.5rem;             /* keeps room for the icon */
-  
-    /* smooth motion */
-    transition:
-      background-position .35s var(--trans),
-      background-size     .35s var(--trans);
-  }
-  
-  /* 2️⃣  While the drop‑down is OPEN → arrow slides away & fades */
-  select.form-select.is-open{
-    background-position: left -2rem center;  /* slides off‑stage */
-    background-size: 0 0;                    /* shrinks → fade */
-  }
-  
-  /* 3️⃣  When the list is CLOSED (default) → arrow back in place */
-  select.form-select:not(.is-open){
-    background-position: right 1rem center;
-    background-size: 12px 8px;
-  }
+form h4 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1.75rem;
+  color: var(--bs-dark);
+}
 
-  /* ───────────────────────────────────────────────
-   BLACK BORDER + CRISP, FULL‑RED OUTLINE
-   (no transparency)
-   ───────────────────────────────────────────────*/
+form .col-12 {
+  margin-bottom: 1.25rem;
+}
+form .col-12:last-of-type {
+  margin-bottom: 0;
+}
 
-/* token for outline thickness: tweak to 2 px or 3 px if you prefer */
-:root { --outline-thick: 2px; }
-
-/* 1️⃣  Row groups */
-.input-group{
+/* ─────────────────────────────
+   Select Styling (Generic + #selectcar)
+───────────────────────────── */
+select.form-select,
+#selectcar {
+  height: 56px;
+  padding: 12px 3rem 12px 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #000 !important;
+  background-color: #fff !important;
   border: 1px solid #000 !important;
-}
-/* ───────────────────────────────────────────────
-   SELECT‑CAR  • keep white field + black text
-                (field & dropdown options)
-   ───────────────────────────────────────────────*/
-
-/* 1️⃣  The closed field itself */
-#selectcar,
-#selectcar:hover,
-#selectcar:focus,
-#selectcar:active,
-#selectcar.is-open{
-  background-color:#fff !important;  /* never turns grey */
-  color:#000 !important;             /* label text always black */
-}
-
-/* ───────────────────────────────────────────────
-   FINAL FIX ▸ keep black frame on “Select Car”
-               + crisp red outline on focus
-   ───────────────────────────────────────────────*/
-
-   #selectcar,
-   #selectcar:hover,
-   #selectcar:focus,
-   #selectcar:active,
-   #selectcar.is-open{
-     border: 1px solid #000 !important;           /* always jet‑black */
-   }
-   
-   /* focus = black frame + red halo (no grey) */
-   #selectcar:focus{
-     box-shadow:
-       0 0 0 1px #000;                 /* preserves black edge */
-       /* 0 0 0 3px var(--clr-primary) !important;  */
-     outline: none;
-   }
-   
-
-/* 2️⃣  Options inside the dropdown */
-#selectcar option{
-  background:#fff;                   /* white menu background */
-  color:#000;                        /* enabled items black */
-}
-#selectcar option[disabled],
-#selectcar option[hidden]{
-  color:#9ca3af;                     /* placeholder stays grey */
-}
-
-  /* ───────────────────────────────────────────────
-   SELECT CAR ▸ faster chevron slide / fade‑out
-   ───────────────────────────────────────────────*/
-
-/* 1️⃣  Unified transition timing for this element */
-#selectcar,
-#selectcar.is-open,
-#selectcar:not(.is-open){
+  border-radius: var(--radius);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23dc3545' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='1 1 6 6 11 1'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 14px 10px;
+  padding-right: 2.5rem;
   transition:
     background-position .18s ease-out,
-    background-size     .18s ease-out;
+    background-size .18s ease-out;
 }
 
-/* 2️⃣  When the list opens → arrow slides a shorter distance
-      and shrinks faster, so it’s invisible by the time it
-      aligns with the placeholder text                     */
-#selectcar.is-open{
-  background-position: left -1rem center; /* was -2rem */
-  background-size: 0 0;                   /* collapse quicker */
+/* Arrow fade-out animation */
+select.form-select.is-open,
+#selectcar.is-open {
+  background-position: left -1rem center;
+  background-size: 0 0;
 }
 
+select.form-select:not(.is-open),
+#selectcar:not(.is-open) {
+  background-position: right 1rem center;
+  background-size: 14px 10px;
+}
 
-  #selectcar{
-    /* 1️⃣  Size & spacing */
-    height: 56px;                      /* taller than the other fields   */
-    padding: 12px 3rem 12px 15px;      /* extra right‑padding for arrow  */
-    font-size: 1rem;                   /* slightly larger text           */
-    line-height: 1.5;                  /* keeps text vertically centred  */
-  
-    /* 2️⃣  Arrow – bump size a bit for the taller field */
-    background-size: 14px 10px;
-  }
-  
-  /* 3️⃣  Keep grey border + suppress coloured focus ring */
-  
-  /* 3. Vertical rhythm for each row */
-  form .col-12{margin-bottom:1.25rem;}
-  form .col-12:last-of-type{margin-bottom:0;}   /* keep bottom flush */
-  
+/* Focus */
+#selectcar:focus,
+#selectcar.form-select:focus,
+#selectcar.form-select:focus-visible {
+  border-color: #000 !important;
+  box-shadow: 0 0 0 1px #000;
+  outline: none;
+}
 
-  /* ───────────────────────────────────────────────
-   PHONE & E‑MAIL  – match “Select Car” style
-   (stand‑alone fields, no chevron)
-   ───────────────────────────────────────────────*/
+/* Dropdown options */
+#selectcar option {
+  background: #fff;
+  color: #000;
+}
+#selectcar option[disabled],
+#selectcar option[hidden] {
+  color: #9ca3af;
+}
 
-/* 1️⃣  Base look */
+/* ─────────────────────────────
+   Phone & Email Fields
+───────────────────────────── */
 #pnum,
-#email{
+#email {
   width: 100%;
-  height: 56px;                       /* same as #selectcar */
-  padding: 12px 15px;                 /* align text nicely */
-  margin-bottom: 1.25rem;             /* keeps vertical rhythm */
+  height: 56px;
+  padding: 12px 15px;
+  margin-bottom: 1.25rem;
   background: #fff;
   color: #000;
   font-size: 1rem;
   line-height: 1.5;
-  border: 1px solid #000 !important;  /* jet‑black border */
+  border: 1px solid #000 !important;
   border-radius: var(--radius);
-  box-shadow: none !important;        /* hide Bootstrap’s glow */
+  box-shadow: none !important;
   transition: box-shadow var(--trans), border-color var(--trans);
 }
 
-/* 2️⃣  Placeholder tone */
 #pnum::placeholder,
-#email::placeholder{
-  color: #6c757d;   /* same grey you use elsewhere */
+#email::placeholder {
+  color: #6c757d;
   opacity: .9;
 }
 
-/* 3️⃣  Focus state – keep black frame (optional subtle halo) */
 #pnum:focus,
-#email:focus{
+#email:focus {
   outline: none;
   border-color: #000;
-  box-shadow: 0 0 0 .25rem rgba(0,0,0,.10);
+  box-shadow: 0 0 0 .25rem rgba(0, 0, 0, .10);
 }
 
-/* 4️⃣  Remove spinners from phone/number field (Chrome) */
 #pnum::-webkit-inner-spin-button,
-#pnum::-webkit-outer-spin-button{
+#pnum::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-  /* 4. Input‑group wrapper */
-  .input-group{
-    background:var(--clr-grey-100);
-    border-radius:var(--radius);
-    transition:box-shadow var(--trans);
-  }
-  .input-group:focus-within{
-    box-shadow:0 0 0 .3rem rgba(220,53,69,.15);
-  }
-  
-  /* 5. Icon‑label block  (first flex child) */
-  .input-group>.d-flex{
-    background:linear-gradient(135deg,var(--clr-grey-100) 0%,var(--clr-grey-200) 100%);
-    border:none;
-    border-radius:var(--radius) 0 0 var(--radius);
-    padding:.75rem .9rem;
-    min-width:125px;
-    font-weight:500;
-    font-size:.875rem;
-  }
-  .input-group .fas{
-    font-size:1.1rem;
-    margin-right:.4rem;
-    color:var(--clr-primary);
-  }
-  
-  /* 6. Controls beside the label block
-        (NB: we NEVER set background / background-image on .form-select,
-             so your red chevron remains intact)                 */
-  .input-group .form-control,
-  .input-group .form-select{
-    border-left:1px solid var(--clr-grey-200);
-    border-top:none;
-    border-right:none;
-    border-bottom:none;
-    border-radius:0 var(--radius) var(--radius) 0;
-    padding:.75rem 1rem;
-    min-height:48px;
-  }
-
-  .input-group .form-control:focus,
-.input-group .form-select:focus{
-  border-color: var(--clr-primary);  /* keeps red border */
-  outline: none;                     /* hide default outline */
-  box-shadow: none !important;       /* kill inner ring */
+/* ─────────────────────────────
+   Input Groups
+───────────────────────────── */
+.input-group {
+  background: var(--clr-grey-100);
+  border-radius: var(--radius);
+  border: 1px solid #ced4da;
+  transition: box-shadow var(--trans);
+  overflow: hidden;
 }
-  .input-group .form-control{
-    background:transparent;
-  }
-  .input-group .form-control::placeholder{
-    color:#6c757d;
-    opacity:.9;
-  }
+.input-group:focus-within {
+  box-shadow: 0 0 0 .3rem rgba(220, 53, 69, .15);
+  border-color: var(--clr-primary);
+}
+.input-group>.d-flex {
+  background: linear-gradient(135deg, var(--clr-grey-100) 0%, var(--clr-grey-200) 100%);
+  border-right: 1px solid #ced4da;
+  padding: .75rem .9rem;
+  min-width: 125px;
+  font-weight: 500;
+  font-size: .875rem;
+}
+.input-group .fas {
+  font-size: 1.1rem;
+  margin-right: .4rem;
+  color: var(--clr-primary);
+}
+.input-group .form-control,
+.input-group .form-select {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none !important;
+  padding: .75rem 1rem;
+  min-height: 48px;
+}
+.input-group .form-select {
+  width: auto;
+  min-width: 110px;
+}
+.input-group .form-control:focus,
+.input-group .form-select:focus {
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 0 .25rem rgba(220, 53, 69, .25);
+  outline: none;
+}
+.input-group .form-control::placeholder {
+  color: #6c757d;
+  opacity: .9;
+}
+.input-group input[type="date"] {
+  border-right: 1px solid #ced4da !important;
+  flex: 1 1 0;
+  min-width: 0;
+  width: 1%;
+}
+.input-group input[type="date"]:focus {
+  border-right-color: var(--clr-primary) !important;
+}
+.input-group .form-select.ms-3 {
+  margin-left: 0 !important;
+}
 
-  /* ───────────────────────────────────────────────
-   GLOBAL OVERRIDE  – force black text everywhere
-   (keeps icons / arrows red)
-   ───────────────────────────────────────────────*/
+/* Text input styling (city) */
+.input-group input[type="text"] {
+  height: var(--city-field-h) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.input-group input[type="text"]::placeholder {
+  line-height: var(--city-field-h);
+  color: #9ca3af;
+  font-style: italic;
+  text-align: left;
+  opacity: .9;
+}
+.input-group input[type="text"]:focus::placeholder {
+  opacity: .35;
+}
+
+/* ─────────────────────────────
+   Custom Select
+───────────────────────────── */
+.custom-select.form-select {
+  appearance: none;
+  height: 56px;
+  padding-right: 2.5rem;
+  border: 1px solid #000 !important;
+  background: url("data:image/svg+xml,%3Csvg …%3E") no-repeat right .9rem center;
+  background-size: .65rem;
+}
+.custom-select.is-open {
+  background-image: none;
+}
+.custom-select:focus,
+.custom-select:focus-visible {
+  border-color: #000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.input-group .custom-select {
+  border-left-color: #000 !important;
+}
+
+/* ─────────────────────────────
+   Misc
+───────────────────────────── */
 form input,
 form select,
 form option,
@@ -264,179 +242,114 @@ form textarea,
 form .form-control,
 form .form-select,
 form .input-group > .d-flex,
-form label{
-  color:#000 !important;          /* jet‑black across the board */
+form label {
+  color: #000 !important;
 }
 
-.custom-select.form-select{
-  appearance:none;
-  /*  reserve space for arrow  */
-  padding-right:2.5rem;
-
-  /* border + height */
-  height:56px;                       /* or whatever you chose */
-  border:1px solid #000 !important;
-
-  background:url("data:image/svg+xml,%3Csvg …%3E") no-repeat right .9rem center;
-  background-size:.65rem;
+input[type="date"] {
+  accent-color: var(--clr-primary);
 }
 
-/* arrow hidden while list is open */
-.custom-select.is-open{
-  background-image:none;
+form a.text-start {
+  font-size: .875rem;
+  color: var(--clr-primary) !important;
+  text-decoration: underline;
+  transition: color var(--trans);
+}
+form a.text-start:hover {
+  color: var(--clr-primary-dark);
+  text-decoration: none;
 }
 
-.custom-select:focus,
-.custom-select:focus-visible{
-  border-color:#000 !important;
-  outline:none !important;
-  box-shadow:none !important;
+button.btn-light:hover {
+  background: var(--clr-primary-dark);
+  transform: translateY(-2px);
 }
 
-.input-group .custom-select{
-  border-left-color:#000 !important;
+a.back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 999;
 }
 
-
-
-  .input-group {
-    border: 1px solid #ced4da; /* light grey border (Bootstrap default) */
-    border-radius: var(--radius);
-    background-color: #fff;
-    overflow: hidden;          /* removes inner spacing glitches */
+/* Mobile */
+@media (max-width: 576px) {
+  .input-group>.d-flex {
+    display: none;
   }
-  
-  /* Add divider between icon label and field */
-  .input-group > .d-flex {
-    border-right: 1px solid #ced4da;
-    background-color: #f8f9fa;
-  }
-  
-  /* Remove all internal borders so outer frame is full */
   .input-group .form-control,
   .input-group .form-select {
-    border: none;
-    border-radius: 0;
-    background-color: transparent;
-    box-shadow: none !important;
+    border-left: 1px solid var(--clr-grey-200);
+    border-radius: var(--radius);
   }
-  
-  /* Optional: keep red glow on focus */
-  .input-group:focus-within {
-    border-color: var(--select-arrow-red);
-    box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .15);
+  .input-group {
+    display: block;
   }
+}
+/* ───────────────────────────────────────────────
+   DROP‑OFF & PICK‑UP  • remove inner border
+   (keeps subtle divider, arrow & animation)
+   ───────────────────────────────────────────────*/
 
-  /* 1. Give both controls equal flex share */
-.input-group input[type="date"],
-.input-group input[type="date"] + .form-select {
-  flex: 1 1 0;         /* grow + shrink equally */
-  min-width: 0;        /* prevent overflow */
-  width: 1%;           /* IE / old Edge quirk fix */
+/* 1️⃣  Generic: every <select> inside .input-group EXCEPT #selectcar */
+.input-group select.form-select:not(#selectcar),
+.input-group select.custom-select:not(#selectcar) {
+  border: none !important;                  /* kill black frame  */
+  border-left: 1px solid var(--clr-grey-200) !important; /* thin divider */
+  border-radius: 0 !important;
+  background-color: transparent;
+  box-shadow: none !important;
+  padding-left: 1rem;                       /* keep text aligned */
 }
 
-/* 2. Remove the Bootstrap .ms‑3 margin that skews width */
-.input-group .form-select.ms-3 { margin-left: 0 !important; }
+/*  */
+/* ───────────────────────────────────────────────
+   TIME SELECT  • match light‑grey row background
+   (override earlier “white” !important)
+   ───────────────────────────────────────────────*/
+   .input-group select.form-select:not(#selectcar),
+   .input-group select.custom-select:not(#selectcar) {
+     background-color: transparent !important;   /* let row’s grey show */
+   }
+   
+   /* Optional: also make the companion <input type="date"> transparent
+      so date & time boxes share the same grey */
+   .input-group input[type="date"] {
+     background-color: transparent !important;
+   }
+   /* Unify placeholder colour across the form */
+form ::placeholder{
+  color:#000 !important;   /* jet‑black like the field text */
+  opacity:.85;             /* tweak to taste, 1 = solid */
+}
+/* ───────────────────────────────────────────────
+   GLOBAL “NO‑RED” PATCH
+   Removes every red border / glow on focus
+   ───────────────────────────────────────────────*/
 
-/* 3. Optional: thin divider between date & time fields */
-.input-group input[type="date"] {
-  border-right: 1px solid #ced4da; /* light grey line */
+/* 1️⃣  Kill the red frame + glow added by .input-group */
+.input-group:focus-within {
+  border-color: #ced4da !important;        /* Bootstrap’s light grey */
+  box-shadow: none !important;             /* no coloured halo        */
 }
 
-
-  .input-group input[type="date"]{
-    border-right: 1px solid #ced4da !important;   /* visible in rest state */
-  }
-  
-  /* 2️⃣  when the row is focused (either half), tint it red */
-  .input-group:focus-within input[type="date"]{
-    border-right-color: var(--clr-primary) !important;  /* or var(--select-arrow-red) */
-  }
-  .input-group .form-control:focus,
-  .input-group .form-select:focus{
-    border-color:var(--clr-primary);
-    box-shadow:0 0 0 .25rem rgba(220,53,69,.25);
-  }
-  
-  /* 7. Time select width */
-  .input-group .form-select{
-    width:auto;
-    min-width:110px;
-  }
-  
-  /* 8. Date picker accent colour (Chrome/Edge‑only) */
-  input[type="date"]{accent-color:var(--clr-primary);}
-  
-  /* 9. “Different drop‑off location” link */
-  form a.text-start{
-    font-size:.875rem;
-    color:var(--clr-primary) !important;
-    text-decoration:underline;
-    transition:color var(--trans);
-  }
-  form a.text-start:hover{
-    color:var(--clr-primary-dark);
-    text-decoration:none;
-  }
-  
-  button.btn-light:hover{
-    background:var(--clr-primary-dark);
-    transform:translateY(-2px);
-  }
-  
-  /* 11. Back‑to‑top FAB keeps clear of form */
-  a.back-to-top{
-    position:fixed;
-    right:1.5rem;
-    bottom:1.5rem;
-    z-index:999;
-  }
-
-  :root{ --city-field-h: 40px; }
-
-/* 1️⃣  Base input box: keep existing row height */
-.input-group input[type="text"]{
-  height: var(--city-field-h) !important;
-  padding-top: 0 !important;                /* no extra padding */
-  padding-bottom: 0 !important;
+/* 2️⃣  Neutral focus for every control INSIDE .input-group */
+.input-group .form-control:focus,
+.input-group .form-select:focus,
+.input-group input[type="date"]:focus {
+  border-color: #ced4da !important;        /* same light grey */
+  box-shadow: none !important;             /* kill red glow   */
+  outline: none !important;
 }
 
-/* 2️⃣  Vertically centre + style the placeholder
-      — works across all modern browsers */
-.input-group input[type="text"]::placeholder,
-.input-group input[type="text"]::-webkit-input-placeholder,
-.input-group input[type="text"]::-moz-placeholder,
-.input-group input[type="text"]:-ms-input-placeholder,
-.input-group input[type="text"]::-ms-input-placeholder{
-  line-height: var(--city-field-h);         /* puts text dead‑centre */
-  color: #9ca3af;                           /* soft grey (tailwind slate‑400) */
-  font-style: italic;                       /* visual hint it's a placeholder */
-  text-align: left;                         /* keep normal left alignment */
-  opacity: .9;                              /* slightly lighter than real text */
+/* 3️⃣  Neutral divider on the date field when the row is focused */
+.input-group:focus-within input[type="date"] {
+  border-right-color: #ced4da !important;  /* light grey line */
 }
 
-/* 3️⃣  Optional: fade placeholder further when the field gains focus */
-.input-group input[type="text"]:focus::placeholder{
-  opacity: .35;
-}
-  
-  /* 12. Mobile tweak — hide icon label to save width */
-  @media (max-width:576px){
-    .input-group>.d-flex{display:none;}
-    .input-group .form-control,
-    .input-group .form-select{
-      border-left:1px solid var(--clr-grey-200);
-      border-radius:var(--radius);
-    }
-    .input-group{display:block;}
-  }
-  
-  #selectcar.form-select:focus,
-#selectcar.form-select:focus-visible {     /* Chrome/Edge accessibility */
-  border-color: #000 !important;           /* jet‑black all four sides  */
-  /* outline: none !important;               no extra UA outline       */
-}
-
-.input-group #selectcar {                  
-  border-left-color: #000 !important;     
+/* 4️⃣  Safety‑net override for ANY form element */
+form :is(input, select, textarea, .form-control, .form-select):focus {
+  border-color: inherit !important;        /* keep whatever frame it had */
+  box-shadow: none !important;
 }

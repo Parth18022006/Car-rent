@@ -278,4 +278,27 @@ form select::-ms-expand { display: none; }
   
     input[type="button"] { padding: 11px 22px; font-size: .95rem; }
   }
-  
+  /* ───────────────────────────────────────────────
+   REG FORM • Ultimate black‑only focus rule
+   (locks grey background & removes every red effect)
+   ───────────────────────────────────────────────*/
+
+/* Applies to ALL form controls, inside or outside .password-field */
+form
+:is(
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="date"],
+  select,
+  textarea,
+  .form-control,
+  .form-select
+):focus,
+.password-field input:focus {
+background-color: #f5f7fa !important;  /* keep light‑grey fill */
+border-color: #000 !important;         /* jet‑black frame      */
+box-shadow: none !important;           /* kill red / any halo  */
+outline: none !important;              /* no UA outline        */
+}

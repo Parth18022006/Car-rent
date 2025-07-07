@@ -18,7 +18,7 @@ $stmt2->execute();
 $user = $stmt2->fetch(PDO::FETCH_ASSOC);
 
 $email = $_SESSION['email'] ?? null;
-$selectedCarId = $_GET['car'] ?? null; 
+$selectedCarId = $_GET['car'] ?? null;
 
 $url = urlof('pages/User/login');
 if (!isset($_SESSION['user'])) {
@@ -33,13 +33,13 @@ include pathof('./include/nav.php');
 <form action="" method="post">
     <h4>CAR RESERVATION</h4>
     <div class="col-12">
-        <select class="form-select" placeholder="Default select example" id="selectcar">
+        <select class="form-select custom-select" id="selectcar" placeholder="Default select example" id="selectcar">
             <option value="" disabled <?= $selectedCarId ? '' : 'selected'; ?> hidden>Select Car</option>
             <?php
             if (count($row) > 0) {
                 foreach ($row as $r) {
             ?>
-                    <option value="<?= $r['id'] ?>"<?= ($r['id'] == $selectedCarId)? 'selected' : '';?>><?= $r['name'] ?></option>
+                    <option value="<?= $r['id'] ?>" <?= ($r['id'] == $selectedCarId) ? 'selected' : ''; ?>><?= $r['name'] ?></option>
                 <?php
                 }
             } else {
@@ -48,8 +48,24 @@ include pathof('./include/nav.php');
             }
             ?>
         </select>
+        <select name="rprice" id="rprice" class="form-select custom-select">
+            <option value="" disabled <?= $selectedCarId ? '' : 'selected'; ?> hidden>
+                Select Price
+            </option>
+
+            <?php if (count($row) > 0) : ?>
+                <?php foreach ($row as $r) : ?>
+                    <option value="<?= $r['price']; ?>" data-car-id="<?= $r['id']; ?>" <?= ($r['id'] == $selectedCarId) ? 'selected' : ''; ?>>
+                        $<?= $r['price']; ?>
+                    </option>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <option value="">No Records</option>
+            <?php endif; ?>
+        </select>
+
         <input type="number" name="pnum" id="pnum" placeholder="Enter Mobile Number">
-        <input type="email" name="email" id="email" placeholder="Enter Your E-Mail" value="<?= $email?>">
+        <input type="email" name="email" id="email" placeholder="Enter Your E-Mail" value="<?= $email ?>">
         <div class="col-12">
             <div class="input-group">
                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
@@ -167,19 +183,56 @@ include pathof('./include/footer.php');
     });
 
     document.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const carId  = params.get('car');          // "3" or null
+        const params = new URLSearchParams(window.location.search);
+        const carId = params.get('car'); // "3" or null
 
-  if (carId) {
-    /* 1) Pre‑select the dropdown (you already do this server‑side,
-          but this covers a JS‑only variant too) */
-    const select = document.getElementById('selectcar');
-    if (select)  select.value = carId;
+        if (carId) {
+            /* 1) Pre‑select the dropdown (you already do this server‑side,
+                  but this covers a JS‑only variant too) */
+            const select = document.getElementById('selectcar');
+            if (select) select.value = carId;
 
-    /* 2) Remove ?car=... from the address bar without reloading */
-    const cleanUrl = window.location.pathname + window.location.hash;
-    history.replaceState(null, '', cleanUrl);
-  }
+            /* 2) Remove ?car=... from the address bar without reloading */
+            const cleanUrl = window.location.pathname + window.location.hash;
+            history.replaceState(null, '', cleanUrl);
+        }
+    });
+    /* existing code … */
+
+    /* ---------- price synchronisation ---------- */
+    const priceSelect = document.getElementById('rprice');
+
+    function syncPriceWithCar() {
+        const id = selectcar.value;
+        if (!id) return; // no car chosen
+
+        const priceOption =
+            priceSelect.querySelector(`option[data-car-id="${id}"]`);
+
+        if (priceOption) priceSelect.value = priceOption.value;
+    }
+
+    /* run once on page‑load (after any URL pre‑select) */
+    syncPriceWithCar();
+
+    /* keep price updated whenever user picks a different car */
+    selectcar.addEventListener('change', syncPriceWithCar);
+
+    const rprice = document.getElementById('rprice');
+
+/* list is about to open → hide arrow */
+rprice.addEventListener('mousedown', () => {
+    rprice.classList.add('is-open');
+});
+
+/* list just closed *and* the value changed → show arrow */
+rprice.addEventListener('change', () => {
+    rprice.classList.remove('is-open');
+});
+
+/* user pressed Esc or clicked elsewhere without changing value → show arrow */
+rprice.addEventListener('blur', () => {
+    rprice.classList.remove('is-open');
 });
 </script>
 <?php

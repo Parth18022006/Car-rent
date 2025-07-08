@@ -1,5 +1,26 @@
 <?php
 require '../../include/init.php';
+
+if (!isset($_SESSION['booking_tokens'])) {
+    $_SESSION['booking_tokens'] = [];  // first visit
+}
+
+/** Return a brand‑new token and remember it in the pool */
+function new_booking_token(): string
+{
+    $tok = bin2hex(random_bytes(16));          // 32‑char hex, cryptographically strong
+    $_SESSION['booking_tokens'][$tok] = time();
+    return $tok;
+}
+
+/* helper for later housekeeping (optional) */
+function purge_expired_booking_tokens(int $maxAge = 900): void
+{
+    $cut = time() - $maxAge;
+    foreach ($_SESSION['booking_tokens'] as $t => $issued) {
+        if ($issued < $cut) unset($_SESSION['booking_tokens'][$t]);
+    }
+}
 include pathof('include/header.php');
 include pathof('include/nav.php');
 
@@ -71,7 +92,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                         <i class="fa fa-cogs text-dark"></i> <span class="text-body ms-1">AUTO</span>
                                     </div>
                                 </div>
-                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index') . '?car=' . $r['id']; ?>">Book Now</a>
+                                <?php $tok = new_booking_token(); ?>
+                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index') . '?car=' . $r['id'] . '&tok=' . $tok ?>">Book Now</a>
                             </div>
                         </div>
                     </div>
@@ -132,7 +154,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                 <p class="text-white">Don't hesitate and send us a message.</p>
                 <div class="banner-btn">
                     <a href="#" class="btn btn-secondary rounded-pill py-3 px-4 px-md-5 me-2">WhatchApp</a>
-                    <a href="<?= urlof('./pages/Template pages/contact');?>" class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2">Contact Us</a>
+                    <a href="<?= urlof('./pages/Template pages/contact'); ?>" class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2">Contact Us</a>
                 </div>
             </div>
         </div>

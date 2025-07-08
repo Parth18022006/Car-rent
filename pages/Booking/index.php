@@ -3,6 +3,27 @@
 require '../../include/init.php';
 
 
+/* ───── validate booking token ───── */
+$tok     = $_GET['tok'] ?? '';
+$tokens  = $_SESSION['booking_tokens'] ?? [];
+$issued  = $tokens[$tok] ?? null;
+$maxAge  = 900;                       // 15 min, change if you like
+
+if (!$issued || (time() - $issued) > $maxAge) {
+    header('Location: ' . urlof('./index'));   // bad or expired token
+    exit;
+}
+
+/* optional: one‑use ‑‑ uncomment next line to make token single‑use
+   unset($_SESSION['booking_tokens'][$tok]);
+*/
+
+/* optional housekeeping */
+foreach ($tokens as $t => $when) {
+    if ((time() - $when) > $maxAge) unset($_SESSION['booking_tokens'][$t]);
+}
+
+
 $q = "SELECT * FROM `car`";
 
 $stmt = $conn->prepare($q);

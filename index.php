@@ -1,5 +1,26 @@
 <?php
 require './include/init.php';
+
+if (!isset($_SESSION['booking_tokens'])) {
+    $_SESSION['booking_tokens'] = [];  // first visit
+}
+
+/** Return a brand‑new token and remember it in the pool */
+function new_booking_token(): string
+{
+    $tok = bin2hex(random_bytes(16));          // 32‑char hex, cryptographically strong
+    $_SESSION['booking_tokens'][$tok] = time();
+    return $tok;
+}
+
+/* helper for later housekeeping (optional) */
+function purge_expired_booking_tokens(int $maxAge = 900): void
+{
+    $cut = time() - $maxAge;
+    foreach ($_SESSION['booking_tokens'] as $t => $issued) {
+        if ($issued < $cut) unset($_SESSION['booking_tokens'][$t]);
+    }
+}
 include pathof('include/header.php');
 include pathof('include/nav.php');
 
@@ -10,6 +31,7 @@ $stmt->execute();
 
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
 ?>
+
 <!-- Carousel Start -->
 <div class="header-carousel">
     <div id="carouselId" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
@@ -126,20 +148,20 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                     <form>
                                         <div class="row g-3">
                                             <div class="col-12">
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option value="" disabled selected hidden>Select Car</option>
-                                                <?php
-                                                if (count($row) > 0) {
-                                                    foreach ($row as $r) {
-                                                ?>
-                                                        <option value="<?= $r['id'] ?>"><?= $r['name'] ?></option>
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option value="" disabled selected hidden>Select Car</option>
+                                                    <?php
+                                                    if (count($row) > 0) {
+                                                        foreach ($row as $r) {
+                                                    ?>
+                                                            <option value="<?= $r['id'] ?>"><?= $r['name'] ?></option>
+                                                        <?php
+                                                        }
+                                                    } else {
+                                                        ?><option value="">No Records</option>
                                                     <?php
                                                     }
-                                                } else {
-                                                    ?><option value="">No Records</option>
-                                                <?php
-                                                }
-                                                ?>
+                                                    ?>
                                                 </select>
                                             </div>
                                             <div class="col-12">
@@ -536,7 +558,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                         <i class="fa fa-cogs text-dark"></i> <span class="text-body ms-1">AUTO</span>
                                     </div>
                                 </div>
-                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index') . '?car=' . $r['id']; ?>">Book Now</a>
+                                <?php $tok = new_booking_token(); ?>
+                                <a class="btn btn-light w-100 py-2" href="<?= urlof('./pages/Booking/index') . '?car=' . $r['id'] . '&tok=' . $tok ?>">Book Now</a>
                             </div>
                         </div>
                     </div>
@@ -544,8 +567,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                 }; ?>
             <?php  } else {
             ?><p>No record</p><?php
-                                }
-                                    ?>
+                            }
+                                ?>
         </div>
     </div>
 </div>
@@ -836,23 +859,23 @@ include pathof('include/footer.php');
 ?>
 
 <script>
-// 1. Cache the target element
-const target = document.getElementById('ourcars');
+    // 1. Cache the target element
+    const target = document.getElementById('ourcars');
 
-// 2. Attach once to every “Book Now” button that points to #ourcars
-document.querySelectorAll('a[href="#ourcars"]').forEach(btn => {
-  btn.addEventListener('click', e => {
-    e.preventDefault();                     // stop the hash from hitting the URL
-    target.scrollIntoView({                 // smooth‑scroll down
-      behavior: 'smooth',
-      block: 'start'
+    // 2. Attach once to every “Book Now” button that points to #ourcars
+    document.querySelectorAll('a[href="#ourcars"]').forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.preventDefault(); // stop the hash from hitting the URL
+            target.scrollIntoView({ // smooth‑scroll down
+                behavior: 'smooth',
+                block: 'start'
+            });
+            // 3. Optional: remove any hash the user might paste in manually
+            if (history.replaceState) {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+        });
     });
-    // 3. Optional: remove any hash the user might paste in manually
-    if (history.replaceState) {
-      history.replaceState(null, '', window.location.pathname + window.location.search);
-    }
-  });
-});
 </script>
 
 

@@ -51,40 +51,43 @@ include pathof('./include/header.php');
 include pathof('./include/nav.php');
 ?>
 <link rel="stylesheet" href="<?= urlof('./assets/css/booking.css'); ?>">
+
+<!-- ── Price‑field override ── -->
+<style>
+/* black frame by default */
+#rprice{
+    width:100%;
+    height:56px;
+    padding:12px 15px;
+    margin-bottom:1.25rem;
+    background:#fff !important;
+    color:#000;
+    font-size:1rem;
+    line-height:1.5;
+    border:1px solid #000 !important;   /* ← replaces the red */
+    border-radius:var(--radius);
+    box-shadow:none !important;
+}</style>
+
+<link rel="stylesheet" href="<?= urlof('./assets/css/booking.css'); ?>">
 <form action="" method="post">
     <h4>CAR RESERVATION</h4>
     <div class="col-12">
-        <select class="form-select custom-select" id="selectcar" placeholder="Default select example" id="selectcar">
-            <option value="" disabled <?= $selectedCarId ? '' : 'selected'; ?> hidden>Select Car</option>
-            <?php
-            if (count($row) > 0) {
-                foreach ($row as $r) {
-            ?>
-                    <option value="<?= $r['id'] ?>" <?= ($r['id'] == $selectedCarId) ? 'selected' : ''; ?>><?= $r['name'] ?></option>
-                <?php
-                }
-            } else {
-                ?><option value="">No Records</option>
-            <?php
-            }
-            ?>
-        </select>
-        <select name="rprice" id="rprice" class="form-select custom-select">
-            <option value="" disabled <?= $selectedCarId ? '' : 'selected'; ?> hidden>
-                Select Price
-            </option>
+    <select class="form-select custom-select" id="selectcar">
+    <option value="" disabled <?= $selectedCarId ? '' : 'selected'; ?> hidden>
+        Select Car
+    </option>
+    <?php foreach ($row as $r): ?>
+        <option value="<?= $r['id']; ?>"
+                data-price="<?= $r['price']; ?>"
+                <?= ($r['id'] == $selectedCarId) ? 'selected' : ''; ?>>
+            <?= $r['name']; ?>
+        </option>
+    <?php endforeach; ?>
+</select>
 
-            <?php if (count($row) > 0) : ?>
-                <?php foreach ($row as $r) : ?>
-                    <option value="<?= $r['price']; ?>" data-car-id="<?= $r['id']; ?>" <?= ($r['id'] == $selectedCarId) ? 'selected' : ''; ?>>
-                        $<?= $r['price']; ?>
-                    </option>
-                <?php endforeach; ?>
-            <?php else : ?>
-                <option value="">No Records</option>
-            <?php endif; ?>
-        </select>
-
+<!-- read‑only price -->
+<input type="text" name="rprice" id="rprice" class="form-control-plaintext mb-3" readonly>
         <input type="number" name="pnum" id="pnum" placeholder="Enter Mobile Number">
         <input type="email" name="email" id="email" placeholder="Enter Your E-Mail" value="<?= $email ?>">
         <div class="col-12">
@@ -221,40 +224,20 @@ include pathof('./include/footer.php');
     /* existing code … */
 
     /* ---------- price synchronisation ---------- */
-    const priceSelect = document.getElementById('rprice');
+    const rprice = document.getElementById('rprice');
 
-    function syncPriceWithCar() {
-        const id = selectcar.value;
-        if (!id) return; // no car chosen
+function syncPriceWithCar () {
+    const opt   = selectcar.options[selectcar.selectedIndex];
+    const price = opt ? opt.dataset.price : '';
+    rprice.value = price ? '$' + price : '';
+}
 
-        const priceOption =
-            priceSelect.querySelector(`option[data-car-id="${id}"]`);
-
-        if (priceOption) priceSelect.value = priceOption.value;
-    }
 
     /* run once on page‑load (after any URL pre‑select) */
     syncPriceWithCar();
 
     /* keep price updated whenever user picks a different car */
     selectcar.addEventListener('change', syncPriceWithCar);
-
-    const rprice = document.getElementById('rprice');
-
-/* list is about to open → hide arrow */
-rprice.addEventListener('mousedown', () => {
-    rprice.classList.add('is-open');
-});
-
-/* list just closed *and* the value changed → show arrow */
-rprice.addEventListener('change', () => {
-    rprice.classList.remove('is-open');
-});
-
-/* user pressed Esc or clicked elsewhere without changing value → show arrow */
-rprice.addEventListener('blur', () => {
-    rprice.classList.remove('is-open');
-});
 </script>
 <?php
 include pathof('./include/script.php');

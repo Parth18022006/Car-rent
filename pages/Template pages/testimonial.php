@@ -21,8 +21,8 @@ include pathof('include/nav.php');
         <div class="container-fluid testimonial py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Our Clients<span class="text-primary"> Riviews</span></h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                    <h1 class="display-5 text-capitalize mb-3">Our Clients<span class="text-primary"> Reviews</span></h1>
+                    <p class="mb-0">Hear what our happy customers have to say about their experience with our car rental service. We value your trust and satisfaction.
                     </p>
                 </div>
                 <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
@@ -32,8 +32,8 @@ include pathof('include/nav.php');
                         <div class="testimonial-inner p-4">
                             <img src="<?= urlof('assets/img/testimonial-1.jpg')?>" class="img-fluid" alt="">
                             <div class="ms-4">
-                                <h4>Person Name</h4>
-                                <p>Profession</p>
+                                <h4>Priya Sharma</h4>
+                                <p>Travel Blogger</p>
                                 <div class="d-flex text-primary">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -44,7 +44,7 @@ include pathof('include/nav.php');
                             </div>
                         </div>
                         <div class="border-top rounded-bottom p-4">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+                            <p class="mb-0">The car was in excellent condition and the booking process was super smooth. Customer service was responsive and friendly. Highly recommend!</p>
                         </div>
                     </div>
                     <div class="testimonial-item">
@@ -53,8 +53,8 @@ include pathof('include/nav.php');
                         <div class="testimonial-inner p-4">
                             <img src="<?= urlof('assets/img/testimonial-2.jpg')?>" class="img-fluid" alt="">
                             <div class="ms-4">
-                                <h4>Person Name</h4>
-                                <p>Profession</p>
+                                <h4>Sunita Verma</h4>
+                                <p>IT Professional</p>
                                 <div class="d-flex text-primary">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -65,7 +65,7 @@ include pathof('include/nav.php');
                             </div>
                         </div>
                         <div class="border-top rounded-bottom p-4">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+                            <p class="mb-0">Great pricing and punctual delivery. I used their service for a weekend trip and it made the whole journey convenient and stress-free.</p>
                         </div>
                     </div>
                     <div class="testimonial-item">
@@ -74,8 +74,8 @@ include pathof('include/nav.php');
                         <div class="testimonial-inner p-4">
                             <img src="<?= urlof('assets/img/testimonial-3.jpg')?>" class="img-fluid" alt="">
                             <div class="ms-4">
-                                <h4>Person Name</h4>
-                                <p>Profession</p>
+                                <h4>Rahul Mehta</h4>
+                                <p>Freelance Designer</p>
                                 <div class="d-flex text-primary">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -86,7 +86,7 @@ include pathof('include/nav.php');
                             </div>
                         </div>
                         <div class="border-top rounded-bottom p-4">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+                            <p class="mb-0">While the overall experience was good, the pickup took a bit longer than expected. But the team resolved it quickly and the car was clean.</p>
                         </div>
                     </div>
                 </div>

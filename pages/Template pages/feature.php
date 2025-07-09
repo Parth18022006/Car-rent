@@ -22,7 +22,7 @@ include pathof('include/nav.php');
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                     <h1 class="display-5 text-capitalize mb-3">Cental <span class="text-primary">Features</span></h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                    <p class="mb-0">Explore why thousands of customers trust Car-Rent for their transportation needs. We offer premium services, unmatched convenience, and total peace of mind—anytime, anywhere.
                     </p>
                 </div>
                 <div class="row g-4 align-items-center">
@@ -35,7 +35,7 @@ include pathof('include/nav.php');
                                     </div>
                                     <div class="ms-4">
                                         <h5 class="mb-3">First Class services</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                        <p class="mb-0">From booking to return, we ensure a seamless and luxurious rental experience with top-notch customer support.</p>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@ include pathof('include/nav.php');
                                     </div>
                                     <div class="ms-4">
                                         <h5 class="mb-3">24/7 road assistance</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                        <p class="mb-0">Drive worry-free with our round-the-clock emergency assistance, available wherever you go.</p>
                                     </div>
                                 </div>
                             </div>
@@ -60,8 +60,8 @@ include pathof('include/nav.php');
                             <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="feature-item justify-content-end">
                                     <div class="text-end me-4">
-                                        <h5 class="mb-3">Quality at Minimum</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                        <h5 class="mb-3">Affordable Quality</h5>
+                                        <p class="mb-0">Enjoy reliable, well-maintained vehicles at the best prices—no compromises on quality.</p>
                                     </div>
                                     <div class="feature-icon">
                                         <span class="fa fa-tag fa-2x"></span>
@@ -72,7 +72,7 @@ include pathof('include/nav.php');
                                 <div class="feature-item justify-content-end">
                                     <div class="text-end me-4">
                                         <h5 class="mb-3">Free Pick-Up & Drop-Off</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                        <p class="mb-0">We offer complimentary vehicle delivery and return services to your desired location for maximum convenience.</p>
                                     </div>
                                     <div class="feature-icon">
                                         <span class="fa fa-map-pin fa-2x"></span>

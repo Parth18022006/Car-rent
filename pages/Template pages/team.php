@@ -20,8 +20,8 @@ include pathof('include/nav.php');
         <div class="container-fluid team py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Customer<span class="text-primary"> Suport</span> Center</h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                    <h1 class="display-5 text-capitalize mb-3">Customer<span class="text-primary"> Support</span> Center</h1>
+                    <p class="mb-0">Meet our dedicated support team, available to assist you with every step of your rental journey. Friendly, knowledgeable, and always ready to help.
                     </p>
                 </div>
                 <div class="row g-4">
@@ -31,8 +31,8 @@ include pathof('include/nav.php');
                                 <img src="<?= urlof('assets/img/team-1.jpg')?>" class="img-fluid rounded w-100" alt="Image">
                             </div>
                             <div class="team-content pt-4">
-                                <h4>MARTIN DOE</h4>
-                                <p>Profession</p>
+                                <h4>MARTIN COOPER</h4>
+                                <p>Senior Customer Executive</p>
                                 <div class="team-icon d-flex justify-content-center">
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -48,8 +48,8 @@ include pathof('include/nav.php');
                                 <img src="<?= urlof('assets/img/team-2.jpg')?>" class="img-fluid rounded w-100" alt="Image">
                             </div>
                             <div class="team-content pt-4">
-                                <h4>MARTIN DOE</h4>
-                                <p>Profession</p>
+                                <h4>MARTIN LUOIS</h4>
+                                <p>Live Chat Specialist</p>
                                 <div class="team-icon d-flex justify-content-center">
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -65,8 +65,8 @@ include pathof('include/nav.php');
                                 <img src="<?= urlof('assets/img/team-3.jpg')?>" class="img-fluid rounded w-100" alt="Image">
                             </div>
                             <div class="team-content pt-4">
-                                <h4>MARTIN DOE</h4>
-                                <p>Profession</p>
+                                <h4>James Carter</h4>
+                                <p>Phone Support Lead</p>
                                 <div class="team-icon d-flex justify-content-center">
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -82,8 +82,8 @@ include pathof('include/nav.php');
                                 <img src="<?= urlof('assets/img/team-4.jpg')?>" class="img-fluid rounded w-100" alt="Image">
                             </div>
                             <div class="team-content pt-4">
-                                <h4>MARTIN DOE</h4>
-                                <p>Profession</p>
+                                <h4>TONY STARk</h4>
+                                <p>Booking & Complaints Officer</p>
                                 <div class="team-icon d-flex justify-content-center">
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>

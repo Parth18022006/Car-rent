@@ -699,7 +699,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
 <div class="container-fluid team pb-5">
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            <h1 class="display-5 text-capitalize mb-3">Customer<span class="text-primary"> Suport</span> Center</h1>
+            <h1 class="display-5 text-capitalize mb-3">Customer<span class="text-primary"> Support</span> Center</h1>
             <p class="mb-0">Meet our dedicated support team, available to assist you with every step of your rental journey. Friendly, knowledgeable, and always ready to help.
             </p>
         </div>

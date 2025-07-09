@@ -26,7 +26,7 @@ include pathof('include/nav.php');
                         <div class="about-item">
                             <div class="pb-5">
                                 <h1 class="display-5 text-capitalize">Cental <span class="text-primary">About</span></h1>
-                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                                <p class="mb-0"> At Car-Rent, we are passionate about making car rental simple, accessible, and affordable. With years of industry experience and a focus on customer satisfaction, we deliver exceptional value and convenience with every rental.
                                 </p>
                             </div>
                             <div class="row g-4">
@@ -36,7 +36,7 @@ include pathof('include/nav.php');
                                             <img src="<?=urlof('assets/img/about-icon-1.png')?>" class="img-fluid w-50 h-50" alt="Icon">
                                         </div>
                                         <h5 class="mb-3">Our Vision</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        <p class="mb-0">To become the most trusted and preferred car rental platform by offering innovative, reliable, and user-friendly services for every journey.</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -45,11 +45,11 @@ include pathof('include/nav.php');
                                             <img src="<?=urlof('assets/img/about-icon-2.png')?>" class="img-fluid h-50 w-50" alt="Icon">
                                         </div>
                                         <h5 class="mb-3">Our Mision</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        <p class="mb-0">To provide safe, affordable, and high-quality car rental services through a seamless digital experience and a commitment to customer care.</p>
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-item my-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, aliquam ipsum. Sed suscipit dolorem libero sequi aut natus debitis reprehenderit facilis quaerat similique, est at in eum. Quo, obcaecati in!
+                            <p class="text-item my-4">Whether you're traveling for business, leisure, or everyday needs, Car-Rent ensures your ride is smooth, secure, and perfectly suited to your preferences. With flexible options and transparent pricing, you stay in control from start to finish.
                             </p>
                             <div class="row g-4">
                                 <div class="col-lg-6">
@@ -60,10 +60,10 @@ include pathof('include/nav.php');
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="rounded">
-                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Morbi tristique senectus</p>
-                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> A scelerisque purus</p>
-                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Dictumst vestibulum</p>
-                                        <p class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i> dio aenean sed adipiscing</p>
+                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Wide range of vehicle options</p>
+                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Competitive and transparent pricing</p>
+                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Easy online booking and cancellation</p>
+                                        <p class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i> Dedicated support and maintenance team</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-5 d-flex align-items-center">
@@ -71,10 +71,10 @@ include pathof('include/nav.php');
                                 </div>
                                 <div class="col-lg-7">
                                     <div class="d-flex align-items-center">
-                                        <img src="<?=urlof('assets/img/attachment-img.jpg')?>" class="img-fluid rounded-circle border border-4 border-secondary" style="width: 100px; height: 100px;" alt="Image">
+                                        <img src="<?=urlof('assets/img/IMG_20250217_183850881_HDR_PORTRAIT.jpg')?>" class="img-fluid rounded-circle border border-4 border-secondary" style="width: 100px; height: 100px;" alt="Image">
                                         <div class="ms-4">
-                                            <h4>William Burgess</h4>
-                                            <p class="mb-0">Carveo Founder</p>
+                                            <h4>Chavda Parth</h4>
+                                            <p class="mb-0">Car-Rent Founder</p>
                                         </div>
                                     </div>
                                 </div>
@@ -158,7 +158,7 @@ include pathof('include/nav.php');
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                     <h1 class="display-5 text-capitalize mb-3">Cental <span class="text-primary">Features</span></h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                    <p class="mb-0">Explore why thousands of customers trust Car-Rent for their transportation needs. We offer premium services, unmatched convenience, and total peace of mind—anytime, anywhere.
                     </p>
                 </div>
                 <div class="row g-4 align-items-center">
@@ -171,7 +171,7 @@ include pathof('include/nav.php');
                                     </div>
                                     <div class="ms-4">
                                         <h5 class="mb-3">First Class services</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                        <p class="mb-0">From booking to return, we ensure a seamless and luxurious rental experience with top-notch customer support.</p>
                                     </div>
                                 </div>
                             </div>
@@ -182,7 +182,7 @@ include pathof('include/nav.php');
                                     </div>
                                     <div class="ms-4">
                                         <h5 class="mb-3">24/7 road assistance</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                        <p class="mb-0">Drive worry-free with our round-the-clock emergency assistance, available wherever you go.</p>
                                     </div>
                                 </div>
                             </div>
@@ -196,8 +196,8 @@ include pathof('include/nav.php');
                             <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="feature-item justify-content-end">
                                     <div class="text-end me-4">
-                                        <h5 class="mb-3">Quality at Minimum</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                        <h5 class="mb-3">Affordable Quality</h5>
+                                        <p class="mb-0">Enjoy reliable, well-maintained vehicles at the best prices—no compromises on quality.</p>
                                     </div>
                                     <div class="feature-icon">
                                         <span class="fa fa-tag fa-2x"></span>
@@ -208,7 +208,7 @@ include pathof('include/nav.php');
                                 <div class="feature-item justify-content-end">
                                     <div class="text-end me-4">
                                         <h5 class="mb-3">Free Pick-Up & Drop-Off</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                        <p class="mb-0">We offer complimentary vehicle delivery and return services to your desired location for maximum convenience.</p>
                                     </div>
                                     <div class="feature-icon">
                                         <span class="fa fa-map-pin fa-2x"></span>
@@ -227,28 +227,28 @@ include pathof('include/nav.php');
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                     <h1 class="display-5 text-capitalize text-white mb-3">Cental<span class="text-primary"> Process</span></h1>
-                    <p class="mb-0 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                    <p class="mb-0 text-white">Renting a car with us is quick and hassle-free. Follow these three simple steps to get on the road with comfort and confidence.
                     </p>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="steps-item p-4 mb-4">
                             <h4>Come In Contact</h4>
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
+                            <p class="mb-0">Reach out via phone, website, or in-person visit to check availability, get answers, and begin your booking.</p>
                             <div class="setps-number">01.</div>
                         </div>
                     </div>
                     <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="steps-item p-4 mb-4">
                             <h4>Choose A Car</h4>
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
+                            <p class="mb-0">Pick a vehicle that suits your style, needs, and budget from our wide range of trusted models.</p>
                             <div class="setps-number">02.</div>
                         </div>
                     </div>
                     <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="steps-item p-4 mb-4">
                             <h4>Enjoy Driving</h4>
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
+                            <p class="mb-0">Collect your keys, hit the road, and enjoy your journey. We've taken care of the rest.</p>
                             <div class="setps-number">03.</div>
                         </div>
                     </div>
@@ -261,8 +261,8 @@ include pathof('include/nav.php');
         <div class="container-fluid team py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Customer<span class="text-primary"> Suport</span> Center</h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                    <h1 class="display-5 text-capitalize mb-3">Customer<span class="text-primary"> Support</span> Center</h1>
+                    <p class="mb-0">Meet our dedicated support team, available to assist you with every step of your rental journey. Friendly, knowledgeable, and always ready to help.
                     </p>
                 </div>
                 <div class="row g-4">
@@ -272,8 +272,8 @@ include pathof('include/nav.php');
                                 <img src="<?=urlof('assets/img/team-1.jpg')?>" class="img-fluid rounded w-100" alt="Image">
                             </div>
                             <div class="team-content pt-4">
-                                <h4>MARTIN DOE</h4>
-                                <p>Profession</p>
+                                <h4>MARTIN COOPER</h4>
+                                <p>Senior Customer Executive</p>
                                 <div class="team-icon d-flex justify-content-center">
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -289,8 +289,8 @@ include pathof('include/nav.php');
                                 <img src="<?=urlof('assets/img/team-2.jpg')?>" class="img-fluid rounded w-100" alt="Image">
                             </div>
                             <div class="team-content pt-4">
-                                <h4>MARTIN DOE</h4>
-                                <p>Profession</p>
+                                <h4>MARTIN LUOIS</h4>
+                                <p>Live Chat Specialist</p>
                                 <div class="team-icon d-flex justify-content-center">
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -306,8 +306,8 @@ include pathof('include/nav.php');
                                 <img src="<?=urlof('assets/img/team-3.jpg')?>" class="img-fluid rounded w-100" alt="Image">
                             </div>
                             <div class="team-content pt-4">
-                                <h4>MARTIN DOE</h4>
-                                <p>Profession</p>
+                                <h4>James Carter</h4>
+                                <p>Phone Support Lead</p>
                                 <div class="team-icon d-flex justify-content-center">
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -323,8 +323,8 @@ include pathof('include/nav.php');
                                 <img src="<?=urlof('assets/img/team-4.jpg')?>" class="img-fluid rounded w-100" alt="Image">
                             </div>
                             <div class="team-content pt-4">
-                                <h4>MARTIN DOE</h4>
-                                <p>Profession</p>
+                                <h4>TONY STARk</h4>
+                                <p>Booking & Complaints Officer</p>
                                 <div class="team-icon d-flex justify-content-center">
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                                     <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>

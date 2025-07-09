@@ -21,7 +21,7 @@
                             <a href="<?= urlof('./pages/Template pages/cars');?>"><i class="fas fa-angle-right me-2"></i> Cars</a>
                             <a href="<?= urlof('./pages/Template pages/team');?>"><i class="fas fa-angle-right me-2"></i> Team</a>
                             <a href="<?= urlof('./pages/Template pages/contact');?>"><i class="fas fa-angle-right me-2"></i> Contact us</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
+                            <a href="<?= urlof('./pages/Template pages/terms&conditions')?>"><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">

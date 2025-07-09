@@ -954,5 +954,87 @@
 /*** copyright end ***/
 
 html { scroll-behavior: smooth; }
+        /* Remove red outline and red background on input/select focus */
+/* --- Accordion heading: remove red outline / border on focus --- */
+.accordion-button:focus {
+    outline: none !important;         /* kill default outline  */
+    box-shadow: none !important;      /* kill Bootstrap focus ring */
+    border-color: transparent !important;
+}
+
+/* --- Heading text always black, even when open --- */
+.accordion-button {
+    color: #000 !important;
+}
+
+/* --- Optional: when the item is open, keep light background, no red border --- */
+.accordion-button:not(.collapsed) {
+    background-color: #f8f9fa;        /* light gray, tweak to taste */
+    color: #000 !important;           /* ensure black text */
+    border-color: #dee2e6;            /* subtle border (or transparent) */
+}
+
+/* Accordion content panel when OPEN  */
+.accordion-collapse.show .accordion-body {
+    background-color:#f5c2c7 ;   /* red (use any red you prefer)  */
+    color: #000;                 /* black text                   */
+}
+
+/* If you have links or icons inside the body and want them black too */
+.accordion-collapse.show .accordion-body a,
+.accordion-collapse.show .accordion-body i {
+    color: #000 !important;
+}
+
+/* Light‑medium red that appears immediately while panel is sliding open */
+.accordion-collapse.collapsing .accordion-body,
+.accordion-collapse.show .accordion-body {
+    background-color: #f5c2c7;   /* adjust to taste */
+    color: #000;                 /* keep text black */
+}
+
+/* Keep links & icons black as well */
+.accordion-collapse.collapsing .accordion-body a,
+.accordion-collapse.collapsing .accordion-body i,
+.accordion-collapse.show .accordion-body a,
+.accordion-collapse.show .accordion-body i {
+    color: #000 !important;
+}
+/* Red body + black outline while sliding AND when fully open */
+.accordion-collapse.collapsing .accordion-body,
+.accordion-collapse.show .accordion-body {
+    background-color: #f5c2c7;  /* your soft red */
+    color: #000;
+    border: 1px solid #000;     /* black outline */
+    border-top: 0;              /* remove duplicate border against header */
+    border-radius: 0 0 .25rem .25rem; /* rounded bottom corners (optional) */
+}
+/* --- PANEL BODY: full black outline --- */
+.accordion-collapse.collapsing .accordion-body,
+.accordion-collapse.show .accordion-body {
+    background-color: #f5c2c7;  /* soft red */
+    color: #000;
+    border: 1px solid #000;     /* all sides black */
+    border-radius: 0 0 .25rem .25rem; /* keep lower corners rounded */
+}
+
+/* --- HEADER: hide its bottom border so only one line shows --- */
+.accordion-button {
+    color: #000;
+    border-bottom: 1px solid transparent;  /* keeps height but no line */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid transparent;  /* still transparent when open */
+}
+
+/* Ensure links/icons remain black */
+.accordion-collapse.collapsing .accordion-body a,
+.accordion-collapse.collapsing .accordion-body i,
+.accordion-collapse.show .accordion-body a,
+.accordion-collapse.show .accordion-body i {
+    color: #000 !important;
+}
 
 

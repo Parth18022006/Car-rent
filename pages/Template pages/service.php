@@ -21,7 +21,7 @@ include pathof('include/nav.php');
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                     <h1 class="display-5 text-capitalize mb-3">Cental <span class="text-primary">Services</span></h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                    <p class="mb-0">We offer a wide range of services to make your car rental experience smooth, flexible, and convenient—from quick bookings to cross-city travel, and everything in between.
                     </p>
                 </div>
                 <div class="row g-4">
@@ -31,7 +31,7 @@ include pathof('include/nav.php');
                                 <i class="fa fa-phone-alt fa-2x"></i>
                             </div>
                             <h5 class="mb-3">Phone Reservation</h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?</p>
+                            <p class="mb-0">Prefer a personal touch? Call us anytime to book your ride quickly and easily with the help of our friendly support team.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
@@ -40,7 +40,7 @@ include pathof('include/nav.php');
                                 <i class="fa fa-money-bill-alt fa-2x"></i>
                             </div>
                             <h5 class="mb-3">Special Rates</h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?</p>
+                            <p class="mb-0">Enjoy exclusive deals for long-term rentals, corporate bookings, and seasonal discounts—all with transparent pricing.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
@@ -49,7 +49,7 @@ include pathof('include/nav.php');
                                 <i class="fa fa-road fa-2x"></i>
                             </div>
                             <h5 class="mb-3">One Way Rental</h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?</p>
+                            <p class="mb-0">Need to drop off your car in a different city? Our one-way rental service gives you total flexibility across routes.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
@@ -57,8 +57,8 @@ include pathof('include/nav.php');
                             <div class="service-icon mb-4">
                                 <i class="fa fa-umbrella fa-2x"></i>
                             </div>
-                            <h5 class="mb-3">Life Insurance</h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?</p>
+                            <h5 class="mb-3">Insurance Option</h5>
+                            <p class="mb-0">Drive with peace of mind. We offer a range of insurance coverage options to keep you and your rental protected.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
@@ -67,7 +67,7 @@ include pathof('include/nav.php');
                                 <i class="fa fa-building fa-2x"></i>
                             </div>
                             <h5 class="mb-3">City to City</h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?</p>
+                            <p class="mb-0">Travel seamlessly between cities with our intercity rental service—ideal for business trips or spontaneous getaways.</p>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
@@ -76,7 +76,7 @@ include pathof('include/nav.php');
                                 <i class="fa fa-car-alt fa-2x"></i>
                             </div>
                             <h5 class="mb-3">Free Rides</h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?</p>
+                            <p class="mb-0">Take advantage of promotions that include free ride credits, especially for first-time users and referrals.</p>
                         </div>
                     </div>
                 </div>
@@ -145,8 +145,8 @@ include pathof('include/nav.php');
         <div class="container-fluid testimonial py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Our Clients<span class="text-primary"> Riviews</span></h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                    <h1 class="display-5 text-capitalize mb-3">Our Clients<span class="text-primary"> Reviews</span></h1>
+                    <p class="mb-0">Hear what our happy customers have to say about their experience with our car rental service. We value your trust and satisfaction.
                     </p>
                 </div>
                 <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
@@ -156,8 +156,8 @@ include pathof('include/nav.php');
                         <div class="testimonial-inner p-4">
                             <img src="<?=urlof('assets/img/testimonial-1.jpg')?>" class="img-fluid" alt="">
                             <div class="ms-4">
-                                <h4>Person Name</h4>
-                                <p>Profession</p>
+                                <h4>Priya Sharma</h4>
+                                <p>Travel Blogger</p>
                                 <div class="d-flex text-primary">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -168,7 +168,7 @@ include pathof('include/nav.php');
                             </div>
                         </div>
                         <div class="border-top rounded-bottom p-4">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+                            <p class="mb-0">The car was in excellent condition and the booking process was super smooth. Customer service was responsive and friendly. Highly recommend!</p>
                         </div>
                     </div>
                     <div class="testimonial-item">
@@ -177,8 +177,8 @@ include pathof('include/nav.php');
                         <div class="testimonial-inner p-4">
                             <img src="<?=urlof('assets/img/testimonial-2.jpg')?>" class="img-fluid" alt="">
                             <div class="ms-4">
-                                <h4>Person Name</h4>
-                                <p>Profession</p>
+                                <h4>Sunita Verma</h4>
+                                <p>IT Professional</p>
                                 <div class="d-flex text-primary">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -189,7 +189,7 @@ include pathof('include/nav.php');
                             </div>
                         </div>
                         <div class="border-top rounded-bottom p-4">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+                            <p class="mb-0">Great pricing and punctual delivery. I used their service for a weekend trip and it made the whole journey convenient and stress-free.</p>
                         </div>
                     </div>
                     <div class="testimonial-item">
@@ -198,8 +198,8 @@ include pathof('include/nav.php');
                         <div class="testimonial-inner p-4">
                             <img src="<?=urlof('assets/img/testimonial-3.jpg')?>" class="img-fluid" alt="">
                             <div class="ms-4">
-                                <h4>Person Name</h4>
-                                <p>Profession</p>
+                                <h4>Rahul Mehta</h4>
+                                <p>Freelance Designer</p>
                                 <div class="d-flex text-primary">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -210,7 +210,7 @@ include pathof('include/nav.php');
                             </div>
                         </div>
                         <div class="border-top rounded-bottom p-4">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+                            <p class="mb-0">While the overall experience was good, the pickup took a bit longer than expected. But the team resolved it quickly and the car was clean.</p>
                         </div>
                     </div>
                 </div>

@@ -130,7 +130,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                             <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="text-start">
                                     <h1 class="display-5 text-white">Get 15% off your rental Plan your trip now</h1>
-                                    <p>Treat yourself in USA</p>
+                                    <p>Treat yourself in INDIA</p>
                                 </div>
                             </div>
                         </div>
@@ -227,7 +227,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                             <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="text-start">
                                     <h1 class="display-5 text-white">Get 15% off your rental! Choose Your Model </h1>
-                                    <p>Treat yourself in USA</p>
+                                    <p>Treat yourself in INDIA</p>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +244,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
             <h1 class="display-5 text-capitalize mb-3">Cental <span class="text-primary">Features</span></h1>
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+            <p class="mb-0"> Explore why thousands of customers trust Car-Rent for their transportation needs. We offer premium services, unmatched convenience, and total peace of mind—anytime, anywhere.
             </p>
         </div>
         <div class="row g-4 align-items-center">
@@ -257,7 +257,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                             </div>
                             <div class="ms-4">
                                 <h5 class="mb-3">First Class services</h5>
-                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                <p class="mb-0">From booking to return, we ensure a seamless and luxurious rental experience with top-notch customer support.</p>
                             </div>
                         </div>
                     </div>
@@ -268,7 +268,9 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                             </div>
                             <div class="ms-4">
                                 <h5 class="mb-3">24/7 road assistance</h5>
-                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                <p class="mb-0"> Drive worry-free with our round-the-clock emergency assistance, available wherever you go.
+                                </p>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -282,8 +284,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                     <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="feature-item justify-content-end">
                             <div class="text-end me-4">
-                                <h5 class="mb-3">Quality at Minimum</h5>
-                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                <h5 class="mb-3">Affordable Quality</h5>
+                                <p class="mb-0"> Enjoy reliable, well-maintained vehicles at the best prices—no compromises on quality.</p>
                             </div>
                             <div class="feature-icon">
                                 <span class="fa fa-tag fa-2x"></span>
@@ -294,7 +296,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         <div class="feature-item justify-content-end">
                             <div class="text-end me-4">
                                 <h5 class="mb-3">Free Pick-Up & Drop-Off</h5>
-                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                <p class="mb-0"> We offer complimentary vehicle delivery and return services to your desired location for maximum convenience.</p>
                             </div>
                             <div class="feature-icon">
                                 <span class="fa fa-map-pin fa-2x"></span>
@@ -316,7 +318,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                 <div class="about-item">
                     <div class="pb-5">
                         <h1 class="display-5 text-capitalize">Cental <span class="text-primary">About</span></h1>
-                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                        <p class="mb-0"> At Car-Rent, we are passionate about making car rental simple, accessible, and affordable. With years of industry experience and a focus on customer satisfaction, we deliver exceptional value and convenience with every rental.
                         </p>
                     </div>
                     <div class="row g-4">
@@ -326,7 +328,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                     <img src="<?= urlof('assets/img/about-icon-1.png') ?>" class="img-fluid w-50 h-50" alt="Icon">
                                 </div>
                                 <h5 class="mb-3">Our Vision</h5>
-                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p class="mb-0">To become the most trusted and preferred car rental platform by offering innovative, reliable, and user-friendly services for every journey.</p>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -335,11 +337,11 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                     <img src="<?= urlof('assets/img/about-icon-2.png') ?>" class="img-fluid h-50 w-50" alt="Icon">
                                 </div>
                                 <h5 class="mb-3">Our Mision</h5>
-                                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p class="mb-0"> To provide safe, affordable, and high-quality car rental services through a seamless digital experience and a commitment to customer care.</p>
                             </div>
                         </div>
                     </div>
-                    <p class="text-item my-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, aliquam ipsum. Sed suscipit dolorem libero sequi aut natus debitis reprehenderit facilis quaerat similique, est at in eum. Quo, obcaecati in!
+                    <p class="text-item my-4"> Whether you're traveling for business, leisure, or everyday needs, Car-Rent ensures your ride is smooth, secure, and perfectly suited to your preferences. With flexible options and transparent pricing, you stay in control from start to finish.
                     </p>
                     <div class="row g-4">
                         <div class="col-lg-6">
@@ -350,10 +352,10 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         </div>
                         <div class="col-lg-6">
                             <div class="rounded">
-                                <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Morbi tristique senectus</p>
-                                <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> A scelerisque purus</p>
-                                <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Dictumst vestibulum</p>
-                                <p class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i> dio aenean sed adipiscing</p>
+                                <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Wide range of vehicle options</p>
+                                <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Competitive and transparent pricing</p>
+                                <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Easy online booking and cancellation</p>
+                                <p class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i> Dedicated support and maintenance team</p>
                             </div>
                         </div>
                         <div class="col-lg-5 d-flex align-items-center">
@@ -361,10 +363,10 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         </div>
                         <div class="col-lg-7">
                             <div class="d-flex align-items-center">
-                                <img src="<?= urlof('assets/img/attachment-img.jpg') ?>" class="img-fluid rounded-circle border border-4 border-secondary" style="width: 100px; height: 100px;" alt="Image">
+                                <img src="<?= urlof('assets/img/IMG_20250217_183850881_HDR_PORTRAIT.jpg') ?>" class="img-fluid rounded-circle border border-4 border-secondary" style="width: 100px; height: 100px;" alt="Image">
                                 <div class="ms-4">
-                                    <h4>William Burgess</h4>
-                                    <p class="mb-0">Carveo Founder</p>
+                                    <h4>Chavda Parth</h4>
+                                    <p class="mb-0">Car-Rent Founder</p>
                                 </div>
                             </div>
                         </div>
@@ -448,7 +450,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
             <h1 class="display-5 text-capitalize mb-3">Cental <span class="text-primary">Services</span></h1>
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+            <p class="mb-0"> We offer a wide range of services to make your car rental experience smooth, flexible, and convenient—from quick bookings to cross-city travel, and everything in between.
             </p>
         </div>
         <div class="row g-4">
@@ -458,7 +460,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         <i class="fa fa-phone-alt fa-2x"></i>
                     </div>
                     <h5 class="mb-3">Phone Reservation</h5>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?</p>
+                    <p class="mb-0">Prefer a personal touch? Call us anytime to book your ride quickly and easily with the help of our friendly support team.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
@@ -467,7 +469,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         <i class="fa fa-money-bill-alt fa-2x"></i>
                     </div>
                     <h5 class="mb-3">Special Rates</h5>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?</p>
+                    <p class="mb-0">Enjoy exclusive deals for long-term rentals, corporate bookings, and seasonal discounts—all with transparent pricing.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
@@ -476,7 +478,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         <i class="fa fa-road fa-2x"></i>
                     </div>
                     <h5 class="mb-3">One Way Rental</h5>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?</p>
+                    <p class="mb-0">Need to drop off your car in a different city? Our one-way rental service gives you total flexibility across routes.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
@@ -484,8 +486,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                     <div class="service-icon mb-4">
                         <i class="fa fa-umbrella fa-2x"></i>
                     </div>
-                    <h5 class="mb-3">Life Insurance</h5>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?</p>
+                    <h5 class="mb-3">Insurance Option</h5>
+                    <p class="mb-0">Drive with peace of mind. We offer a range of insurance coverage options to keep you and your rental protected.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
@@ -494,7 +496,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         <i class="fa fa-building fa-2x"></i>
                     </div>
                     <h5 class="mb-3">City to City</h5>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?</p>
+                    <p class="mb-0">Travel seamlessly between cities with our intercity rental service—ideal for business trips or spontaneous getaways.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
@@ -503,7 +505,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         <i class="fa fa-car-alt fa-2x"></i>
                     </div>
                     <h5 class="mb-3">Free Rides</h5>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?</p>
+                    <p class="mb-0">Take advantage of promotions that include free ride credits, especially for first-time users and referrals.</p>
                 </div>
             </div>
         </div>
@@ -516,7 +518,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
             <h1 class="display-5 text-capitalize mb-3">Vehicle <span class="text-primary">Categories</span></h1>
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+            <p class="mb-0">Browse our diverse fleet—from compact city cars to spacious SUVs and premium sedans. Every vehicle is thoroughly inspected, regularly serviced, and ready for your next adventure or business trip.
             </p>
         </div>
         <div class="categories-carousel owl-carousel wow fadeInUp" id="ourcars" data-wow-delay="0.1s">
@@ -579,28 +581,28 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
             <h1 class="display-5 text-capitalize text-white mb-3">Cental<span class="text-primary"> Process</span></h1>
-            <p class="mb-0 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+            <p class="mb-0 text-white">Renting a car with us is quick and hassle-free. Follow these three simple steps to get on the road with comfort and confidence.
             </p>
         </div>
         <div class="row g-4">
             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="steps-item p-4 mb-4">
                     <h4>Come In Contact</h4>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
+                    <p class="mb-0">Reach out via phone, website, or in-person visit to check availability, get answers, and begin your booking.</p>
                     <div class="setps-number">01.</div>
                 </div>
             </div>
             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="steps-item p-4 mb-4">
                     <h4>Choose A Car</h4>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
+                    <p class="mb-0">Pick a vehicle that suits your style, needs, and budget from our wide range of trusted models.</p>
                     <div class="setps-number">02.</div>
                 </div>
             </div>
             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="steps-item p-4 mb-4">
                     <h4>Enjoy Driving</h4>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
+                    <p class="mb-0">Collect your keys, hit the road, and enjoy your journey. We've taken care of the rest.</p>
                     <div class="setps-number">03.</div>
                 </div>
             </div>
@@ -614,7 +616,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
     <div class="container py-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
             <h1 class="display-5 text-capitalize mb-3">Cental<span class="text-primary"> Blog & News</span></h1>
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+            <p class="mb-0">Stay updated with the latest car rental tips, travel trends, and news from the road. Our blog keeps you informed and inspired for every journey.
             </p>
         </div>
         <div class="row g-4">
@@ -630,7 +632,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                             <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
                         </div>
                         <a href="#" class="h4 d-block mb-3">Rental Cars how to check driving fines?</a>
-                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
+                        <p class="mb-3">Discover how to verify any pending traffic fines before renting a car to avoid surprises during your trip.</p>
                         <a href="<?= urlof('./pages/Template pages/blog'); ?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -646,8 +648,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                             <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
                             <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
                         </div>
-                        <a href="#" class="h4 d-block mb-3">Rental cost of sport and other cars</a>
-                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
+                        <a href="#" class="h4 d-block mb-3">Rental Costs: Sports vs. Standard Cars</a>
+                        <p class="mb-3">Curious about the price difference between luxury sports cars and everyday vehicles? Here’s what you need to know.</p>
                         <a href="<?= urlof('./pages/Template pages/blog'); ?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -664,7 +666,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                             <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
                         </div>
                         <a href="#" class="h4 d-block mb-3">Document required for car rental</a>
-                        <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
+                        <p class="mb-3">Before hitting the road, make sure you have the right documents. This guide breaks down exactly what you’ll need.</p>
                         <a href="<?= urlof('./pages/Template pages/blog'); ?>" class="">Read More <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -698,7 +700,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
             <h1 class="display-5 text-capitalize mb-3">Customer<span class="text-primary"> Suport</span> Center</h1>
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+            <p class="mb-0">Meet our dedicated support team, available to assist you with every step of your rental journey. Friendly, knowledgeable, and always ready to help.
             </p>
         </div>
         <div class="row g-4">
@@ -708,8 +710,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         <img src="<?= urlof('assets/img/team-1.jpg') ?>" class="img-fluid rounded w-100" alt="Image">
                     </div>
                     <div class="team-content pt-4">
-                        <h4>MARTIN DOE</h4>
-                        <p>Profession</p>
+                        <h4>MARTIN COOPER</h4>
+                        <p>Senior Customer Executive</p>
                         <div class="team-icon d-flex justify-content-center">
                             <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -725,8 +727,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         <img src="<?= urlof('assets/img/team-2.jpg') ?>" class="img-fluid rounded w-100" alt="Image">
                     </div>
                     <div class="team-content pt-4">
-                        <h4>MARTIN DOE</h4>
-                        <p>Profession</p>
+                        <h4>MARTIN LUOIS</h4>
+                        <p>Live Chat Specialist</p>
                         <div class="team-icon d-flex justify-content-center">
                             <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -742,8 +744,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         <img src="<?= urlof('assets/img/team-3.jpg') ?>" class="img-fluid rounded w-100" alt="Image">
                     </div>
                     <div class="team-content pt-4">
-                        <h4>MARTIN DOE</h4>
-                        <p>Profession</p>
+                        <h4>James Carter</h4>
+                        <p>Phone Support Lead</p>
                         <div class="team-icon d-flex justify-content-center">
                             <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -759,8 +761,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                         <img src="<?= urlof('assets/img/team-4.jpg') ?>" class="img-fluid rounded w-100" alt="Image">
                     </div>
                     <div class="team-content pt-4">
-                        <h4>MARTIN DOE</h4>
-                        <p>Profession</p>
+                        <h4>TONY STARk</h4>
+                        <p>Booking & Complaints Officer</p>
                         <div class="team-icon d-flex justify-content-center">
                             <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -779,8 +781,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
 <div class="container-fluid testimonial pb-5">
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-            <h1 class="display-5 text-capitalize mb-3">Our Clients<span class="text-primary"> Riviews</span></h1>
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+            <h1 class="display-5 text-capitalize mb-3">Our Clients<span class="text-primary"> Reviews</span></h1>
+            <p class="mb-0">Hear what our happy customers have to say about their experience with our car rental service. We value your trust and satisfaction.
             </p>
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
@@ -790,8 +792,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                 <div class="testimonial-inner p-4">
                     <img src="<?= urlof('assets/img/testimonial-1.jpg') ?>" class="img-fluid" alt="">
                     <div class="ms-4">
-                        <h4>Person Name</h4>
-                        <p>Profession</p>
+                        <h4>Priya Sharma</h4>
+                        <p>Travel Blogger</p>
                         <div class="d-flex text-primary">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -802,7 +804,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                     </div>
                 </div>
                 <div class="border-top rounded-bottom p-4">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+                    <p class="mb-0">The car was in excellent condition and the booking process was super smooth. Customer service was responsive and friendly. Highly recommend!</p>
                 </div>
             </div>
             <div class="testimonial-item">
@@ -811,8 +813,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                 <div class="testimonial-inner p-4">
                     <img src="<?= urlof('assets/img/testimonial-2.jpg') ?>" class="img-fluid" alt="">
                     <div class="ms-4">
-                        <h4>Person Name</h4>
-                        <p>Profession</p>
+                        <h4>Sunita Verma</h4>
+                        <p>IT Professional</p>
                         <div class="d-flex text-primary">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -823,7 +825,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                     </div>
                 </div>
                 <div class="border-top rounded-bottom p-4">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+                    <p class="mb-0">Great pricing and punctual delivery. I used their service for a weekend trip and it made the whole journey convenient and stress-free.</p>
                 </div>
             </div>
             <div class="testimonial-item">
@@ -832,8 +834,8 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                 <div class="testimonial-inner p-4">
                     <img src="<?= urlof('assets/img/testimonial-3.jpg') ?>" class="img-fluid" alt="">
                     <div class="ms-4">
-                        <h4>Person Name</h4>
-                        <p>Profession</p>
+                        <h4>Rahul Mehta</h4>
+                        <p>Freelance Designer</p>
                         <div class="d-flex text-primary">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -844,13 +846,167 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                     </div>
                 </div>
                 <div class="border-top rounded-bottom p-4">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+                    <p class="mb-0">While the overall experience was good, the pickup took a bit longer than expected. But the team resolved it quickly and the car was clean.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Testimonial End -->
+
+<!-- Terms & Conditions Start -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-capitalize">Terms & <span class="text-primary">Conditions</span></h1>
+        <p class="lead text-muted">Kindly review our policies before using our services.</p>
+        <div class="divider mx-auto my-4" style="width: 60px; height: 4px; background-color: var(--clr-primary);"></div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="accordion" id="termsAccordion">
+
+                <!-- Section 1 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            1. Rental Agreement
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            By renting a vehicle, you agree to all terms set forth herein and in any supporting documentation provided during booking.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            2. Age & License Requirements
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            Renters must be 21+ with a valid driver's license for at least 1 year. International renters must present an International Driving Permit.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            3. Booking & Payment
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            All bookings are confirmed with full/partial payment. Add-ons like GPS, child seats, and outstation permits may incur extra charges.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            4. Vehicle Condition
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            Vehicles are delivered in clean and roadworthy condition. The customer is responsible for returning the car in the same condition. Any damage, excessive dirt, or loss of vehicle accessories may result in additional charges.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            5. Fuel Policy
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            Vehicles are provided with a full fuel tank and must be returned full. If not, fuel charges will be deducted from the deposit as per current fuel rates.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 6 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            6. Insurance & Liability
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            All vehicles are insured with basic third-party liability. The renter is responsible for any damage or theft that is not covered by insurance. Optional full coverage can be availed at an additional cost. </div>
+                    </div>
+                </div>
+
+                <!-- Section 7 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            7. Cancellations & Refunds
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            Cancellations made more than 24 hours before the rental start time are eligible for a full refund. No refunds will be provided for cancellations made within 24 hours of the pickup time. </div>
+                    </div>
+                </div>
+
+                <!-- Section 8 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingEight">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            8. Traffic Violations
+                        </button>
+                    </h2>
+                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            The renter is responsible for any traffic fines, penalties, or legal violations incurred during the rental period. </div>
+                    </div>
+                </div>
+
+                <!-- Section 9 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingNine">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                            9. Prohibited Uses
+                        </button>
+                    </h2>
+                    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            The rented vehicle must not be used for illegal activities, racing, towing, or driving under the influence of alcohol or drugs. Violation will result in contract termination without refund.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingTen">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen">
+                            10. Governing Law
+                        </button>
+                    </h2>
+                    <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            These terms follow Indian law. Disputes shall be settled under the jurisdiction of our registered office.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Terms & Conditions End -->
 
 
 

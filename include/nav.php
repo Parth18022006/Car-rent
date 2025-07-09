@@ -23,6 +23,7 @@
                                     <a href="<?=urlof('pages/Template pages/cars')?>" class="dropdown-item">Our Cars</a>
                                     <a href="<?=urlof('pages/Template pages/team')?>" class="dropdown-item">Our Team</a>
                                     <a href="<?=urlof('pages/Template pages/testimonial')?>" class="dropdown-item">Testimonial</a>
+                                    <a href="<?=urlof('pages/Template pages/terms&conditions')?>" class="dropdown-item">Terms & Conditions</a>
                                     <a href="<?=urlof('pages/Template pages/404')?>" class="dropdown-item">404 Page</a>
                                 </div>
                             </div>

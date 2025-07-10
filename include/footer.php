@@ -6,7 +6,7 @@
                         <div class="footer-item d-flex flex-column">
                             <div class="footer-item">
                                 <h4 class="text-white mb-4">About Us</h4>
-                                <p class="mb-3">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit.</p>
+                                <p class="mb-3">We provide reliable and affordable car rentals with a focus on customer satisfaction, 24/7 support, and a hassle-free booking experience.</p>
                             </div>
                             <div class="position-relative">
                                 <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">

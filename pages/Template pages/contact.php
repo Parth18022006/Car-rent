@@ -21,7 +21,9 @@ include pathof('include/nav.php');
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                     <!-- <h1 class="display-5 text-capitalize text-primary mb-3">Contact Us</h1> -->
-                    <p class="mb-0">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a class="text-primary fw-bold" href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                    <p class="mb-0">Have a question, feedback, or business inquiry? We're here to help. 
+Whether you're planning a trip, need assistance with a booking, or want to learn more about our vehicle rental services, 
+our team is just a message away. Reach out via the contact form below or use any of the methods listed — we’ll get back to you promptly.</p>
                 </div>
                 <div class="row g-5">
                     <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
@@ -44,7 +46,7 @@ include pathof('include/nav.php');
                                     </div>
                                     <div>
                                         <h4>Mail Us</h4>
-                                        <p class="mb-0">info@example.com</p>
+                                        <p class="mb-0">parth18chavda@gmail.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +57,7 @@ include pathof('include/nav.php');
                                     </div>
                                     <div>
                                         <h4>Telephone</h4>
-                                        <p class="mb-0">(+012) 3456 7890</p>
+                                        <p class="mb-0">(+91)82006916380</p>
                                     </div>
                                 </div>
                             </div>

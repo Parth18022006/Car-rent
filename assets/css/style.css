@@ -1037,4 +1037,22 @@ html { scroll-behavior: smooth; }
     color: #000 !important;
 }
 
+.contact-add-item {
+    background-color: #f8f9fa !important; /* Light gray background */
+    border-radius: 10px;
+}
+
+.contact-add-item .contact-icon i {
+    color:#000 !important; /* Black icon */
+}
+.feature-icon span {
+    color: #000 !important;
+}
+
+.counter-item-icon i {
+    color: #000 !important;
+}
+.service-icon i {
+    color: #000 !important;
+}
 

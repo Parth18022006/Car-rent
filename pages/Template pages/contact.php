@@ -57,7 +57,7 @@ our team is just a message away. Reach out via the contact form below or use any
                                     </div>
                                     <div>
                                         <h4>Telephone</h4>
-                                        <p class="mb-0">(+91)82006916380</p>
+                                        <p class="mb-0">(+91) 82006916380</p>
                                     </div>
                                 </div>
                             </div>

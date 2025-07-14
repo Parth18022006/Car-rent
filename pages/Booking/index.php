@@ -182,8 +182,8 @@ include pathof('./include/footer.php');
 
         let vnum = /^(\+\d{1,3}[- ]?)?\d{10}$/;
         let vmail = /^[a-zA-Z0-9]+@[a-z]+\.[a-z]{2,}$/;
-        let vpickup = /^[a-zA-Z\s]+$/;
-        let vdropoff = /^[a-zA-Z\s]+$/;
+        let vpickup = /^[a-zA-Z0-9\s,.-]{5,}$/;;
+        let vdropoff =/^[a-zA-Z0-9\s,.-]{5,}$/;;
         if (vcar != "" && vcar != null && vrprice != "" && vrprice != null && vpnum != "" && vpnum != null && vemail != "" && vemail != null && vpick_up != "" && vpick_up != null && vdrop_off != "" && vdrop_off != null && vpickupd != "" && vpickupd != null && vpickupt != "" && vpickupt != null && vdropofd != "" && vdropofd != null && vdropoft != "" && vdropoft != null) {
             if (vnum.test(vpnum)) {
                 if (vmail.test(vemail)) {
@@ -220,12 +220,12 @@ include pathof('./include/footer.php');
                             })
                             return false;
                         } else {
-                            document.getElementById('emsg4').innerHTML = "Numbers Not Allowed";
+                            document.getElementById('emsg4').innerHTML = "Please enter a valid dropoff location.";
                             scrollToFirstError();
                             return false;
                         }
                     } else {
-                        document.getElementById('emsg3').innerHTML = "Numbers Not Allowed";
+                        document.getElementById('emsg3').innerHTML = "Please enter a valid pickup location.";
                         scrollToFirstError();
                         return false;
                     }

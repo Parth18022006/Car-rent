@@ -85,7 +85,7 @@ include pathof('./include/nav.php');
                 </option>
             <?php endforeach; ?>
         </select>
-        
+
         <input type="text" name="rprice" id="rprice" class="form-control-plaintext mb-3" readonly>
         <input type="number" name="pnum" id="pnum" placeholder="Enter Mobile Number">
         <div style="text-align: center;"><small id="emsg1" style="color: red;"></small></div>
@@ -116,7 +116,7 @@ include pathof('./include/nav.php');
                 </div>
                 <input class="form-control" type="date" id="pickup_date" name="pickup_date">
                 <select class="form-select ms-3" placeholder="Default select example" id="pickup_time" name="pickup_time">
-                    <option value="" disabled selected hidden>Select Date</option>
+                    <option value="" disabled selected hidden>Select Time</option>
                     <option value="12:00AM">12:00AM</option>
                     <option value="1:00AM">1:00AM</option>
                     <option value="2:00AM">2:00AM</option>
@@ -135,7 +135,7 @@ include pathof('./include/nav.php');
                 </div>
                 <input class="form-control" type="date" id="dropoff_date" name="dropoff_date">
                 <select class="form-select ms-3" placeholder="Default select example" id="dropoff_time" name="dropoff_time">
-                    <option value="" disabled selected hidden>Select Date</option>    
+                    <option value="" disabled selected hidden>Select Time</option>
                     <option value="12:00AM">12:00AM</option>
                     <option value="1:00AM">1:00AM</option>
                     <option value="2:00AM">2:00AM</option>
@@ -190,53 +190,58 @@ include pathof('./include/footer.php');
                     if (vpickup.test(vpick_up)) {
                         if (vdropoff.test(vdrop_off)) {
                             if (!validateDropoffTime()) {
-    return false;  // Block submission
-}
-                        let data = {
-                        car: $('#selectcar').val(),
-                        rprice: $('#rprice').val(),
-                        pnum: $('#pnum').val(),
-                        email: $('#email').val(),
-                        pickup_place: $('#pickup_place').val(),
-                        dropoff_place: $('#dropoff_place').val(),
-                        pickup_date: $('#pickup_date').val(),
-                        pickup_time: $('#pickup_time').val(),
-                        dropoff_date: $('#dropoff_date').val(),
-                        dropoff_time: $('#dropoff_time').val()
-                    }
+                                return false; // Block submission
+                            }
+                            let data = {
+                                car: $('#selectcar').val(),
+                                rprice: $('#rprice').val(),
+                                pnum: $('#pnum').val(),
+                                email: $('#email').val(),
+                                pickup_place: $('#pickup_place').val(),
+                                dropoff_place: $('#dropoff_place').val(),
+                                pickup_date: $('#pickup_date').val(),
+                                pickup_time: $('#pickup_time').val(),
+                                dropoff_date: $('#dropoff_date').val(),
+                                dropoff_time: $('#dropoff_time').val()
+                            }
 
-                    $.ajax({
-                        url: "../../api/book/booking",
-                        method: "POST",
-                        data: data,
-                        success: function(response) {
-                            alert("Car booked Successfully");
-                            window.location.href = "../../index";
-                        },
-                        error: function(error) {
-                            alert("Not Booked");
-                            window.location.href = "./index";
-                        }
-                    })
-                    return false;
+                            $.ajax({
+                                url: "../../api/book/booking",
+                                method: "POST",
+                                data: data,
+                                success: function(response) {
+                                    alert("Car booked Successfully");
+                                    window.location.href = "../../index";
+                                },
+                                error: function(error) {
+                                    alert("Not Booked");
+                                    window.location.href = "./index";
+                                }
+                            })
+                            return false;
                         } else {
                             document.getElementById('emsg4').innerHTML = "Numbers Not Allowed";
+                            scrollToFirstError();
                             return false;
                         }
                     } else {
                         document.getElementById('emsg3').innerHTML = "Numbers Not Allowed";
+                        scrollToFirstError();
                         return false;
                     }
                 } else {
                     document.getElementById('emsg2').innerHTML = "Email Pattern Not Matched";
+                    scrollToFirstError();
                     return false;
                 }
             } else {
                 document.getElementById('emsg1').innerHTML = "Mobile Pattern Not Matched";
+                scrollToFirstError();
                 return false;
             }
         } else {
             document.getElementById('emsg0').innerHTML = "Null Fields Not Allowed";
+            scrollToFirstError();
             return false;
         }
     });
@@ -328,7 +333,7 @@ include pathof('./include/footer.php');
     const pickupDate = document.getElementById('pickup_date');
     const dropoffDate = document.getElementById('dropoff_date');
 
-    pickupDate.addEventListener('change', function () {
+    pickupDate.addEventListener('change', function() {
         const selectedDate = this.value;
         dropoffDate.min = selectedDate;
 
@@ -338,47 +343,68 @@ include pathof('./include/footer.php');
         }
     });
 
-      const pickupTime = document.getElementById('pickup_time');
+    const pickupTime = document.getElementById('pickup_time');
     const dropoffTime = document.getElementById('dropoff_time');
     const emsg5 = document.getElementById("emsg5");
 
 
     function validateDropoffTime() {
-    const pickupTime = document.getElementById('pickup_time');
-    const dropoffTime = document.getElementById('dropoff_time');
-    const pickupDate = document.getElementById('pickup_date');
-    const dropoffDate = document.getElementById('dropoff_date');
+        const pickupTime = document.getElementById('pickup_time');
+        const dropoffTime = document.getElementById('dropoff_time');
+        const pickupDate = document.getElementById('pickup_date');
+        const dropoffDate = document.getElementById('dropoff_date');
 
-    const pickupDateVal = pickupDate.value;
-    const dropoffDateVal = dropoffDate.value;
-    const pickupTimeVal = pickupTime.value;
-    const dropoffTimeVal = dropoffTime.value;
+        const pickupDateVal = pickupDate.value;
+        const dropoffDateVal = dropoffDate.value;
+        const pickupTimeVal = pickupTime.value;
+        const dropoffTimeVal = dropoffTime.value;
 
-    emsg5.textContent = "";
+        emsg5.textContent = "";
 
-    if (pickupDateVal && dropoffDateVal && pickupDateVal === dropoffDateVal) {
-        const times = {
-            "12:00AM": 0, "1:00AM": 1, "2:00AM": 2, "3:00AM": 3,
-            "4:00AM": 4, "5:00AM": 5, "6:00AM": 6, "7:00AM": 7
-        };
+        if (pickupDateVal && dropoffDateVal && pickupDateVal === dropoffDateVal) {
+            const times = {
+                "12:00AM": 0,
+                "1:00AM": 1,
+                "2:00AM": 2,
+                "3:00AM": 3,
+                "4:00AM": 4,
+                "5:00AM": 5,
+                "6:00AM": 6,
+                "7:00AM": 7
+            };
 
-        const pickVal = times[pickupTimeVal];
-        const dropVal = times[dropoffTimeVal];
+            const pickVal = times[pickupTimeVal];
+            const dropVal = times[dropoffTimeVal];
 
-        if (dropVal <= pickVal) {
-            emsg5.textContent = "Drop-off time must be after pickup time when date is same.";
-            return false;
+            if (dropVal <= pickVal) {
+                emsg5.textContent = "Drop-off time must be after pickup time when date is same.";
+                return false;
+            }
         }
-    }
 
-    return true;
-}
+        return true;
+    }
 
 
     pickupTime.addEventListener('change', validateDropoffTime);
     dropoffTime.addEventListener('change', validateDropoffTime);
     pickupDate.addEventListener('change', validateDropoffTime);
     dropoffDate.addEventListener('change', validateDropoffTime);
+
+    function scrollToFirstError() {
+    const errorElements = document.querySelectorAll('[id^="emsg"]');
+    for (const el of errorElements) {
+        if (el.textContent.trim() !== '') {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.animation = "shake 0.4s ease"; // Optional shake effect
+            return;
+        }
+    }
+}
+
+
+
+
 </script>
 <?php
 include pathof('./include/script.php');

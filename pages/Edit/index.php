@@ -51,7 +51,7 @@ include pathof('include/nav.php');
     <option value="2030">2030</option>
     </select>
     <input type="file" name="img" id="img">
-    <div id="emsg" style="color: red;size: 6px;"></div>
+    <div id="emsg" style="color: red;size: 6px;text-align:center ;"></div>
     <br><input type="button" value="Insert" onclick="insert_car()">
 
 

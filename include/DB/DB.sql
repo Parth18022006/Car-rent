@@ -18,8 +18,20 @@ CREATE TABLE CAR(
     review int,
     space int,  
     gas varchar(255) NOT NULL,  
-    year int
+    year int,
+    ImageFile varchar(255) NOT NULL
 );
 
-ALTER TABLE CAR
-ADD ImageFile varchar(255) NOT NULL;
+CREATE TABLE booking(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    car_id varchar(30) NOT NULL,
+    price varchar(20) NOT NULL,
+    num int(10),
+    email varchar(255) NOT NULL,
+    pickup_place varchar(255) NOT NULL,
+    dropoff_place varchar(255) NOT NULL,
+    pickup_date varchar(255) NOT NULL,
+    pickup_time varchar(255) NOT NULL,
+    dropoff_date varchar(255) NOT NULL,
+    dropoff_time varchar(255) NOT NULL
+);

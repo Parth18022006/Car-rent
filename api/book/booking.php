@@ -15,7 +15,7 @@ $pickup_date = $_POST['pickup_date'] ?? null;
 $dropoff_date = $_POST['dropoff_date'] ?? null;
 $dropoff_time = $_POST['dropoff_time'] ?? null;
 
-$q = "INSERT INTO `booking`(`car`, `price`, `num`, `email`, `pickup_place`, `dropoff_place`, `pickup_date`, `pickup_time`, `dropoff_date`, `dropoff_time`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+$q = "INSERT INTO `booking`(`car_id`, `price`, `num`, `email`, `pickup_place`, `dropoff_place`, `pickup_date`, `pickup_time`, `dropoff_date`, `dropoff_time`) VALUES (?,?,?,?,?,?,?,?,?,?)";
 $param = [$car,$rprice,$pnum,$email,$pickup_place,$dropoff_place,$pickup_date,$pickup_time,$dropoff_date,$dropoff_time];
 
 $stmt = $conn->prepare($q);
@@ -25,6 +25,5 @@ if($booked){
     echo json_encode(['success' => true, "message" => "Car Booked Successfully"]);
 }else{
     echo json_encode(['success' => false, "message" => "Car Not Booked"]);
-
 }
 ?>

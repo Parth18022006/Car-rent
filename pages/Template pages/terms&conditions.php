@@ -152,6 +152,7 @@ include pathof('include/nav.php');
                     </div>
                 </div>
 
+                <!-- Section 10 -->
                 <div class="accordion-item mb-3">
                     <h2 class="accordion-header" id="headingTen">
                         <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen">
@@ -164,6 +165,21 @@ include pathof('include/nav.php');
                         </div>
                     </div>
                 </div>
+
+                <!-- Section 11 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingEleven">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                            11. Address Accuracy & Additional Charges
+                        </button>
+                    </h2>
+                    <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            It is the renter's responsibility to provide accurate and complete pickup and drop-off locations during the booking process. If the address provided is unclear, vague, or incorrect, the renter will bear full responsibility for any delays in pickup or delivery. Additionally, any detours, waiting time, or logistical adjustments caused by incomplete or incorrect addresses may result in additional charges.
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
         </div>

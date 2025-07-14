@@ -138,7 +138,9 @@ include pathof('include/nav.php');
         });
         }
         else{
-            document.getElementById('emsg').innerHTML = "<br>Null Fields Are Not Allowed"
+            document.getElementById('emsg').innerHTML = "<br>Null Fields Are Not Allowed";
+            scrollToFirstError();
+            return false;
         }
 
         
@@ -236,6 +238,17 @@ yearSel.addEventListener('change', () => {
 yearSel.addEventListener('blur', () => {
     yearSel.classList.remove('is-open');
 });
+
+function scrollToFirstError() {
+    const errorElements = document.querySelectorAll('[id^="emsg"]');
+    for (const el of errorElements) {
+        if (el.textContent.trim() !== '') {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.animation = "shake 0.4s ease"; // Optional shake effect
+            return;
+        }
+    }
+}
 </script>
 
 <br>

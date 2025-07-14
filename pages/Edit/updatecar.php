@@ -159,6 +159,7 @@ include pathof('include/nav.php');
                 success: function(response) {
                     if (!hasImage && ogname == ucname && ogprice == uprice && ogreview == ureview && ogspace == uspace && oggas == ugas && ogyear == uyear) {
                         document.getElementById('emsg').innerHTML = "<br>Oops! Their Is No Change..";
+                        scrollToFirstError();
                         return false;
                     } else if (response.success != true) {
                         alert("Something Went Wrong");
@@ -173,6 +174,7 @@ include pathof('include/nav.php');
             });
         } else {
             document.getElementById('emsg').innerHTML = "<br>Null Fields Are Not Allowed";
+            scrollToFirstError();
             return false;
         }
 
@@ -213,6 +215,17 @@ uyearSel.addEventListener('change', () => {
 uyearSel.addEventListener('blur', () => {
     uyearSel.classList.remove('is-open');
 });
+
+function scrollToFirstError() {
+    const errorElements = document.querySelectorAll('[id^="emsg"]');
+    for (const el of errorElements) {
+        if (el.textContent.trim() !== '') {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.animation = "shake 0.4s ease"; // Optional shake effect
+            return;
+        }
+    }
+}
 </script>
 
 <?php

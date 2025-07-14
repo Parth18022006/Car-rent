@@ -11,6 +11,8 @@ CREATE TABLE `User`(
     role ENUM('customer', 'admin') NOT NULL DEFAULT 'customer'
 );
 
+INSERT INTO `user`(`email`, `password`, `role`) VALUES ('admin@gmail.com','admin12345','admin');
+
 CREATE TABLE CAR(
     id int AUTO_INCREMENT PRIMARY KEY,
     name varchar(255) NOT NULL,

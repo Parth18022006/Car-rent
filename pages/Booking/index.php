@@ -53,7 +53,9 @@ include pathof('./include/nav.php');
 <link rel="stylesheet" href="<?= urlof('./assets/css/booking.css'); ?>">
 <style>
     /* black frame by default */
-    #rprice {
+    #rprice,
+    #renter_name,
+    #renter_address {
         width: 100%;
         height: 56px;
         padding: 12px 15px;
@@ -68,8 +70,6 @@ include pathof('./include/nav.php');
         box-shadow: none !important;
     }
 </style>
-
-<link rel="stylesheet" href="<?= urlof('./assets/css/booking.css'); ?>">
 <form action="" method="post">
     <h4>CAR RESERVATION</h4>
     <div class="col-12">
@@ -90,7 +90,12 @@ include pathof('./include/nav.php');
         <input type="number" name="pnum" id="pnum" placeholder="Enter Mobile Number">
         <div style="text-align: center;"><small id="emsg1" style="color: red;"></small></div>
         <input type="text" name="email" id="email" placeholder="Enter Your E-Mail" value="<?= $email ?>">
-        <div style="text-align: center;"><small id="emsg2" style="color: red; text-align:center ;"></small></div>
+        <div style="text-align: center;"><small id="emsg2" style="color: red;"></small></div>
+        <input type="text" name="renter_name" id="renter_name" placeholder="Enter Full Name">
+        <div style="text-align: center;"><small id="emsg6" style="color:red;"></small></div>
+        <textarea name="renter_address" id="renter_address" placeholder="Enter Full Address"></textarea>
+        <div style="text-align: center;"><small id="emsg7" style="color:red;"></small></div>
+
         <div class="col-12">
             <div class="input-group">
                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
@@ -167,6 +172,8 @@ include pathof('./include/footer.php');
         let vrprice = document.getElementById('rprice').value;
         let vpnum = document.getElementById('pnum').value;
         let vemail = document.getElementById('email').value;
+        let renterName = document.getElementById('renter_name').value;
+        let renterAddress = document.getElementById('renter_address').value;
         let vpick_up = document.getElementById('pickup_place').value;
         let vdrop_off = document.getElementById('dropoff_place').value;
         let vpickupd = document.getElementById('pickup_date').value;
@@ -179,46 +186,65 @@ include pathof('./include/footer.php');
         document.getElementById('emsg2').innerHTML = "";
         document.getElementById('emsg3').innerHTML = "";
         document.getElementById('emsg4').innerHTML = "";
+        document.getElementById('emsg6').innerHTML = "";
+        document.getElementById('emsg7').innerHTML = "";
+
 
         let vnum = /^(\+\d{1,3}[- ]?)?\d{10}$/;
         let vmail = /^[a-zA-Z0-9]+@[a-z]+\.[a-z]{2,}$/;
         let vpickup = /^[a-zA-Z0-9\s,.-]{5,}$/;;
-        let vdropoff =/^[a-zA-Z0-9\s,.-]{5,}$/;;
-        if (vcar != "" && vcar != null && vrprice != "" && vrprice != null && vpnum != "" && vpnum != null && vemail != "" && vemail != null && vpick_up != "" && vpick_up != null && vdrop_off != "" && vdrop_off != null && vpickupd != "" && vpickupd != null && vpickupt != "" && vpickupt != null && vdropofd != "" && vdropofd != null && vdropoft != "" && vdropoft != null) {
+        let vdropoff = /^[a-zA-Z0-9\s,.-]{5,}$/;;
+        let fname = /^[A-Za-z]+(?: [A-Za-z]+)+$/;
+        let address = /^[A-Za-z0-9\s,.'\-/#]{5,100}$/;
+
+        if (vcar != "" && vcar != null && vrprice != "" && vrprice != null && vpnum != "" && vpnum != null && vemail != "" && vemail != null && vpick_up != "" && vpick_up != null && vdrop_off != "" && vdrop_off != null && vpickupd != "" && vpickupd != null && vpickupt != "" && vpickupt != null && vdropofd != "" && vdropofd != null && vdropoft != "" && vdropoft != null && renterName != "" && renterName != null && renterAddress != "" && renterAddress != null) {
             if (vnum.test(vpnum)) {
                 if (vmail.test(vemail)) {
                     if (vpickup.test(vpick_up)) {
                         if (vdropoff.test(vdrop_off)) {
-                            if (!validateDropoffTime()) {
-                                return false; // Block submission
-                            }
-                            let data = {
-                                car: $('#selectcar').val(),
-                                rprice: $('#rprice').val(),
-                                pnum: $('#pnum').val(),
-                                email: $('#email').val(),
-                                pickup_place: $('#pickup_place').val(),
-                                dropoff_place: $('#dropoff_place').val(),
-                                pickup_date: $('#pickup_date').val(),
-                                pickup_time: $('#pickup_time').val(),
-                                dropoff_date: $('#dropoff_date').val(),
-                                dropoff_time: $('#dropoff_time').val()
-                            }
+                            if (fname.test(renterName)) {
+                                if (address.test(renterAddress)) {
+                                    if (!validateDropoffTime()) {
+                                        return false; // Block submission
+                                    }
+                                    let data = {
+                                        car: $('#selectcar').val(),
+                                        rprice: $('#rprice').val(),
+                                        pnum: $('#pnum').val(),
+                                        email: $('#email').val(),
+                                        renter_name: $('#renter_name').val(),
+                                        renter_address: $('#renter_address').val(),
+                                        pickup_place: $('#pickup_place').val(),
+                                        dropoff_place: $('#dropoff_place').val(),
+                                        pickup_date: $('#pickup_date').val(),
+                                        pickup_time: $('#pickup_time').val(),
+                                        dropoff_date: $('#dropoff_date').val(),
+                                        dropoff_time: $('#dropoff_time').val()
+                                    }
 
-                            $.ajax({
-                                url: "../../api/book/booking",
-                                method: "POST",
-                                data: data,
-                                success: function(response) {
-                                    alert("Car booked Successfully");
-                                    window.location.href = "../../index";
-                                },
-                                error: function(error) {
-                                    alert("Not Booked");
-                                    window.location.href = "./index";
+                                    $.ajax({
+                                        url: "../../api/book/booking_submit",
+                                        method: "POST",
+                                        data: data,
+                                        success: function(response) {
+                                            window.location.href = "./agreement?booking_id=" + response.booking_id;
+                                        },
+                                        error: function(error) {
+                                            alert("Not Booked");
+                                            window.location.href = "./index";
+                                        }
+                                    })
+                                    return false;
+                                } else {
+                                    document.getElementById('emsg7').innerHTML = "Enter a proper address";
+                                    scrollToFirstError();
+                                    return false;
                                 }
-                            })
-                            return false;
+                            } else {
+                                document.getElementById('emsg6').innerHTML = "Name is too short";
+                                scrollToFirstError();
+                                return false;
+                            }
                         } else {
                             document.getElementById('emsg4').innerHTML = "Please enter a valid dropoff location.";
                             scrollToFirstError();
@@ -392,19 +418,18 @@ include pathof('./include/footer.php');
     dropoffDate.addEventListener('change', validateDropoffTime);
 
     function scrollToFirstError() {
-    const errorElements = document.querySelectorAll('[id^="emsg"]');
-    for (const el of errorElements) {
-        if (el.textContent.trim() !== '') {
-            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            el.style.animation = "shake 0.4s ease"; // Optional shake effect
-            return;
+        const errorElements = document.querySelectorAll('[id^="emsg"]');
+        for (const el of errorElements) {
+            if (el.textContent.trim() !== '') {
+                el.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                el.style.animation = "shake 0.4s ease"; // Optional shake effect
+                return;
+            }
         }
     }
-}
-
-
-
-
 </script>
 <?php
 include pathof('./include/script.php');

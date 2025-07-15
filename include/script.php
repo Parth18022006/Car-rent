@@ -6,6 +6,7 @@
     <script src="<?=urlof('assets/lib/waypoints/waypoints.min.js')?>"></script>
     <script src="<?=urlof('assets/lib/counterup/counterup.min.js')?>"></script>
     <script src="<?=urlof('assets/lib/owlcarousel/owl.carousel.min.js')?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     
 
     <!-- Template Javascript -->

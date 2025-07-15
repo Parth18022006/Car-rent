@@ -28,7 +28,7 @@ CREATE TABLE booking(
     id int AUTO_INCREMENT PRIMARY KEY,
     car_id varchar(30) NOT NULL,
     price varchar(20) NOT NULL,
-    num int(10),
+    num varchar(20) NOT NULL,
     email varchar(255) NOT NULL,
     renter_name varchar(255) NOT NULL,
     renter_address varchar(255) NOT NULL,

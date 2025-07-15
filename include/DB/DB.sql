@@ -30,10 +30,16 @@ CREATE TABLE booking(
     price varchar(20) NOT NULL,
     num int(10),
     email varchar(255) NOT NULL,
+    renter_name varchar(255) NOT NULL,
+    renter_address varchar(255) NOT NULL,
     pickup_place varchar(255) NOT NULL,
     dropoff_place varchar(255) NOT NULL,
     pickup_date varchar(255) NOT NULL,
     pickup_time varchar(255) NOT NULL,
     dropoff_date varchar(255) NOT NULL,
-    dropoff_time varchar(255) NOT NULL
+    dropoff_time varchar(255) NOT NULL,
+    is_signed TINYINT(1) DEFAULT 0
 );
+
+-- ALTER TABLE booking
+-- ADD table_name properties

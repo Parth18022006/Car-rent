@@ -180,6 +180,21 @@ include pathof('include/nav.php');
                     </div>
                 </div>
 
+                <!-- Section 12 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingTwelve">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                            12. Intercity Pickup or Drop-off
+                        </button>
+                    </h2>
+                    <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            If the pickup location and drop-off location are in <strong>different cities</strong>, additional charges will be applied to cover the cost of returning the vehicle to its original city. These charges will be calculated based on the distance and logistics required, and the renter agrees to pay these charges as part of the rental agreement.
+                        </div>
+                    </div>
+                </div>
+
+
 
             </div>
         </div>

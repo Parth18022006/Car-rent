@@ -273,3 +273,48 @@ form input[type="button"]:hover {
   border-radius: 8px;
   object-fit: cover;
 }
+/* ---------- Responsive helpers ---------- */
+
+/* Make form and table fit nicely on smaller devices */
+form {
+  width: 95%;
+  max-width: 600px;
+}
+
+/* Responsive table wrapper */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;      /* enable scroll if needed */
+  -webkit-overflow-scrolling: touch;
+  margin: 0 auto;
+}
+
+/* Optional: keep table cells from shrinking too small */
+.table th,
+.table td {
+  white-space: nowrap;  /* prevent content from wrapping in a messy way */
+}
+
+/* On very small screens, reduce padding for table cells */
+@media (max-width: 576px) {
+  .table th,
+  .table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+/* Breadcrumb padding adjustment on small screens */
+@media (max-width: 576px) {
+  .bg-breadcrumb {
+    padding: 60px 0;
+  }
+
+  .bg-breadcrumb h4 {
+    font-size: 2rem;
+  }
+
+  .bg-breadcrumb .breadcrumb-item {
+    font-size: 0.9rem;
+  }
+}

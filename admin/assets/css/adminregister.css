@@ -1,289 +1,278 @@
 /* ─────────────────────────────────────────────────────────
-   REGISTRATION FORM  •  smooth transitions & clean cascade
+   REGISTRATION FORM  •  Smooth transitions & responsive
+   Compatible with all devices
    ─────────────────────────────────────────────────────────*/
 
 /* 0. Root variables & resets
-   ------------------------------------------------------ */
-   :root {
-    --ease-smooth: cubic-bezier(.22,.61,.36,1);
-  }
-  
-  html { scroll-behavior: smooth; }
-  
-  /* include ancestors so borders/padding are predictable */
-  *, *::before, *::after { box-sizing: border-box; }
-  
-  /* 1. Global / Body
-     ------------------------------------------------------ */
-  body {
-    font-family: 'Lexend', sans-serif;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 40px 12px;
-  
-    /* animated hexagon backdrop */
-    background: #f0f2f5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='86.6'%3E%3Cpolygon points='50,0 100,25 100,75 50,100 0,75 0,25' fill='none' stroke='%230056b3' stroke-width='1' stroke-opacity='0.18'/%3E%3C/svg%3E")
-                repeat;
-    background-size: 100px 86.6px;
-    animation: pageIn .6s ease-out forwards,
-               bgDrift 35s linear infinite;
-    opacity: 0;                     /* lifted to 1 by pageIn */
-  }
-  
-  /* 2. Form container
-     ------------------------------------------------------ */
-  form {
-    width: 100%;
-    max-width: 420px;
-    padding: 32px 26px;
-    margin: 0 auto;
-  
-    background: rgba(255,255,255,.78);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,.24);
-    border-radius: 10px;
-    box-shadow: 0 4px 18px rgba(0,0,0,.07);
-  
-    animation: fadeUp .6s ease-out, scaleIn .5s ease-out;
-    transition: box-shadow .45s var(--ease-smooth),
-                transform  .45s var(--ease-smooth);
-  }
-  
-  form:hover {
-    box-shadow: 0 0 46px rgba(234,0,30,.28);
-    transform: translateY(-4px);
-  }
-  
-  /* 3. Heading
-     ------------------------------------------------------ */
-  h2 {
-    margin: 0 0 26px;
-    font-size: 1.65rem;
-    font-weight: 400;
-    color: #264b7d;
-    text-align: center;
-  }
-  
-  /* 4. Inputs & Select
-     ------------------------------------------------------ */
-  input[type="email"],
-  input[type="password"],
-  form select {
-    width: 100%;
-    padding: 14px 16px;          /* larger touch target */
-    margin-bottom: 8px;
-    background: #f5f7fa;
-    border: 1px solid #cfd4da;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #4f5a66;
-  
-    transition: background .28s var(--ease-smooth),
-                border     .28s var(--ease-smooth),
-                box-shadow .28s var(--ease-smooth);
-  }
-  
-  input::placeholder { color: #6c757d; }
-  /* ───── Password fields with eye‑toggle ─────────────── */
+---------------------------------------------------------- */
+:root {
+  --ease-smooth: cubic-bezier(.22, .61, .36, 1);
+}
 
-  /* grey text only for the placeholder line */
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 1. Global / Body
+---------------------------------------------------------- */
+body {
+  font-family: 'Lexend', sans-serif;
+  margin: 0;
+
+  /* ✅ ensures flex container fills entire viewport */
+  min-height: 100dvh;
+
+  display: flex;
+  align-items: center;        /* vertical center */
+  justify-content: center;   /* horizontal center */
+
+  /* remove padding to allow true centering */
+  padding: 0;
+
+  background: #f0f2f5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='86.6'%3E%3Cpolygon points='50,0 100,25 100,75 50,100 0,75 0,25' fill='none' stroke='%230056b3' stroke-width='1' stroke-opacity='0.18'/%3E%3C/svg%3E") repeat;
+  background-size: 100px 86.6px;
+  animation: pageIn .6s ease-out forwards,
+             bgDrift 35s linear infinite;
+  opacity: 0;
+}
+
+/* 2. Form container
+---------------------------------------------------------- */
+form {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 26px;
+  margin: 0; /* no vertical margins needed, flex centers it */
+
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.07);
+
+  animation: fadeUp .6s ease-out, scaleIn .5s ease-out;
+  transition: box-shadow .45s var(--ease-smooth),
+              transform  .45s var(--ease-smooth);
+}
+
+form:hover {
+  box-shadow: 0 0 46px rgba(234,0,30,.28);
+  transform: translateY(-4px);
+}
+
+/* 3. Heading
+---------------------------------------------------------- */
+h2 {
+  margin: 0 0 26px;
+  font-size: 1.65rem;
+  font-weight: 400;
+  color: #264b7d;
+  text-align: center;
+}
+
+/* 4. Inputs & Selects
+---------------------------------------------------------- */
+input[type="email"],
+input[type="password"],
+form select {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  background: #f5f7fa;
+  border: 1px solid #cfd4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #4f5a66;
+  transition: background .28s var(--ease-smooth),
+              border .28s var(--ease-smooth),
+              box-shadow .28s var(--ease-smooth);
+}
+
+input::placeholder {
+  color: #6c757d;
+}
+
+/* disabled placeholder in select */
 select option[disabled] {
   color: #888;
 }
 
-.password-field{
-  position: relative;                 /* anchors the icon */
+/* 4a. Password fields with eye-toggle */
+.password-field {
+  position: relative;
   width: 100%;
 }
 
-/* both states: dots (password)  &  plain text (after toggle) */
 .password-field input[type="password"],
-.password-field input[type="text"]{
+.password-field input[type="text"] {
   width: 100%;
-  display: block;                     /* fill the row */
-  padding: 14px 48px 14px 16px;       /* room for the icon (right) */
+  display: block;
+  padding: 14px 48px 14px 16px;
+  margin-bottom: 8px;
+  background: #f5f7fa;
   border: 1px solid #cfd4da;
   border-radius: 8px;
   font-size: 1rem;
-  background: #f5f7fa;
   color: #4f5a66;
-  margin-bottom: 8px;    
-  box-sizing: border-box;
-
-  /* same transitions as your other fields */
   transition: background .28s var(--ease-smooth),
-              border     .28s var(--ease-smooth),
+              border .28s var(--ease-smooth),
               box-shadow .28s var(--ease-smooth);
 }
 
 .password-field input[type="password"]:focus,
-.password-field input[type="text"]:focus{
+.password-field input[type="text"]:focus {
   border-color: #e6001e;
   box-shadow: 0 0 0 0.25rem rgba(234,0,30,.25);
   background: #fff;
   outline: none;
 }
 
-/* the eye / eye‑slash icon */
-.password-field .toggle-pass{
+/* Eye icon */
+.password-field .toggle-pass {
   position: absolute;
   top: 50%;
-  right: 18px;                        /* tweak if you want it tighter */
+  right: 18px;
   transform: translateY(-50%);
   font-size: 1.1rem;
   color: #000 !important;
   cursor: pointer;
   transition: color .25s var(--ease-smooth);
 }
-
-.password-field .toggle-pass:hover{
+.password-field .toggle-pass:hover {
   color: #e6001e !important;
 }
-
-/* slightly closer on very small screens */
-@media (max-width: 576px){
-  .password-field .toggle-pass{ right: 14px; }
+@media (max-width: 576px) {
+  .password-field .toggle-pass {
+    right: 14px;
+  }
 }
 
-  
-/* ───────── Animated red chevron for <select> ───────── */
+/* 4b. Animated chevron for select */
 form select {
-  /* keep the base styling you already have … */
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-
-  /* room for the arrow */
   padding-right: 2.5rem;
-
-  /* ↓ default state: red downward chevron on the right */
   background:
     url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23e6001e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='1 1 6 6 11 1'/%3e%3c/svg%3e")
       no-repeat right 1rem center / 12px 8px,
-    #f5f7fa; /* field background */
-
-  transition:
-    background-position 0.35s var(--ease-smooth),
-    background-size     0.35s var(--ease-smooth),
-    background-color    0.25s ease;
+    #f5f7fa;
+  transition: background-position 0.35s var(--ease-smooth),
+              background-size 0.35s var(--ease-smooth),
+              background-color 0.25s ease;
+}
+form select.is-open {
+  background-position: left -2rem center, 0 0;
+  background-size: 0 0, auto;
+}
+form select::-ms-expand {
+  display: none;
 }
 
-form select.is-open{
-  background-position:left -2rem center,0 0;   /* slide off‑stage */
-  background-size:0 0,auto;                    /* shrink → “fade” */
+/* 5. Validation text
+---------------------------------------------------------- */
+small {
+  display: block;
+  min-height: 18px;
+  margin: 2px 0 6px;
+  font-size: .86rem;
+  color: #cc0000;
 }
 
-form select:not(.is-open){
-  background-position:right 1rem center,0 0;
-  background-size:12px 8px,auto;
+/* 6. Primary button
+---------------------------------------------------------- */
+input[type="button"] {
+  width: 100%;
+  padding: 13px 26px;
+  margin-top: 8px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-radius: 40px;
+  border: 1px solid #e6001e;
+  background: #e6001e;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .40s var(--ease-smooth),
+              border-color .40s var(--ease-smooth),
+              transform .32s var(--ease-smooth);
+}
+input[type="button"]:hover {
+  background-color: #e6001e;
+  border-color: #e6001e;
+  transform: translateY(-3px) scale(1.02);
 }
 
-/* Hide the old Edge / IE arrow */
-form select::-ms-expand { display: none; }
+/* 7. Footer link
+---------------------------------------------------------- */
+p {
+  margin-top: 22px;
+  font-size: .95rem;
+  color: #54606c;
+  text-align: center;
+}
+p a {
+  color: #e6001e;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color .25s;
+}
+p a:hover {
+  color: #1f2e4e;
+  text-decoration: underline;
+}
 
-  
-  /* 5. Field-level validation text
-     ------------------------------------------------------ */
-  small {
-    display: block;
-    min-height: 18px;
-    margin: 2px 0 6px;
-    font-size: .86rem;
-    color: #cc0000;
+/* 8. Animations
+---------------------------------------------------------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { transform: scale(.94); }
+  to   { transform: scale(1); }
+}
+@keyframes pageIn {
+  to { opacity: 1; }
+}
+@keyframes bgDrift {
+  from { background-position: 0 0; }
+  to   { background-position: 260px 260px; }
+}
+
+/* 9. Responsive tweaks
+---------------------------------------------------------- */
+@media (max-width: 576px) {
+  body {
+    padding: 0; /* safe spacing on very small screens */
   }
-  
-  /* 6. Primary button
-     ------------------------------------------------------ */
-  input[type="button"] {
-    width: 100%;
-    padding: 13px 26px;
-    margin-top: 8px;
-    font-size: 1.05rem;
-    font-weight: 500;
-    border-radius: 40px;
-  
-    border: 1px solid #e6001e;
-    background: #e6001e;
-    color: #fff;
-    cursor: pointer;
-  
-    transition: background-color .40s var(--ease-smooth),
-                border-color     .40s var(--ease-smooth),
-                transform        .32s var(--ease-smooth);
+  form {
+    max-width: 92%;
   }
-  
-  input[type="button"]:hover {
-    background-color: #e6001e;
-    border-color: #e6001e;
-    transform: translateY(-3px) scale(1.02);
+  h2 {
+    font-size: 1.45rem;
+    margin-bottom: 22px;
   }
-  
-  /* 7. Footer link
-     ------------------------------------------------------ */
-  p {
-    margin-top: 22px;
+  input[type="email"],
+  input[type="password"],
+  form select {
+    padding: 11px 14px;
     font-size: .95rem;
-    color: #54606c;
-    text-align: center;
   }
-  
-  p a {
-    color: #e6001e;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color .25s;
+  input[type="button"] {
+    padding: 11px 22px;
+    font-size: .95rem;
   }
-  
-  p a:hover {
-    color: #1f2e4e;
-    text-decoration: underline;
-  }
-  
-  /* 8. Animations
-     ------------------------------------------------------ */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0);     }
-  }
-  
-  @keyframes scaleIn {
-    from { transform: scale(.94); }
-    to   { transform: scale(1);  }
-  }
-  
-  @keyframes pageIn {
-    to   { opacity: 1; }
-  }
-  
-  @keyframes bgDrift {
-    from { background-position: 0 0; }
-    to   { background-position: 260px 260px; }
-  }
-  
-  /* 9. Responsive tweaks
-     ------------------------------------------------------ */
-  @media (max-width: 576px) {
-    body { padding: 28px 10px; }
-    form { max-width: 92%; }
-  
-    h2 { font-size: 1.45rem; margin-bottom: 22px; }
-  
-    input[type="email"],
-    input[type="password"],
-    form select { padding: 11px 14px; font-size: .95rem; }
-  
-    input[type="button"] { padding: 11px 22px; font-size: .95rem; }
-  }
-  /* ───────────────────────────────────────────────
-   REG FORM • Ultimate black‑only focus rule
-   (locks grey background & removes every red effect)
-   ───────────────────────────────────────────────*/
+}
 
-/* Applies to ALL form controls, inside or outside .password-field */
+/* 10. Universal black focus style
+---------------------------------------------------------- */
 form
 :is(
   input[type="text"],
@@ -297,8 +286,8 @@ form
   .form-select
 ):focus,
 .password-field input:focus {
-background-color: #f5f7fa !important;  /* keep light‑grey fill */
-border-color: #000 !important;         /* jet‑black frame      */
-box-shadow: none !important;           /* kill red / any halo  */
-outline: none !important;              /* no UA outline        */
+  background-color: #f5f7fa !important;
+  border-color: #000 !important;
+  box-shadow: none !important;
+  outline: none !important;
 }

@@ -1056,3 +1056,23 @@ html { scroll-behavior: smooth; }
     color: #000 !important;
 }
 
+@media (max-width: 767px) {
+    .banner .banner-item .banner-content {
+      align-items: center;      /* center horizontally */
+      text-align: center;       /* center text */
+      padding: 15px;            /* add breathing space */
+    }
+    .banner .banner-item .banner-content h2,
+    .banner .banner-item .banner-content h1,
+    .banner .banner-item .banner-content p {
+      text-align: center;       /* center individual text elements */
+    }
+    .banner .banner-item .banner-content .banner-btn {
+      justify-content: center;  /* center the buttons as well */
+    }
+  }
+  .banner .banner-item .banner-content .banner-btn {
+    position: relative;
+    top: -15px; /* adjust this value to move them up */
+  }
+    

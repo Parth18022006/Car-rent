@@ -2,31 +2,50 @@
 require '../../include/init.php';
 header('Content-Type: application/json');
 
-// Read JSON
-$data = json_decode(file_get_contents('php://input'), true);
-$booking_id = $data['booking_id'] ?? null;
-
-if(!$booking_id){
-    echo json_encode(['success'=>false,'message'=>'Missing booking id']);
+if (empty($_SESSION['pending_booking'])) {
+    echo json_encode(['success' => false, 'message' => 'No pending booking found']);
     exit;
 }
 
-// ✅ prevent duplicates
-$q = "SELECT is_signed FROM booking WHERE id = ?";
+$bookingData = $_SESSION['pending_booking'];
+
+// INSERT now
+$q = "INSERT INTO `booking`
+    (`car_id`, `price`, `num`, `email`, `pickup_place`, `dropoff_place`,
+     `pickup_date`, `pickup_time`, `dropoff_date`, `dropoff_time`,
+     `renter_name`, `renter_address`, `is_signed`)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,1)";
+
 $stmt = $conn->prepare($q);
-$stmt->execute([$booking_id]);
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-if(!$row){
-    echo json_encode(['success'=>false,'message'=>'Booking not found']);
-    exit;
-}
-if((int)$row['is_signed'] === 1){
-    echo json_encode(['success'=>false,'message'=>'Already signed']);
-    exit;
-}
+$ok = $stmt->execute([
+    $bookingData['car_id'],
+    $bookingData['price'],
+    $bookingData['num'],
+    $bookingData['email'],
+    $bookingData['pickup_place'],
+    $bookingData['dropoff_place'],
+    $bookingData['pickup_date'],
+    $bookingData['pickup_time'],
+    $bookingData['dropoff_date'],
+    $bookingData['dropoff_time'],
+    $bookingData['renter_name'],
+    $bookingData['renter_address']
+]);
 
-// ✅ mark as signed
-$update = $conn->prepare("UPDATE booking SET is_signed = 1 WHERE id = ?");
-$update->execute([$booking_id]);
+if ($ok) {
+    // get inserted id
+    $booking_id = $conn->lastInsertId();
 
-echo json_encode(['success'=>true]);
+    // clear session
+    unset($_SESSION['pending_booking']);
+
+    echo json_encode([
+        'success' => true,
+        'booking_id' => $booking_id
+    ]);
+} else {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Database insert failed'
+    ]);
+}

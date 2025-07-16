@@ -38,6 +38,7 @@ CREATE TABLE booking(
     pickup_time varchar(255) NOT NULL,
     dropoff_date varchar(255) NOT NULL,
     dropoff_time varchar(255) NOT NULL,
+    booking_date varchar(255) NOT NULL,
     is_signed TINYINT(1) DEFAULT 0
 );
 

@@ -15,7 +15,8 @@ $data = [
     'pickup_date'   => $_POST['pickup_date'] ?? null,
     'pickup_time'   => $_POST['pickup_time'] ?? null,
     'dropoff_date'  => $_POST['dropoff_date'] ?? null,
-    'dropoff_time'  => $_POST['dropoff_time'] ?? null
+    'dropoff_time'  => $_POST['dropoff_time'] ?? null,
+    'booking_date'  => $_POST['booking_date'] ?? null  
 ];
 
 // ✅ store in session instead of DB

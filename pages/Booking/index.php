@@ -17,6 +17,7 @@ if (!$issued || (time() - $issued) > $maxAge) {
 /* optional: one‑use ‑‑ uncomment next line to make token single‑use
    unset($_SESSION['booking_tokens'][$tok]);
 */
+$today = date('Y-m-d');
 
 /* optional housekeeping */
 foreach ($tokens as $t => $when) {
@@ -55,7 +56,8 @@ include pathof('./include/nav.php');
     /* black frame by default */
     #rprice,
     #renter_name,
-    #renter_address {
+    #renter_address,
+    #booking_date{
         width: 100%;
         height: 56px;
         padding: 12px 15px;
@@ -151,6 +153,7 @@ include pathof('./include/nav.php');
                     <option value="7:00AM">7:00AM</option>
                 </select>
             </div>
+            <div class="col-12 mb-3 mt-3"><input type="date" id="booking_date" name="booking_date" value="<?= $today ?>" readonly class="form-control" style="background:#e9ecef; cursor:not-allowed;"></div>
         </div>
         <small id="emsg5" style="color: red; text-align: center; display: block;"></small>
         <div style="text-align: center;"><small id="emsg0" style="color: red;"></small></div>
@@ -219,7 +222,8 @@ include pathof('./include/footer.php');
                                         pickup_date: $('#pickup_date').val(),
                                         pickup_time: $('#pickup_time').val(),
                                         dropoff_date: $('#dropoff_date').val(),
-                                        dropoff_time: $('#dropoff_time').val()
+                                        dropoff_time: $('#dropoff_time').val(),
+                                        booking_date: $('#booking_date').val()
                                     }
 
                                     $.ajax({

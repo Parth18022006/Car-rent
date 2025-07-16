@@ -13,8 +13,8 @@ $bookingData = $_SESSION['pending_booking'];
 $q = "INSERT INTO `booking`
     (`car_id`, `price`, `num`, `email`, `pickup_place`, `dropoff_place`,
      `pickup_date`, `pickup_time`, `dropoff_date`, `dropoff_time`,
-     `renter_name`, `renter_address`, `is_signed`)
-    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,1)";
+     `renter_name`, `renter_address`, `booking_date`, `is_signed`)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,1)";
 
 $stmt = $conn->prepare($q);
 $ok = $stmt->execute([
@@ -29,7 +29,8 @@ $ok = $stmt->execute([
     $bookingData['dropoff_date'],
     $bookingData['dropoff_time'],
     $bookingData['renter_name'],
-    $bookingData['renter_address']
+    $bookingData['renter_address'],
+    $bookingData['booking_date']  
 ]);
 
 if ($ok) {

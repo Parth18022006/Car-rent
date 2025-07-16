@@ -97,8 +97,12 @@ include pathof('include/nav.php');
         <p><strong>Dropoff Date:</strong> <?= htmlspecialchars($booking['dropoff_date']) ?></p>
         <p><strong>Dropoff Time:</strong> <?= htmlspecialchars($booking['dropoff_time']) ?></p>
 
+        <!-- Booking Info -->
+        <h4>5. Booking Info</h4>
+        <p><strong>Booking Date:</strong> <?= htmlspecialchars($booking['booking_date']) ?></p>
+
         <!-- Charges -->
-        <h4>5. Charges & Conditions</h4>
+        <h4>6. Charges & Conditions</h4>
         <ul>
             <li>Extra charges apply if pickup and dropoff are not properly defined.</li>
             <li>If pickup and dropoff are outside the city, renter pays retrieval charges.</li>
@@ -146,6 +150,7 @@ include pathof('include/nav.php');
      data-dropoff-place="<?= htmlspecialchars($booking['dropoff_place']) ?>"
      data-dropoff-date="<?= htmlspecialchars($booking['dropoff_date']) ?>"
      data-dropoff-time="<?= htmlspecialchars($booking['dropoff_time']) ?>"
+     data-booking-date="<?= htmlspecialchars($booking['booking_date']) ?>"
      style="display:none;">
 </div>
 
@@ -282,7 +287,10 @@ include pathof('include/footer.php');
             addLine('Dropoff Date', dataEl.dataset.dropoffDate);
             addLine('Dropoff Time', dataEl.dataset.dropoffTime);
 
-            addHeading('5. Charges & Conditions');
+            addHeading('5. Booking Info');
+            addLine('Booking Date', dataEl.dataset.bookingDate);
+
+            addHeading('6. Charges & Conditions');
             const conditions = [
                 '• Extra charges apply if pickup and dropoff are not properly defined.',
                 '• If pickup and dropoff are outside the city, renter pays retrieval charges.',

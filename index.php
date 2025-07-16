@@ -1002,6 +1002,34 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                     </div>
                 </div>
 
+                <!-- Section 11 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingEleven">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                            11. Address Accuracy & Additional Charges
+                        </button>
+                    </h2>
+                    <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            It is the renter's responsibility to provide accurate and complete pickup and drop-off locations during the booking process. If the address provided is unclear, vague, or incorrect, the renter will bear full responsibility for any delays in pickup or delivery. Additionally, any detours, waiting time, or logistical adjustments caused by incomplete or incorrect addresses may result in additional charges.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 12 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingTwelve">
+                        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                            12. Intercity Pickup or Drop-off
+                        </button>
+                    </h2>
+                    <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#termsAccordion">
+                        <div class="accordion-body">
+                            If the pickup location and drop-off location are in <strong>different cities</strong>, additional charges will be applied to cover the cost of returning the vehicle to its original city. These charges will be calculated based on the distance and logistics required, and the renter agrees to pay these charges as part of the rental agreement.
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

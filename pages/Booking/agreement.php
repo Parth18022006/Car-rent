@@ -1,28 +1,30 @@
 <?php
 require '../../include/init.php';
 
-$booking_id = $_GET['booking_id'] ?? null;
-if (!$booking_id) {
+$booking = $_SESSION['pending_booking'] ?? null;
+if (!$booking) {
+    // no pending booking, redirect
     header("Location: ../../index");
     exit;
 }
 
-$q = "SELECT b.*, c.name as car_name, c.price as car_price, c.gas, c.year
-FROM booking b
-JOIN car c ON b.car_id = c.id
-WHERE b.id = ?";
+$q = "SELECT name AS car_name, price AS car_price, gas, year FROM car WHERE id = ?";
 
-$param = [$booking_id];
+$param = [$booking['car_id']];
 
 $stmt = $conn->prepare($q);
 $stmt->execute($param);
 
-$booking = $stmt->fetch(PDO::FETCH_ASSOC);
+$car = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if (!$booking) {
-    echo "<p>Booking not found.</p>";
+if (!$car) {
+    echo "<p>Car details not found.</p>";
     exit;
 }
+
+// merge car info into booking array
+$booking = array_merge($booking, $car);
+
 
 include pathof('include/header.php');
 include pathof('include/nav.php');
@@ -89,9 +91,11 @@ include pathof('include/nav.php');
         <!-- Pickup/Dropoff -->
         <h4>4. Pickup & Dropoff</h4>
         <p><strong>Pickup Place:</strong> <?= htmlspecialchars($booking['pickup_place']) ?></p>
-        <p><strong>Pickup Date/Time:</strong> <?= htmlspecialchars($booking['pickup_date']) . ' ' . $booking['pickup_time'] ?></p>
+        <p><strong>Pickup Date:</strong> <?= htmlspecialchars($booking['pickup_date']) ?></p>
+        <p><strong>Pickup Time:</strong> <?= htmlspecialchars($booking['pickup_time']) ?></p>
         <p><strong>Dropoff Place:</strong> <?= htmlspecialchars($booking['dropoff_place']) ?></p>
-        <p><strong>Dropoff Date/Time:</strong> <?= htmlspecialchars($booking['dropoff_date']) . ' ' . $booking['dropoff_time'] ?></p>
+        <p><strong>Dropoff Date:</strong> <?= htmlspecialchars($booking['dropoff_date']) ?></p>
+        <p><strong>Dropoff Time:</strong> <?= htmlspecialchars($booking['dropoff_time']) ?></p>
 
         <!-- Charges -->
         <h4>5. Charges & Conditions</h4>
@@ -126,8 +130,25 @@ include pathof('include/nav.php');
 </div>
 
 <!-- Hidden data for PDF -->
-<div id="agreementData" data-id="<?= $booking_id ?>" data-renter="<?= htmlspecialchars($booking['renter_name']) ?>" data-email="<?= htmlspecialchars($booking['email']) ?>" data-phone="<?= htmlspecialchars($booking['num']) ?>" data-address="<?= htmlspecialchars($booking['renter_address']) ?>" data-car="<?= htmlspecialchars($booking['car_name']) ?>" data-price="<?= htmlspecialchars($booking['car_price']) ?>" data-gas="<?= htmlspecialchars($booking['gas']) ?>" data-year="<?= htmlspecialchars($booking['year']) ?>" data-pickup="<?= htmlspecialchars($booking['pickup_place'] . ' ' . $booking['pickup_date'] . ' ' . $booking['pickup_time']) ?>" data-dropoff="<?= htmlspecialchars($booking['dropoff_place'] . ' ' . $booking['dropoff_date'] . ' ' . $booking['dropoff_time']) ?>" style="display:none;">
+<div id="agreementData"
+     data-id="pending"
+     data-renter="<?= htmlspecialchars($booking['renter_name']) ?>"
+     data-email="<?= htmlspecialchars($booking['email']) ?>"
+     data-phone="<?= htmlspecialchars($booking['num']) ?>"
+     data-address="<?= htmlspecialchars($booking['renter_address']) ?>"
+     data-car="<?= htmlspecialchars($booking['car_name']) ?>"
+     data-price="<?= htmlspecialchars($booking['car_price']) ?>"
+     data-gas="<?= htmlspecialchars($booking['gas']) ?>"
+     data-year="<?= htmlspecialchars($booking['year']) ?>"
+     data-pickup-place="<?= htmlspecialchars($booking['pickup_place']) ?>"
+     data-pickup-date="<?= htmlspecialchars($booking['pickup_date']) ?>"
+     data-pickup-time="<?= htmlspecialchars($booking['pickup_time']) ?>"
+     data-dropoff-place="<?= htmlspecialchars($booking['dropoff_place']) ?>"
+     data-dropoff-date="<?= htmlspecialchars($booking['dropoff_date']) ?>"
+     data-dropoff-time="<?= htmlspecialchars($booking['dropoff_time']) ?>"
+     style="display:none;">
 </div>
+
 
 <?php
 include pathof('include/footer.php');
@@ -168,12 +189,13 @@ include pathof('include/footer.php');
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        booking_id: '<?= $booking_id ?>'
+                        sign: true
                     })
                 })
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
+                        document.getElementById('agreementData').dataset.id = data.booking_id;
                         // show success message
                         statusMsg.innerText = '✔️ Agreement signed successfully!';
                         statusMsg.style.display = 'block';
@@ -244,13 +266,21 @@ include pathof('include/footer.php');
 
             addHeading('3. Vehicle Details');
             addLine('Car', dataEl.dataset.car);
-            addLine('Price', dataEl.dataset.price);
+            addLine('Price', '$' + dataEl.dataset.price);
             addLine('Fuel', dataEl.dataset.gas);
             addLine('Year', dataEl.dataset.year);
 
             addHeading('4. Pickup & Dropoff');
-            addLine('Pickup', dataEl.dataset.pickup);
-            addLine('Dropoff', dataEl.dataset.dropoff);
+            addLine('Pickup Place', dataEl.dataset.pickupPlace);
+            addLine('Pickup Date', dataEl.dataset.pickupDate);
+            addLine('Pickup Time', dataEl.dataset.pickupTime);
+
+            y += 5;
+
+            // Dropoff details
+            addLine('Dropoff Place', dataEl.dataset.dropoffPlace);
+            addLine('Dropoff Date', dataEl.dataset.dropoffDate);
+            addLine('Dropoff Time', dataEl.dataset.dropoffTime);
 
             addHeading('5. Charges & Conditions');
             const conditions = [

@@ -36,6 +36,17 @@ form .col-12:last-of-type {
 }
 
 /* ─────────────────────────────
+   Label Styling (added for clarity)
+───────────────────────────── */
+.input-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* ─────────────────────────────
    Select Styling (Generic + #selectcar)
 ───────────────────────────── */
 select.form-select,
@@ -183,6 +194,7 @@ select.form-select:not(.is-open),
   flex: 1 1 0;
   min-width: 0;
   width: 1%;
+  background-color: transparent !important; /* keep matching row bg */
 }
 .input-group input[type="date"]:focus {
   border-right-color: var(--clr-primary) !important;
@@ -287,10 +299,11 @@ a.back-to-top {
     display: block;
   }
 }
+
 /* ───────────────────────────────────────────────
    DROP‑OFF & PICK‑UP  • remove inner border
    (keeps subtle divider, arrow & animation)
-   ───────────────────────────────────────────────*/
+───────────────────────────────────────────────*/
 
 /* 1️⃣  Generic: every <select> inside .input-group EXCEPT #selectcar */
 .input-group select.form-select:not(#selectcar),
@@ -298,35 +311,31 @@ a.back-to-top {
   border: none !important;                  /* kill black frame  */
   border-left: 1px solid var(--clr-grey-200) !important; /* thin divider */
   border-radius: 0 !important;
-  background-color: transparent;
+  background-color: transparent !important;
   box-shadow: none !important;
   padding-left: 1rem;                       /* keep text aligned */
 }
 
-/*  */
 /* ───────────────────────────────────────────────
    TIME SELECT  • match light‑grey row background
-   (override earlier “white” !important)
-   ───────────────────────────────────────────────*/
-   .input-group select.form-select:not(#selectcar),
-   .input-group select.custom-select:not(#selectcar) {
-     background-color: transparent !important;   /* let row’s grey show */
-   }
-   
-   /* Optional: also make the companion <input type="date"> transparent
-      so date & time boxes share the same grey */
-   .input-group input[type="date"] {
-     background-color: transparent !important;
-   }
-   /* Unify placeholder colour across the form */
-form ::placeholder{
-  color:#000 !important;   /* jet‑black like the field text */
-  opacity:.85;             /* tweak to taste, 1 = solid */
+───────────────────────────────────────────────*/
+.input-group select.form-select:not(#selectcar),
+.input-group select.custom-select:not(#selectcar) {
+  background-color: transparent !important;   /* let row’s grey show */
 }
+
+/* ───────────────────────────────────────────────
+   Unify placeholder colour across the form
+───────────────────────────────────────────────*/
+form ::placeholder {
+  color: #000 !important;   /* jet‑black like the field text */
+  opacity: .85;             /* tweak to taste, 1 = solid */
+}
+
 /* ───────────────────────────────────────────────
    GLOBAL “NO‑RED” PATCH
    Removes every red border / glow on focus
-   ───────────────────────────────────────────────*/
+───────────────────────────────────────────────*/
 
 /* 1️⃣  Kill the red frame + glow added by .input-group */
 .input-group:focus-within {
@@ -352,4 +361,36 @@ form ::placeholder{
 form :is(input, select, textarea, .form-control, .form-select):focus {
   border-color: inherit !important;        /* keep whatever frame it had */
   box-shadow: none !important;
+}
+/* Label Styling */
+form label {
+  display: block;               /* Ensure label takes full width and is on its own line */
+  font-weight: 600;             /* Semi-bold for clarity */
+  font-size: 1rem;              /* Comfortable readable size */
+  color: #212529;               /* Darker gray, softer than pure black */
+  margin-bottom: 0.4rem;        /* Space between label and input */
+  user-select: none;            /* Prevent accidental text selection */
+  cursor: pointer;              /* Indicate label is clickable */
+  letter-spacing: 0.02em;       /* Slight letter spacing for neatness */
+  line-height: 1.3;             /* Good line height for readability */
+  transition: color 0.2s ease;  /* Smooth color changes on interaction */
+}
+
+/* Optional: On focus of input, highlight corresponding label */
+form input:focus + label,
+form select:focus + label {
+  color: var(--clr-primary);    /* Highlight color (red) */
+}
+
+/* If label appears before input (like your HTML), use :focus-within on container */
+.col-12:focus-within > label {
+  color: var(--clr-primary);
+}
+
+/* Smaller devices tweak */
+@media (max-width: 576px) {
+  form label {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
 }

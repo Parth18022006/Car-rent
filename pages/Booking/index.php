@@ -57,7 +57,7 @@ include pathof('./include/nav.php');
     #rprice,
     #renter_name,
     #renter_address,
-    #booking_date{
+    #booking_date {
         width: 100%;
         height: 56px;
         padding: 12px 15px;
@@ -98,29 +98,163 @@ include pathof('./include/nav.php');
         <textarea name="renter_address" id="renter_address" placeholder="Enter Full Address"></textarea>
         <div style="text-align: center;"><small id="emsg7" style="color:red;"></small></div>
 
+        <label for="">Pick-up:</label>
         <div class="col-12">
             <div class="input-group">
-                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                    <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Pick Up</span>
-                </div>
-                <input class="form-control" type="text" placeholder="Enter a City or Airport" name="pickup_place" id="pickup_place">
+                <select class="form-select" name="pickup_place" id="pickup_place">
+                    <option value="" disabled selected hidden>Select Pickup Location</option>
+                    <!-- ⭐ METRO CITIES -->
+                    <option value="Delhi - Indira Gandhi International Airport">Delhi - Indira Gandhi International Airport (DEL)</option>
+                    <option value="Mumbai - Chhatrapati Shivaji Maharaj International Airport">Mumbai - Chhatrapati Shivaji Maharaj International Airport (BOM)</option>
+                    <option value="Bengaluru - Kempegowda International Airport">Bengaluru - Kempegowda International Airport (BLR)</option>
+                    <option value="Hyderabad - Rajiv Gandhi International Airport">Hyderabad - Rajiv Gandhi International Airport (HYD)</option>
+                    <option value="Chennai - Chennai International Airport">Chennai - Chennai International Airport (MAA)</option>
+                    <option value="Kolkata - Netaji Subhash Chandra Bose International Airport">Kolkata - Netaji Subhash Chandra Bose International Airport (CCU)</option>
+                    <option value="Pune - Pune Airport">Pune - Pune Airport (PNQ)</option>
+                    <option value="Ahmedabad - Sardar Vallabhbhai Patel International Airport">Ahmedabad - Sardar Vallabhbhai Patel International Airport (AMD)</option>
+                    <!-- ⭐ MAJOR TIER-2 CITIES WITH AIRPORTS -->
+                    <option value="Jaipur - Jaipur International Airport">Jaipur - Jaipur International Airport (JAI)</option>
+                    <option value="Lucknow - Chaudhary Charan Singh Airport">Lucknow - Chaudhary Charan Singh Airport (LKO)</option>
+                    <option value="Goa - Dabolim Airport">Goa - Dabolim Airport (GOI)</option>
+                    <option value="Kochi - Cochin International Airport">Kochi - Cochin International Airport (COK)</option>
+                    <option value="Thiruvananthapuram - Trivandrum International Airport">Thiruvananthapuram - Trivandrum International Airport (TRV)</option>
+                    <option value="Kozhikode - Calicut International Airport">Kozhikode - Calicut International Airport (CCJ)</option>
+                    <option value="Nagpur - Dr. Babasaheb Ambedkar International Airport">Nagpur - Dr. Babasaheb Ambedkar International Airport (NAG)</option>
+                    <option value="Indore - Devi Ahilya Bai Holkar Airport">Indore - Devi Ahilya Bai Holkar Airport (IDR)</option>
+                    <option value="Bhopal - Raja Bhoj Airport">Bhopal - Raja Bhoj Airport (BHO)</option>
+                    <option value="Coimbatore - Coimbatore International Airport">Coimbatore - Coimbatore International Airport (CJB)</option>
+                    <option value="Visakhapatnam - Visakhapatnam Airport">Visakhapatnam - Visakhapatnam Airport (VTZ)</option>
+                    <option value="Vadodara - Vadodara Airport">Vadodara - Vadodara Airport (BDQ)</option>
+                    <option value="Rajkot - Rajkot Airport">Rajkot - Rajkot Airport (RAJ)</option>
+                    <option value="Surat - Surat International Airport">Surat - Surat International Airport (STV)</option>
+                    <option value="Mangalore - Mangalore International Airport">Mangalore - Mangalore International Airport (IXE)</option>
+                    <option value="Guwahati - Lokpriya Gopinath Bordoloi International Airport">Guwahati - Lokpriya Gopinath Bordoloi International Airport (GAU)</option>
+                    <option value="Patna - Jay Prakash Narayan International Airport">Patna - Jay Prakash Narayan International Airport (PAT)</option>
+                    <option value="Ranchi - Birsa Munda Airport">Ranchi - Birsa Munda Airport (IXR)</option>
+                    <option value="Bhubaneswar - Biju Patnaik International Airport">Bhubaneswar - Biju Patnaik International Airport (BBI)</option>
+                    <option value="Chandigarh - Chandigarh Airport">Chandigarh - Chandigarh Airport (IXC)</option>
+                    <option value="Amritsar - Sri Guru Ram Dass Jee International Airport">Amritsar - Sri Guru Ram Dass Jee International Airport (ATQ)</option>
+                    <option value="Dehradun - Jolly Grant Airport">Dehradun - Jolly Grant Airport (DED)</option>
+                    <option value="Jammu - Jammu Airport">Jammu - Jammu Airport (IXJ)</option>
+                    <option value="Srinagar - Sheikh Ul-Alam International Airport">Srinagar - Sheikh Ul-Alam International Airport (SXR)</option>
+                    <!-- ⭐ TIER-3 / SMALLER CITIES WITH AIRPORTS -->
+                    <option value="Agartala - Maharaja Bir Bikram Airport">Agartala - Maharaja Bir Bikram Airport (IXA)</option>
+                    <option value="Port Blair - Veer Savarkar International Airport">Port Blair - Veer Savarkar International Airport (IXZ)</option>
+                    <option value="Imphal - Bir Tikendrajit International Airport">Imphal - Bir Tikendrajit International Airport (IMF)</option>
+                    <option value="Bagdogra - Bagdogra Airport">Bagdogra - Bagdogra Airport (IXB)</option>
+                    <option value="Jodhpur - Jodhpur Airport">Jodhpur - Jodhpur Airport (JDH)</option>
+                    <option value="Udaipur - Maharana Pratap Airport">Udaipur - Maharana Pratap Airport (UDR)</option>
+                    <option value="Jaisalmer - Jaisalmer Airport">Jaisalmer - Jaisalmer Airport (JSA)</option>
+                    <option value="Gaya - Gaya Airport">Gaya - Gaya Airport (GAY)</option>
+                    <option value="Kullu - Kullu Manali Airport">Kullu - Kullu Manali Airport (KUU)</option>
+                    <option value="Leh - Kushok Bakula Rimpochee Airport">Leh - Kushok Bakula Rimpochee Airport (IXL)</option>
+                    <option value="Jabalpur - Jabalpur Airport">Jabalpur - Jabalpur Airport (JLR)</option>
+                    <option value="Raipur - Swami Vivekananda Airport">Raipur - Swami Vivekananda Airport (RPR)</option>
+                    <!-- ⭐ CITIES WITHOUT AIRPORTS (just city name) -->
+                    <option value="Surendranagar">Surendranagar</option>
+                    <option value="Bhuj">Bhuj</option>
+                    <option value="Morbi">Morbi</option>
+                    <option value="Nadiad">Nadiad</option>
+                    <option value="Anand">Anand</option>
+                    <option value="Junagadh">Junagadh</option>
+                    <option value="Jamnagar">Jamnagar</option>
+                    <option value="Valsad">Valsad</option>
+                    <option value="Vapi">Vapi</option>
+                    <option value="Bharuch">Bharuch</option>
+                    <option value="Navsari">Navsari</option>
+                    <option value="Gandhidham">Gandhidham</option>
+                    <option value="Bhavnagar">Bhavnagar</option>
+                    <option value="Mehsana">Mehsana</option>
+                    <option value="Amreli">Amreli</option>
+                    <option value="Palanpur">Palanpur</option>
+                    <option value="Godhra">Godhra</option>
+                    <option value="Veraval">Veraval</option>
+                    <option value="Bardoli">Bardoli</option>
+                    <option value="Gandhinagar">Gandhinagar</option>
+                </select>
             </div>
             <div style="text-align: center;"><small id="emsg3" style="color: red;"></small></div>
         </div>
+        <label for="">Drop-off:</label>
         <div class="col-12">
             <div class="input-group">
-                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                    <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
-                </div>
-                <input class="form-control" type="text" placeholder="Enter a City or Airport" name="dropoff_place" id="dropoff_place">
+                <select class="form-select" name="dropoff_place" id="dropoff_place">
+                    <option value="" disabled selected hidden>Select Pickup Location</option>
+                    <!-- ⭐ METRO CITIES -->
+                    <option value="Delhi - Indira Gandhi International Airport">Delhi - Indira Gandhi International Airport (DEL)</option>
+                    <option value="Mumbai - Chhatrapati Shivaji Maharaj International Airport">Mumbai - Chhatrapati Shivaji Maharaj International Airport (BOM)</option>
+                    <option value="Bengaluru - Kempegowda International Airport">Bengaluru - Kempegowda International Airport (BLR)</option>
+                    <option value="Hyderabad - Rajiv Gandhi International Airport">Hyderabad - Rajiv Gandhi International Airport (HYD)</option>
+                    <option value="Chennai - Chennai International Airport">Chennai - Chennai International Airport (MAA)</option>
+                    <option value="Kolkata - Netaji Subhash Chandra Bose International Airport">Kolkata - Netaji Subhash Chandra Bose International Airport (CCU)</option>
+                    <option value="Pune - Pune Airport">Pune - Pune Airport (PNQ)</option>
+                    <option value="Ahmedabad - Sardar Vallabhbhai Patel International Airport">Ahmedabad - Sardar Vallabhbhai Patel International Airport (AMD)</option>
+                    <!-- ⭐ MAJOR TIER-2 CITIES WITH AIRPORTS -->
+                    <option value="Jaipur - Jaipur International Airport">Jaipur - Jaipur International Airport (JAI)</option>
+                    <option value="Lucknow - Chaudhary Charan Singh Airport">Lucknow - Chaudhary Charan Singh Airport (LKO)</option>
+                    <option value="Goa - Dabolim Airport">Goa - Dabolim Airport (GOI)</option>
+                    <option value="Kochi - Cochin International Airport">Kochi - Cochin International Airport (COK)</option>
+                    <option value="Thiruvananthapuram - Trivandrum International Airport">Thiruvananthapuram - Trivandrum International Airport (TRV)</option>
+                    <option value="Kozhikode - Calicut International Airport">Kozhikode - Calicut International Airport (CCJ)</option>
+                    <option value="Nagpur - Dr. Babasaheb Ambedkar International Airport">Nagpur - Dr. Babasaheb Ambedkar International Airport (NAG)</option>
+                    <option value="Indore - Devi Ahilya Bai Holkar Airport">Indore - Devi Ahilya Bai Holkar Airport (IDR)</option>
+                    <option value="Bhopal - Raja Bhoj Airport">Bhopal - Raja Bhoj Airport (BHO)</option>
+                    <option value="Coimbatore - Coimbatore International Airport">Coimbatore - Coimbatore International Airport (CJB)</option>
+                    <option value="Visakhapatnam - Visakhapatnam Airport">Visakhapatnam - Visakhapatnam Airport (VTZ)</option>
+                    <option value="Vadodara - Vadodara Airport">Vadodara - Vadodara Airport (BDQ)</option>
+                    <option value="Rajkot - Rajkot Airport">Rajkot - Rajkot Airport (RAJ)</option>
+                    <option value="Surat - Surat International Airport">Surat - Surat International Airport (STV)</option>
+                    <option value="Mangalore - Mangalore International Airport">Mangalore - Mangalore International Airport (IXE)</option>
+                    <option value="Guwahati - Lokpriya Gopinath Bordoloi International Airport">Guwahati - Lokpriya Gopinath Bordoloi International Airport (GAU)</option>
+                    <option value="Patna - Jay Prakash Narayan International Airport">Patna - Jay Prakash Narayan International Airport (PAT)</option>
+                    <option value="Ranchi - Birsa Munda Airport">Ranchi - Birsa Munda Airport (IXR)</option>
+                    <option value="Bhubaneswar - Biju Patnaik International Airport">Bhubaneswar - Biju Patnaik International Airport (BBI)</option>
+                    <option value="Chandigarh - Chandigarh Airport">Chandigarh - Chandigarh Airport (IXC)</option>
+                    <option value="Amritsar - Sri Guru Ram Dass Jee International Airport">Amritsar - Sri Guru Ram Dass Jee International Airport (ATQ)</option>
+                    <option value="Dehradun - Jolly Grant Airport">Dehradun - Jolly Grant Airport (DED)</option>
+                    <option value="Jammu - Jammu Airport">Jammu - Jammu Airport (IXJ)</option>
+                    <option value="Srinagar - Sheikh Ul-Alam International Airport">Srinagar - Sheikh Ul-Alam International Airport (SXR)</option>
+                    <!-- ⭐ TIER-3 / SMALLER CITIES WITH AIRPORTS -->
+                    <option value="Agartala - Maharaja Bir Bikram Airport">Agartala - Maharaja Bir Bikram Airport (IXA)</option>
+                    <option value="Port Blair - Veer Savarkar International Airport">Port Blair - Veer Savarkar International Airport (IXZ)</option>
+                    <option value="Imphal - Bir Tikendrajit International Airport">Imphal - Bir Tikendrajit International Airport (IMF)</option>
+                    <option value="Bagdogra - Bagdogra Airport">Bagdogra - Bagdogra Airport (IXB)</option>
+                    <option value="Jodhpur - Jodhpur Airport">Jodhpur - Jodhpur Airport (JDH)</option>
+                    <option value="Udaipur - Maharana Pratap Airport">Udaipur - Maharana Pratap Airport (UDR)</option>
+                    <option value="Jaisalmer - Jaisalmer Airport">Jaisalmer - Jaisalmer Airport (JSA)</option>
+                    <option value="Gaya - Gaya Airport">Gaya - Gaya Airport (GAY)</option>
+                    <option value="Kullu - Kullu Manali Airport">Kullu - Kullu Manali Airport (KUU)</option>
+                    <option value="Leh - Kushok Bakula Rimpochee Airport">Leh - Kushok Bakula Rimpochee Airport (IXL)</option>
+                    <option value="Jabalpur - Jabalpur Airport">Jabalpur - Jabalpur Airport (JLR)</option>
+                    <option value="Raipur - Swami Vivekananda Airport">Raipur - Swami Vivekananda Airport (RPR)</option>
+                    <!-- ⭐ CITIES WITHOUT AIRPORTS (just city name) -->
+                    <option value="Surendranagar">Surendranagar</option>
+                    <option value="Bhuj">Bhuj</option>
+                    <option value="Morbi">Morbi</option>
+                    <option value="Nadiad">Nadiad</option>
+                    <option value="Anand">Anand</option>
+                    <option value="Junagadh">Junagadh</option>
+                    <option value="Jamnagar">Jamnagar</option>
+                    <option value="Valsad">Valsad</option>
+                    <option value="Vapi">Vapi</option>
+                    <option value="Bharuch">Bharuch</option>
+                    <option value="Navsari">Navsari</option>
+                    <option value="Gandhidham">Gandhidham</option>
+                    <option value="Bhavnagar">Bhavnagar</option>
+                    <option value="Mehsana">Mehsana</option>
+                    <option value="Amreli">Amreli</option>
+                    <option value="Palanpur">Palanpur</option>
+                    <option value="Godhra">Godhra</option>
+                    <option value="Veraval">Veraval</option>
+                    <option value="Bardoli">Bardoli</option>
+                    <option value="Gandhinagar">Gandhinagar</option>
+                </select>
             </div>
             <div style="text-align: center;"><small id="emsg4" style="color: red;"></small></div>
         </div>
+        <label for="">Pick-up:</label>
         <div class="col-12">
             <div class="input-group">
-                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                    <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
-                </div>
                 <input class="form-control" type="date" id="pickup_date" name="pickup_date">
                 <select class="form-select ms-3" placeholder="Default select example" id="pickup_time" name="pickup_time">
                     <option value="" disabled selected hidden>Select Time</option>
@@ -135,11 +269,9 @@ include pathof('./include/nav.php');
                 </select>
             </div>
         </div>
+        <label for="">Drop-off:</label>
         <div class="col-12">
             <div class="input-group">
-                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                    <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop off</span>
-                </div>
                 <input class="form-control" type="date" id="dropoff_date" name="dropoff_date">
                 <select class="form-select ms-3" placeholder="Default select example" id="dropoff_time" name="dropoff_time">
                     <option value="" disabled selected hidden>Select Time</option>
@@ -290,6 +422,40 @@ include pathof('./include/footer.php');
     /* user pressed Esc or clicked elsewhere without changing value → show arrow */
     selectcar.addEventListener('blur', () => {
         selectcar.classList.remove('is-open');
+    });
+
+    const pickup_place = document.getElementById('pickup_place');
+
+    /* list is about to open → hide arrow */
+    pickup_place.addEventListener('mousedown', () => {
+        pickup_place.classList.add('is-open');
+    });
+
+    /* list just closed *and* the value changed → show arrow */
+    pickup_place.addEventListener('change', () => {
+        pickup_place.classList.remove('is-open');
+    });
+
+    /* user pressed Esc or clicked elsewhere without changing value → show arrow */
+    pickup_place.addEventListener('blur', () => {
+        pickup_place.classList.remove('is-open');
+    });
+
+    const dropoff_place = document.getElementById('dropoff_place');
+
+    /* list is about to open → hide arrow */
+    dropoff_place.addEventListener('mousedown', () => {
+        dropoff_place.classList.add('is-open');
+    });
+
+    /* list just closed *and* the value changed → show arrow */
+    dropoff_place.addEventListener('change', () => {
+        dropoff_place.classList.remove('is-open');
+    });
+
+    /* user pressed Esc or clicked elsewhere without changing value → show arrow */
+    dropoff_place.addEventListener('blur', () => {
+        dropoff_place.classList.remove('is-open');
     });
 
     const pickup_time = document.getElementById('pickup_time');

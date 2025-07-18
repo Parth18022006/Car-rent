@@ -64,6 +64,11 @@ include pathof('include/nav.php');
         transition: opacity 0.8s ease;
         /* smooth fade */
     }
+    #downloadOverlay {
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
 </style>
 <div class="container py-5 d-flex justify-content-center">
     <div class="agreement-content" style="max-width: 700px; width: 100%;">
@@ -154,6 +159,34 @@ include pathof('include/nav.php');
      style="display:none;">
 </div>
 
+<!-- 📌 Overlay shown after clicking download -->
+<div id="downloadOverlay" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  z-index:9999;
+  align-items:center;
+  justify-content:center;
+">
+  <div style="
+    background:#fff;
+    padding:2rem;
+    border-radius:0.75rem;
+    max-width:320px;
+    width:90%;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    font-size:1rem;
+    line-height:1.5;
+  ">
+    <p>Your PDF is downloading.<br>
+    If your browser asks, tap <b>Keep</b> to save it.</p>
+    <button id="closeOverlayBtn" class="btn btn-primary mt-3">Close</button>
+  </div>
+</div>
+
+
 
 <?php
 include pathof('include/footer.php');
@@ -180,13 +213,13 @@ include pathof('include/footer.php');
             e.preventDefault();
 
             if (!agreeCheck.checked) {
-                alert('✅ Please agree to the terms & conditions first.');
+                alert('Please agree to the terms & conditions first.');
                 return;
             }
 
             // disable button while processing
             signBtn.disabled = true;
-            signBtn.innerText = '⏳ Signing...';
+            signBtn.innerText = 'Signing...';
 
             fetch('../../api/book/agreement_sign.php', {
                     method: 'POST',
@@ -305,15 +338,27 @@ include pathof('include/footer.php');
 
             doc.save(`agreement_${dataEl.dataset.id}.pdf`);
 
-            // Add fade-out class
-            document.body.classList.add('page-fadeout');
+            // Show overlay instead of fading immediately
+            document.getElementById('downloadOverlay').style.display = 'flex';
 
-            // Redirect after the fade completes
-            setTimeout(() => {
-                window.location.href = '../../index';
-            }, 800);
         });
+            // Close overlay when user is ready
+document.getElementById('closeOverlayBtn').addEventListener('click', () => {
+    // fade out overlay
+    const overlay = document.getElementById('downloadOverlay');
+    overlay.style.opacity = '0';
+    overlay.style.transition = 'opacity 0.8s ease';
+
+    setTimeout(() => {
+        overlay.style.display = 'none';
+        // optional: redirect after closing
+        window.location.href = '../../index';
+    }, 800);
+});
     });
+
+
+
 </script>
 
 <!-- Back to Top -->

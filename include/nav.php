@@ -30,22 +30,23 @@
                             <?php
                                 if(isset($_SESSION['user'])){
                                    ?> 
-                                   <a href="<?=urlof('api/user/logout')?>" class="nav-item nav-link" onclick="return confirm('Sure! You Want To Logout.');">Logout</a>
-                                   <a href="<?=urlof('pages/Edit/index')?>" class="nav-item nav-link">Edit</a>
+                                   <a href="<?=urlof('pages/Edit/index')?>" class="nav-item nav-link">Add Car</a>
                                    <a href="<?=urlof('admin/pages/register')?>" class="nav-item nav-link">Add Admin</a>
                                     <?php
                                     }
-                                else{
-                                  ?> 
-                                   <a href="<?=urlof('pages/User/login')?>" class="nav-item nav-link">Login</a>
-
-                                  <?php
-
-                                }
                             ?>
                             <a href="<?=urlof('pages/Template pages/contact')?>" class="nav-item nav-link">Contact</a>
                         </div>
-                        <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Get Started</a>
+                        <?php
+                            if(isset($_SESSION['user'])){
+                          ?><a href="<?=urlof('api/user/logout')?>" class="btn btn-primary rounded-pill py-2 px-4" onclick="return confirm('Sure! You Want To Logout.');" style="min-width:150px;">Logout</a>
+                          <?php      
+                            }else{
+                                ?>
+                                   <a href="<?=urlof('pages/User/login')?>" class="btn btn-primary rounded-pill py-2 px-4" style="min-width:150px;">Login</a>
+                                <?php
+                            }                     
+                        ?>
                     </div>
                 </nav>
             </div>

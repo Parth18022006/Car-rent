@@ -515,7 +515,7 @@ include pathof('./include/footer.php');
     function syncPriceWithCar() {
         const opt = selectcar.options[selectcar.selectedIndex];
         const price = opt ? opt.dataset.price : '';
-        rprice.value = price ? '$' + price : '';
+        rprice.value = price ? '₹' + price : '';
     }
 
 

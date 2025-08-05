@@ -89,7 +89,7 @@ include pathof('include/nav.php');
         <!-- Vehicle Details -->
         <h4>3. Vehicle Details</h4>
         <p><strong>Car:</strong> <?= htmlspecialchars($booking['car_name']) ?></p>
-        <p><strong>Price:</strong> $<?= htmlspecialchars($booking['car_price']) ?></p>
+        <p><strong>Price:</strong> ₹<?= htmlspecialchars($booking['car_price']) ?></p>
         <p><strong>Fuel:</strong> <?= htmlspecialchars($booking['gas']) ?></p>
         <p><strong>Year:</strong> <?= htmlspecialchars($booking['year']) ?></p>
 
@@ -304,7 +304,7 @@ include pathof('include/footer.php');
 
             addHeading('3. Vehicle Details');
             addLine('Car', dataEl.dataset.car);
-            addLine('Price', '$' + dataEl.dataset.price);
+            addLine('Price(Rupees)', dataEl.dataset.price);
             addLine('Fuel', dataEl.dataset.gas);
             addLine('Year', dataEl.dataset.year);
 

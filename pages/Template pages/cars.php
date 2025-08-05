@@ -76,7 +76,7 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC)
                                     </div>
                                 </div>
                                 <div class="mb-4">
-                                    <h4 class="bg-white text-primary rounded-pill py-2 px-4 mb-0">$<?= $r['price']; ?>:00/Day</h4>
+                                    <h4 class="bg-white text-primary rounded-pill py-2 px-4 mb-0">₹<?= $r['price']; ?>:00/Day</h4>
                                 </div>
                                 <div class="row gy-2 gx-0 text-center mb-4">
                                     <div class="col-4 border-end border-white">

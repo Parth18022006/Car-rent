@@ -91,7 +91,7 @@ include pathof('./include/nav.php');
         <input type="text" name="rprice" id="rprice" class="form-control-plaintext mb-3" readonly>
         <input type="number" name="pnum" id="pnum" placeholder="Enter Mobile Number">
         <div style="text-align: center;"><small id="emsg1" style="color: red;"></small></div>
-        <input type="text" name="email" id="email" placeholder="Enter Your E-Mail" value="<?= $email ?>">
+        <input type="text" name="email" id="email" placeholder="Enter Your E-Mail" value="<?= $email ?>" readonly>
         <div style="text-align: center;"><small id="emsg2" style="color: red;"></small></div>
         <input type="text" name="renter_name" id="renter_name" placeholder="Enter Full Name">
         <div style="text-align: center;"><small id="emsg6" style="color:red;"></small></div>

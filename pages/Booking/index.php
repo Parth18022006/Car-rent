@@ -527,17 +527,21 @@ include pathof('./include/footer.php');
 
 
     const pickupDate = document.getElementById('pickup_date');
-    const dropoffDate = document.getElementById('dropoff_date');
+const dropoffDate = document.getElementById('dropoff_date');
 
-    pickupDate.addEventListener('change', function() {
-        const selectedDate = this.value;
-        dropoffDate.min = selectedDate;
+// 🟡 Prevent past dates in calendar
+pickupDate.min = new Date().toISOString().split('T')[0];
 
-        // Optional: If dropoff date is already set and is before pickup date, clear it
-        if (dropoffDate.value && dropoffDate.value < selectedDate) {
-            dropoffDate.value = '';
-        }
-    });
+pickupDate.addEventListener('change', function() {
+    const selectedDate = this.value;
+    dropoffDate.min = selectedDate;
+
+    // Optional: If dropoff date is already set and is before pickup date, clear it
+    if (dropoffDate.value && dropoffDate.value < selectedDate) {
+        dropoffDate.value = '';
+    }
+});
+
 
     const pickupTime = document.getElementById('pickup_time');
     const dropoffTime = document.getElementById('dropoff_time');

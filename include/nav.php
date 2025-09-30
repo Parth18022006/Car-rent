@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                             <?php
-                                if(isset($_SESSION['user'])){
+                                if(isset($_SESSION['role']) == 'admin'){
                                    ?> 
                                    <a href="<?=urlof('pages/Edit/index')?>" class="nav-item nav-link">Add Car</a>
                                    <a href="<?=urlof('admin/pages/register')?>" class="nav-item nav-link">Add Admin</a>

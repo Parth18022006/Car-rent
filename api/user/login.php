@@ -19,6 +19,7 @@ if($user){
     $_SESSION['loggedIn'] = true;
     $_SESSION['user'] = $user['id'];
     $_SESSION['email'] = $user['email'];
+    $_SESSION['role'] = $user['role'];
     echo json_encode(['success' => true, 'user' => $user]);
     exit;
 }else{

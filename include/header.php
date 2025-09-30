@@ -64,10 +64,8 @@
             </div>
             <div class="col-lg-6 text-center text-lg-end">
                 <div class="d-flex align-items-center justify-content-end">
-                    <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="btn btn-light btn-sm-square rounded-circle me-0"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Parth18022006" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/parth._.chavda_/" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>

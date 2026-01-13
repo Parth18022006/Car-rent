@@ -13,6 +13,8 @@ require '../../include/init.php';
     <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= urlof('assets/css/login.css'); ?>">
+    <link rel="icon" href="<?= urlof('./assets/img/car-rental.png')?>" type="image/x-icon">
+
 </head>
 
 <body>
